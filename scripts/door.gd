@@ -1,7 +1,9 @@
 extends Sprite2D
 
 
+
 var inside = "hi"
+@export var outline_width = 10.0
 
 
 #Set up function, called when created by the level scene
@@ -25,4 +27,12 @@ func _input(event):
 	elif event is InputEventMouseMotion:
 		if get_rect().has_point(event.position):
 			print("Look at me")
+			highlight()
+		else:
+			dehighlight()
 
+func highlight(): #Effectively turns the shader outline on
+	material.set_shader_parameter("width", outline_width)
+	
+func dehighlight(): #Effectively turns the shader outline off
+	material.set_shader_parameter("width", 0.0)
