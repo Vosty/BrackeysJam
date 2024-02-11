@@ -1,10 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkcwmthfipfj0"]
+[gd_scene load_steps=5 format=3 uid="uid://dkcwmthfipfj0"]
 
+[ext_resource type="Shader" path="res://assets/Shaders/Outline.gdshader" id="1_3dw6s"]
 [ext_resource type="Texture2D" uid="uid://cqvnd158bgemf" path="res://assets/door.png" id="1_pdaky"]
 [ext_resource type="Script" path="res://scripts/door.gd" id="2_igff4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w2ymo"]
+shader = ExtResource("1_3dw6s")
+shader_parameter/width = 0.0
+shader_parameter/outline_color = Color(0.113725, 0.498039, 0.886275, 1)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_w2ymo")
+position = Vector2(0, -1)
 texture = ExtResource("1_pdaky")
 script = ExtResource("2_igff4")
