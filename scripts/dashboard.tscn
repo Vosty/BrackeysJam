@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://dno7xid3tv17d"]
+
+[ext_resource type="Texture2D" uid="uid://bagxrfj21aooo" path="res://assets/Temp_Coin.png" id="2_hfbhw"]
+
+[node name="Dashboard" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = -955.0
+offset_top = -537.0
+offset_right = -915.0
+offset_bottom = -497.0
+scale = Vector2(47.84, 1.64)
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+offset_left = -847.0
+offset_top = -529.0
+offset_right = -750.0
+offset_bottom = -475.0
+columns = 2
+
+[node name="Coin Icon" type="TextureRect" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_hfbhw")
+expand_mode = 3
+
+[node name="Coin Label" type="Label" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "100"
