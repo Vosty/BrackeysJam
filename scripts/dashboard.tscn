@@ -4,22 +4,20 @@
 
 [node name="Dashboard" type="Node"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
-offset_left = -955.0
-offset_top = -537.0
-offset_right = -915.0
-offset_bottom = -497.0
-scale = Vector2(47.84, 1.64)
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 44.0
+offset_bottom = 44.0
+scale = Vector2(28.3159, 1.68208)
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
-offset_left = -847.0
-offset_top = -529.0
-offset_right = -750.0
-offset_bottom = -475.0
+offset_left = 112.0
+offset_top = 12.0
+offset_right = 209.0
+offset_bottom = 66.0
 columns = 2
 
 [node name="Coin Icon" type="TextureRect" parent="CanvasLayer/GridContainer"]
