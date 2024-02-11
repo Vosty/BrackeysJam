@@ -11,7 +11,10 @@ config_version=5
 [application]
 
 config/name="BrackeysJam"
+<<<<<<< HEAD
 run/main_scene="res://scripts/Level.tscn"
+=======
+>>>>>>> fa298d5a3b0afa9bfbaab04ae44d04eaeab6feb5
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
