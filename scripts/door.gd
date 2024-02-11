@@ -1,12 +1,17 @@
 extends Sprite2D
 
 
-var inside
+var inside = "hi"
+
+
+#Set up function, called when created by the level scene
+func setup(internal):
+	inside = internal
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	inside = "hey"
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
