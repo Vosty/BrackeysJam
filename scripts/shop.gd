@@ -79,9 +79,10 @@ func buy_upgrade(i):
 		return
 	player.update_coins(-1 * shop_upgrades[i].cost)
 	create_flash(coin_tex, "-" + str(shop_upgrades[i].cost), 100, 100)
-	player.power_ups.append(shop_upgrades[i])
+	player.upgrades.append(shop_upgrades[i])
 	buttons[i].text = "SOLD"
 	sold_status[i] = true
+	player.check_upgrades()
 
 func _on_reroll_pressed():
 	if player.coins <= 0:

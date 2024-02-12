@@ -18,6 +18,7 @@ const coin_tex : Texture2D = preload("res://assets/Temp_Coin.png")
 var suits = MatchSuits.MATCH_SUITS
 var player : Player
 
+var rng = RandomNumberGenerator.new()
 var doors = []
 var suits_in_use = []
 var state = CHOOSE_STATES.NO_CHOICE
@@ -25,8 +26,9 @@ var suits_to_win : int
 var matches_found : int = 0
 var pick_one : Door
 var pick_two : Door
-
-	
+var match_extra : float
+var fail_extra : float
+var peek : int
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	## Set-up
@@ -36,8 +38,9 @@ func _ready():
 	player.set_keys(starting_keys)
 	player.attempts = 0
 	prepare_doors()
-	
-	
+	match_extra = player.match_extra
+	fail_extra = player.fail_extra
+	peek = player.peek
 
 func prepare_doors():
 	rows = player.level / 3
@@ -116,6 +119,12 @@ func check_match():
 		open_door(pick_one)
 		open_door(pick_two)
 		matches_found = matches_found + 1
+		# Match_Extra powerup
+		if rng.randf() <= match_extra:
+			player.update_keys(1)
+			create_flash(key_tex, "+1", 100.0, 100.0, 100.0)
+			print("Match extra")
+			
 		if matches_found >= suits_to_win:
 			state = CHOOSE_STATES.RESULTS_SCREEN
 			await get_tree().create_timer(3).timeout
@@ -123,10 +132,12 @@ func check_match():
 		## Do not decrement attempts!
 	else:
 		print("die")
-		player.update_keys(-1)
 		pick_one.uncheck_door()
 		pick_two.uncheck_door()
-		create_flash(key_tex, "-1", 100.0, 100.0, 100) # This should be better lol
+		
+		if rng.randf() > fail_extra: #fail extra powerup implementation
+			player.update_keys(-1)
+			create_flash(key_tex, "-1", 100.0, 100.0, 100) # This should be better lol
 	state = CHOOSE_STATES.NO_CHOICE
 
 func check_door(door):

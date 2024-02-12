@@ -9,3 +9,4 @@ name = "Rusty Key"
 description = "A rusty iron key, could break at any time"
 cost = 4
 tex = ExtResource("2_mslj5")
+type = 2

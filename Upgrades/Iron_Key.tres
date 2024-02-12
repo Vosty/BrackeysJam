@@ -9,3 +9,4 @@ name = "Iron Key"
 description = "a sturdy looking iron key."
 cost = 5
 tex = ExtResource("2_lujfi")
+type = 1
