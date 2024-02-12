@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2ixt5xin32mn"]
 
-[ext_resource type="Script" path="res://scenes/text_flash.gd" id="1_4pddn"]
+[ext_resource type="Script" path="res://scripts/text_flash.gd" id="1_01ivb"]
 [ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="1_733wy"]
 
 [node name="TextFlash" type="Node2D"]
-script = ExtResource("1_4pddn")
+script = ExtResource("1_01ivb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -15,6 +15,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_right = 174.0
 offset_bottom = 82.0
 

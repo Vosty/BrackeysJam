@@ -17,7 +17,6 @@ size = Vector2(32, 41)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_w2ymo")
-position = Vector2(0, -1)
 texture = ExtResource("2_pqxns")
 script = ExtResource("3_k60dh")
 

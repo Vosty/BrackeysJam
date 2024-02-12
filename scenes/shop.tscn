@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxfgchb7dc2w0"]
+[gd_scene load_steps=8 format=3 uid="uid://b84a3o0vgjdmf"]
 
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
 [ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
 [ext_resource type="Resource" uid="uid://h68udoihxw1p" path="res://Upgrades/Iron_Key.tres" id="3_jqn3n"]
 [ext_resource type="Resource" uid="uid://bai7a6b7y6u3y" path="res://Upgrades/Rusty_Key.tres" id="4_d4ie2"]
 [ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="5_23o8b"]
-[ext_resource type="Texture2D" uid="uid://cpqiot21hmyii" path="res://assets/Temp_Coin.png" id="5_auf71"]
-[ext_resource type="Texture2D" uid="uid://dn8b671v36oo3" path="res://assets/Shopkeeper.png" id="7_gkr48"]
+[ext_resource type="Texture2D" uid="uid://ci4g8og0w5tpn" path="res://assets/Temp_Coin.png" id="5_auf71"]
+[ext_resource type="Texture2D" uid="uid://cwp287eugbmue" path="res://assets/Shopkeeper.png" id="7_gkr48"]
 
 [node name="Shop" type="Node"]
 script = ExtResource("1_uvbbd")
