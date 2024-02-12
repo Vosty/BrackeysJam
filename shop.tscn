@@ -1,5 +1,71 @@
-[gd_scene format=3 uid="uid://bxfgchb7dc2w0"]
+[gd_scene load_steps=2 format=3 uid="uid://bxfgchb7dc2w0"]
+
+[ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="1_65qt3"]
 
 [node name="Shop" type="Node"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 23
+theme_override_constants/v_separation = 16
+columns = 3
+
+[node name="Grid 1" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label 1" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Name"
+horizontal_alignment = 1
+
+[node name="Item 1" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 1"]
+layout_mode = 2
+texture = ExtResource("1_65qt3")
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 1"]
+layout_mode = 2
+text = "Buy"
+
+[node name="Grid 2" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label 1" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Name"
+horizontal_alignment = 1
+
+[node name="Item 1" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 2"]
+layout_mode = 2
+texture = ExtResource("1_65qt3")
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 2"]
+layout_mode = 2
+text = "Buy"
+
+[node name="Grid 3" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label 1" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Name"
+horizontal_alignment = 1
+
+[node name="Item 1" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 3"]
+layout_mode = 2
+texture = ExtResource("1_65qt3")
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 3"]
+layout_mode = 2
+text = "Buy"
