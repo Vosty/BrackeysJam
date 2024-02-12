@@ -57,6 +57,7 @@ func open_door():
 	material.set_shader_parameter("outline_color", Color(0.91, 0.29, 0.28, 255))
 	material.set_shader_parameter("width", outline_width)
 	open = true
+	animator.play("Door_Open")
 
 
 
