@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="BrackeysJam"
-run/main_scene="res://scenes/Level.tscn"
+run/main_scene="res://scenes/Main_Menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Player_data="*res://scripts/Player.gd"
+MatchSuits="*res://scripts/match_suits.gd"
 
 [display]
 

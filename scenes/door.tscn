@@ -57,6 +57,7 @@ _data = {
 material = SubResource("ShaderMaterial_w2ymo")
 texture = ExtResource("2_pm0f4")
 hframes = 2
+frame = 1
 script = ExtResource("3_k60dh")
 animator = NodePath("AnimationPlayer")
 
@@ -71,6 +72,10 @@ shape = SubResource("RectangleShape2D_n1eqx")
 libraries = {
 "": SubResource("AnimationLibrary_ygei0")
 }
+
+[node name="Node2D" type="Node2D" parent="Sprite2D"]
+
+[node name="Mon" type="Sprite2D" parent="Sprite2D/Node2D"]
 
 [connection signal="input_event" from="Sprite2D/Area2D" to="Sprite2D" method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Sprite2D/Area2D" to="Sprite2D" method="_on_area_2d_mouse_entered"]

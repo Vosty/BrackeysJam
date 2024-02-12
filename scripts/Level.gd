@@ -12,10 +12,10 @@ enum CHOOSE_STATES {NO_CHOICE, CHOICE_ONE, CHOICE_TWO}
 
 
 const doorScene = preload("res://scenes/door.tscn")
-const suits = preload("res://scripts/match_suits.gd").MATCH_SUITS
 const flash = preload("res://scenes/text_flash.tscn")
 const key_tex : Texture2D = preload("res://assets/Iron_Key.png")
 const coin_tex : Texture2D = preload("res://assets/Temp_Coin.png")
+var suits = MatchSuits.MATCH_SUITS
 var player : Player
 
 var doors = []
@@ -31,11 +31,11 @@ var pick_two : Door
 func _ready():
 	## Set-up
 	player = get_node("/root/Player_data")
-	prepare_doors()
 	state = CHOOSE_STATES.NO_CHOICE
 	
 	
 	player.set_keys(attempts)
+	prepare_doors()
 	
 	
 
