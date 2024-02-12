@@ -7,6 +7,8 @@ signal Chosen(inside)
 var inside = "hi"
 var open = false
 var checking = false
+
+@export var animator : AnimationPlayer
 @export var outline_width = 10.0
 
 #Set up function, called when created by the level scene
@@ -35,11 +37,12 @@ func check_door():
 	material.set_shader_parameter("outline_color", Color(0.11, 0.89, 0.88, 255))
 	material.set_shader_parameter("width", outline_width)
 	checking = true
+	animator.play("Door_Open")
 	
 func uncheck_door():
 	material.set_shader_parameter("width", 0.0)
 	checking = false
-	
+	animator.play("Door_Close")
 func open_door():
 	uncheck_door()
 	material.set_shader_parameter("outline_color", Color(0.91, 0.29, 0.28, 255))

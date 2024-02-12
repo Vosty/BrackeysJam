@@ -4,11 +4,14 @@ extends Node
 @export var labels = []
 @export var texs = []
 @export var buttons = []
+var player
 
 var shop_upgrades = []
 
+
+
 func set_available_upgrades():
-	
+	# Remove upgrades that the player should not be able to get here.
 	pass
 	
 
