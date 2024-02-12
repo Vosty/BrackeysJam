@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxfgchb7dc2w0"]
+
+[ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
+[ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
+[ext_resource type="Resource" uid="uid://h68udoihxw1p" path="res://Upgrades/Iron_Key.tres" id="3_jqn3n"]
+[ext_resource type="Resource" uid="uid://bai7a6b7y6u3y" path="res://Upgrades/Rusty_Key.tres" id="4_d4ie2"]
+[ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="5_23o8b"]
+[ext_resource type="Texture2D" uid="uid://cpqiot21hmyii" path="res://assets/Temp_Coin.png" id="5_auf71"]
+[ext_resource type="Texture2D" uid="uid://dn8b671v36oo3" path="res://assets/Shopkeeper.png" id="7_gkr48"]
+
+[node name="Shop" type="Node"]
+script = ExtResource("1_uvbbd")
+available_upgrades = [ExtResource("2_jmf0d"), ExtResource("3_jqn3n"), ExtResource("4_d4ie2")]
+labels = [NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Label"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Label 1"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Label 2")]
+texs = [NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Item"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Item 1"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Item 2")]
+buttons = [NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 1"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 2"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 3")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 1173.0
+offset_top = 452.0
+offset_right = 1554.0
+offset_bottom = 666.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/h_separation = 23
+theme_override_constants/v_separation = 16
+columns = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Coin"
+horizontal_alignment = 1
+
+[node name="Label 1" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Iron Key"
+horizontal_alignment = 1
+
+[node name="Label 2" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Rusty Key"
+horizontal_alignment = 1
+
+[node name="Item" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_auf71")
+expand_mode = 3
+
+[node name="Item 1" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_23o8b")
+expand_mode = 3
+
+[node name="Item 2" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_23o8b")
+expand_mode = 5
+
+[node name="Button 1" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Buy"
+
+[node name="Button 2" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Buy"
+
+[node name="Button 3" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Buy"
+
+[node name="Shopkeeper" type="Sprite2D" parent="."]
+position = Vector2(649, 523)
+texture = ExtResource("7_gkr48")
+
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 3" to="." method="_on_button_3_pressed"]
