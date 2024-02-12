@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b84a3o0vgjdmf"]
+[gd_scene load_steps=10 format=3 uid="uid://b84a3o0vgjdmf"]
 
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
 [ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
@@ -6,12 +6,13 @@
 [ext_resource type="Resource" uid="uid://bai7a6b7y6u3y" path="res://Upgrades/Rusty_Key.tres" id="4_d4ie2"]
 [ext_resource type="PackedScene" uid="uid://dno7xid3tv17d" path="res://scenes/dashboard.tscn" id="5_5d8yj"]
 [ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="5_23o8b"]
-[ext_resource type="Texture2D" uid="uid://cpqiot21hmyii" path="res://assets/Temp_Coin.png" id="5_auf71"]
-[ext_resource type="Texture2D" uid="uid://dn8b671v36oo3" path="res://assets/Shopkeeper.png" id="7_gkr48"]
+[ext_resource type="Texture2D" uid="uid://ci4g8og0w5tpn" path="res://assets/Temp_Coin.png" id="5_auf71"]
+[ext_resource type="Texture2D" uid="uid://cwp287eugbmue" path="res://assets/Shopkeeper.png" id="7_gkr48"]
+[ext_resource type="Texture2D" uid="uid://b26ue37rnh21r" path="res://assets/Doors/door1.png" id="8_cgrh2"]
 
 [node name="Shop" type="Node"]
 script = ExtResource("1_uvbbd")
-available_upgrades = [ExtResource("2_jmf0d"), ExtResource("3_jqn3n"), ExtResource("4_d4ie2")]
+available_upgrades = [ExtResource("2_jmf0d"), ExtResource("3_jqn3n"), ExtResource("4_d4ie2"), ExtResource("2_jmf0d"), ExtResource("2_jmf0d"), ExtResource("2_jmf0d"), ExtResource("3_jqn3n"), ExtResource("3_jqn3n")]
 labels = [NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Label"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Label 1"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Label 2")]
 texs = [NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Item"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Item 1"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Item 2")]
 buttons = [NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 1"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 2"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 3")]
@@ -85,6 +86,40 @@ text = "Buy"
 layout_mode = 2
 text = "Buy"
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer2"]
+offset_left = 654.0
+offset_top = 480.0
+offset_right = 904.0
+offset_bottom = 569.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Reroll" type="Button" parent="CanvasLayer2/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reroll"
+icon = ExtResource("5_auf71")
+expand_icon = true
+
+[node name="Exit" type="Button" parent="CanvasLayer2/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Exit"
+icon = ExtResource("8_cgrh2")
+expand_icon = true
+
 [node name="Shopkeeper" type="Sprite2D" parent="."]
 position = Vector2(265, 359)
 scale = Vector2(0.374618, 0.374618)
@@ -93,3 +128,5 @@ texture = ExtResource("7_gkr48")
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer2/PanelContainer/MarginContainer/GridContainer/Reroll" to="." method="_on_reroll_pressed"]
+[connection signal="pressed" from="CanvasLayer2/PanelContainer/MarginContainer/GridContainer/Exit" to="." method="_on_exit_pressed"]

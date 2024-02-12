@@ -138,7 +138,7 @@ func open_door(door):
 func create_flash(texture : Texture2D, display_message : String, x : float, y : float, display_time : int = 100):
 	var element = flash.instantiate()
 	var tween = create_tween()
-	element.setup(tween, texture, display_message, x, y, display_time) 
+	element.setup(tween, texture, display_message, x, y, display_time)
 	add_child(element)
 
 
