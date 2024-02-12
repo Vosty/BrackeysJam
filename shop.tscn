@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxfgchb7dc2w0"]
+[gd_scene load_steps=3 format=3 uid="uid://bxfgchb7dc2w0"]
 
 [ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="1_65qt3"]
+[ext_resource type="Script" path="res://shop.gd" id="1_clpnw"]
 
 [node name="Shop" type="Node"]
+script = ExtResource("1_clpnw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

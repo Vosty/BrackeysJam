@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://h68udoihxw1p"]
+
+[ext_resource type="Script" path="res://scripts/Upgrade.gd" id="1_7hupt"]
+[ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="2_lujfi"]
+
+[resource]
+script = ExtResource("1_7hupt")
+name = "Iron Key"
+description = "a sturdy looking iron key."
+cost = 5
+tex = ExtResource("2_lujfi")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://brgxok2paxgw"]
+
+[ext_resource type="Script" path="res://scripts/Upgrade.gd" id="1_ef534"]
+[ext_resource type="Texture2D" uid="uid://cpqiot21hmyii" path="res://assets/Temp_Coin.png" id="2_aq862"]
+
+[resource]
+script = ExtResource("1_ef534")
+name = "Coin"
+description = "The lowest denomination of currency. Why buy money with money?"
+cost = 1
+tex = ExtResource("2_aq862")
