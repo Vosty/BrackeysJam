@@ -8,7 +8,7 @@ signal Keys_Updated()
 
 var coins = 0
 var keys = 0
-var level = 9
+var level = 8
 var power_ups = []
 
 # Called when the node enters the scene tree for the first time.

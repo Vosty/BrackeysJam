@@ -32,7 +32,7 @@ func roll_shop():
 	sold_status = []
 	if available_upgrades.size() < 3:
 		create_flash(coin_tex, "No upgrades left!", 500, 600)
-		return
+		return false
 	var index = randi() % available_upgrades.size()
 	shop_upgrades.append(available_upgrades[index])
 	available_upgrades.remove_at(index)
@@ -49,6 +49,7 @@ func roll_shop():
 		texs[i].tooltip_text = shop_upgrades[i].description
 		buttons[i].text = str(shop_upgrades[i].cost)
 		sold_status.append(false)
+	return true
 
 func create_flash(texture : Texture2D, display_message : String, x : float, y : float, display_time : int = 100):
 	var element = flash.instantiate()
@@ -71,7 +72,7 @@ func _on_button_3_pressed():
 	buy_upgrade(2)
 	
 func buy_upgrade(i):
-	if sold_status[i]:
+	if sold_status.size() < 3 || sold_status[i]:
 		return
 	if player.coins < shop_upgrades[i].cost:
 		create_flash(coin_tex, "You're Broke!", 500, 100)
@@ -86,9 +87,9 @@ func _on_reroll_pressed():
 	if player.coins <= 0:
 		create_flash(coin_tex, "You're Broke!", 500, 600)
 		return
-	player.update_coins(-1)
-	create_flash(coin_tex, "-1", 100, 100)
-	roll_shop()
+	if roll_shop():
+		player.update_coins(-1)
+		create_flash(coin_tex, "-1", 100, 100)
 
 func _on_exit_pressed():
 	player.level = player.level+1

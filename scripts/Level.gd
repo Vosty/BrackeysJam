@@ -41,7 +41,7 @@ func _ready():
 
 func prepare_doors():
 	rows = player.level / 3
-	columns = player.level / 3
+	columns = (player.level+2) / 3
 	## Prepare all doors
 	var i = 0
 	var j = 0
