@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dno7xid3tv17d"]
 
-[ext_resource type="Texture2D" uid="uid://bagxrfj21aooo" path="res://assets/Temp_Coin.png" id="2_hfbhw"]
+[ext_resource type="Texture2D" uid="uid://ci4g8og0w5tpn" path="res://assets/Temp_Coin.png" id="2_hfbhw"]
 
 [node name="Dashboard" type="Node"]
 

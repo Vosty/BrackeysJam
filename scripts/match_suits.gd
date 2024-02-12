@@ -1,0 +1,3 @@
+extends Object
+
+enum MATCH_SUITS { CLUBS, SPADES , HEARTS, DIAMONDS }
