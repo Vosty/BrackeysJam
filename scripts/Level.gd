@@ -6,6 +6,7 @@ extends Node2D
 @export var height = 720
 @export var bufferx = 200
 @export var buffery = 200
+@export var attempts = 10
 
 enum CHOOSE_STATES {NO_CHOICE, CHOICE_ONE, CHOICE_TWO}
 
@@ -14,32 +15,33 @@ const doorScene = preload("res://scenes/door.tscn")
 const suits = preload("res://scripts/match_suits.gd").MATCH_SUITS
 const flash = preload("res://scenes/text_flash.tscn")
 const key_tex : Texture2D = preload("res://assets/Iron_Key.png")
-var player = preload("res://scripts/Player.gd").new()
-var UI
-var P
+const coin_tex : Texture2D = preload("res://assets/Temp_Coin.png")
+var player : Player
 
 var doors = []
 var suits_in_use = []
-var state
+var state = CHOOSE_STATES.NO_CHOICE
+var suits_to_win : int
+var matches_found : int = 0
 var pick_one : Door
 var pick_two : Door
-var attempts
 
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	## Set-up
+	player = get_node("/root/Player_data")
 	prepare_doors()
-	attempts = 10
 	state = CHOOSE_STATES.NO_CHOICE
 	
-	UI = get_node("Dashboard")
 	
-	UI.setup(player)
-	UI.update_keys(str(attempts))
+	player.set_keys(attempts)
+	
 	
 
 func prepare_doors():
+	rows = player.level / 3
+	columns = player.level / 3
 	## Prepare all doors
 	var i = 0
 	var j = 0
@@ -63,12 +65,17 @@ func prepare_doors():
 
 func setup_suits(rows, columns):
 	var num_suits = rows * columns / 2
+	suits_to_win = num_suits
+	var odd = rows * columns % 2 == 1
 	print(str(num_suits))
 	var using_suits = suits.keys()
 	# Shuffle list of all possible suits
 	using_suits.shuffle()
 	# Remove suits we don't need
-	using_suits.resize(num_suits)
+	if odd:
+		using_suits.resize(num_suits+1)
+	else:
+		using_suits.resize(num_suits)
 	# Now make two copies of all of these suits
 	suits_in_use = []
 	for s in using_suits:
@@ -105,19 +112,21 @@ func check_match():
 		print("match!")
 		open_door(pick_one)
 		open_door(pick_two)
+		matches_found = matches_found + 1
+		if matches_found >= suits_to_win:
+			create_flash(key_tex, "YOU WIN", 500, 500, 500)
+			create_flash(coin_tex, "+5", 100, 100, 100)
+			player.update_coins(5)
+			await get_tree().create_timer(3).timeout
+			get_tree().change_scene_to_file("res://scenes/shop.tscn")
 		## Do not decrement attempts!
 	else:
 		print("die")
-		attempts = attempts - 1
-		UI.update_keys(str(attempts))
+		player.update_keys(-1)
 		pick_one.uncheck_door()
 		pick_two.uncheck_door()
 		create_flash(key_tex, "-1", 100.0, 100.0, 100) # This should be better lol
 	state = CHOOSE_STATES.NO_CHOICE
-	if attempts == 0:
-		UI.update_keys("GAME OVER")
-		
-		
 
 func check_door(door):
 	create_flash(key_tex, door.inside, height/2, width/2)
