@@ -6,9 +6,9 @@ extends Node2D
 @export var height = 720
 @export var bufferx = 200
 @export var buffery = 200
-@export var attempts = 10
+@export var starting_keys = 10
 
-enum CHOOSE_STATES {NO_CHOICE, CHOICE_ONE, CHOICE_TWO}
+enum CHOOSE_STATES {NO_CHOICE, CHOICE_ONE, CHOICE_TWO, RESULTS_SCREEN}
 
 
 const doorScene = preload("res://scenes/door.tscn")
@@ -33,8 +33,8 @@ func _ready():
 	player = get_node("/root/Player_data")
 	state = CHOOSE_STATES.NO_CHOICE
 	
-	
-	player.set_keys(attempts)
+	player.set_keys(starting_keys)
+	player.attempts = 0
 	prepare_doors()
 	
 	
@@ -94,7 +94,10 @@ func handle_click(door):
 	print(door.inside)
 	if door.checking || door.open:
 		return
+	player.attempts +=1
 	match state:
+		CHOOSE_STATES.RESULTS_SCREEN:
+			return
 		CHOOSE_STATES.NO_CHOICE:
 			pick_one = door
 			check_door(door)
@@ -114,11 +117,9 @@ func check_match():
 		open_door(pick_two)
 		matches_found = matches_found + 1
 		if matches_found >= suits_to_win:
-			create_flash(key_tex, "YOU WIN", 500, 500, 500)
-			create_flash(coin_tex, "+5", 100, 100, 100)
-			player.update_coins(5)
+			state = CHOOSE_STATES.RESULTS_SCREEN
 			await get_tree().create_timer(3).timeout
-			get_tree().change_scene_to_file("res://scenes/shop.tscn")
+			get_node("ResultsScreen").show_results_screen()
 		## Do not decrement attempts!
 	else:
 		print("die")

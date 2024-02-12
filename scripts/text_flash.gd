@@ -13,6 +13,7 @@ func setup(tween : Tween, texture : Texture2D, display_message : String, x : flo
 	get_node("CanvasLayer/Control/PanelContainer/MarginContainer/GridContainer/Label").text = display_message
 	position.x = x
 	position.y = y
+	get_node("CanvasLayer/Control").position = position
 	lifespan = display_time
 	var canvas = get_node("CanvasLayer/Control")
 	tween.tween_property(canvas, 'modulate:a', 0.0, 0.75)

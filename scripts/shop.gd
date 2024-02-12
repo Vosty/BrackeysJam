@@ -92,5 +92,6 @@ func _on_reroll_pressed():
 		create_flash(coin_tex, "-1", 100, 100)
 
 func _on_exit_pressed():
-	player.level = player.level+1
+	player.level += 1
+	player.round += 1
 	get_tree().change_scene_to_file("res://scenes/Level.tscn")

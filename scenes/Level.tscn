@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctw22e4wln1pr"]
+[gd_scene load_steps=4 format=3 uid="uid://ctw22e4wln1pr"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_cu03t"]
 [ext_resource type="PackedScene" uid="uid://dno7xid3tv17d" path="res://scenes/dashboard.tscn" id="2_2yidn"]
+[ext_resource type="PackedScene" uid="uid://b54yxlywprrkk" path="res://scenes/ResultsScreen.tscn" id="3_rxvxk"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_cu03t")
@@ -10,3 +11,5 @@ script = ExtResource("1_cu03t")
 scale = Vector2(100, 100)
 
 [node name="Dashboard" parent="." instance=ExtResource("2_2yidn")]
+
+[node name="ResultsScreen" parent="." instance=ExtResource("3_rxvxk")]

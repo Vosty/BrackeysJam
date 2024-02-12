@@ -7,7 +7,9 @@ signal Coins_Updated()
 signal Keys_Updated()
 
 var coins = 0
-var keys = 0
+var keys = 10
+var attempts = 0
+var round = 1
 var level = 8
 var power_ups = []
 
