@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2ixt5xin32mn"]
+
+[ext_resource type="Script" path="res://scenes/text_flash.gd" id="1_4pddn"]
+[ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="1_733wy"]
+
+[node name="TextFlash" type="Node2D"]
+script = ExtResource("1_4pddn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
+offset_right = 174.0
+offset_bottom = 82.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_733wy")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "FLASH"

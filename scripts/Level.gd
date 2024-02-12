@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var level: int = 10
+@export var level: int = 6
 @export var width = 1920
 @export var height = 1080
 @export var bufferx = 200
@@ -11,6 +11,9 @@ enum CHOOSE_STATES {NO_CHOICE, CHOICE_ONE, CHOICE_TWO}
 
 const doorScene = preload("res://scenes/door.tscn")
 const suits = preload("res://scripts/match_suits.gd").MATCH_SUITS
+const flash = preload("res://scenes/text_flash.tscn")
+const key_tex : Texture2D = preload("res://assets/Iron_Key.png")
+var UI
 
 var doors = []
 var state
@@ -25,6 +28,9 @@ func _ready():
 	prepare_doors()
 	attempts = 10
 	state = CHOOSE_STATES.NO_CHOICE
+	
+	UI = get_node("Dashboard")
+	UI.update_keys(str(attempts))
 
 
 func prepare_doors():
@@ -75,7 +81,19 @@ func check_match():
 	else:
 		print("die")
 		attempts = attempts - 1
+		UI.update_keys(str(attempts))
+		create_flash(key_tex, "-1", 100.0, 100.0, 100)
 	state = CHOOSE_STATES.NO_CHOICE
+	if attempts == 0:
+		UI.update_keys("GAME OVER")
+		
+		
+
+func create_flash(texture : Texture2D, display_message : String, x : float, y : float, display_time : int = 100):
+	var element = flash.instantiate()
+	var tween = create_tween()
+	element.setup(tween, texture, display_message, x, y, display_time) 
+	add_child(element)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
