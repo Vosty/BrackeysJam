@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxfgchb7dc2w0"]
+[gd_scene load_steps=6 format=3 uid="uid://bxfgchb7dc2w0"]
 
-[ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="1_65qt3"]
-[ext_resource type="Script" path="res://shop.gd" id="1_clpnw"]
+[ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
+[ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
+[ext_resource type="Resource" uid="uid://h68udoihxw1p" path="res://Upgrades/Iron_Key.tres" id="3_jqn3n"]
+[ext_resource type="Resource" uid="uid://bai7a6b7y6u3y" path="res://Upgrades/Rusty_Key.tres" id="4_d4ie2"]
+[ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="5_23o8b"]
 
 [node name="Shop" type="Node"]
-script = ExtResource("1_clpnw")
+script = ExtResource("1_uvbbd")
+available_upgrades = [ExtResource("2_jmf0d"), ExtResource("3_jqn3n"), ExtResource("4_d4ie2")]
+labels = [NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 1/Label"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 2/Label 1"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 3/Label 1")]
+texs = [NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 1/Item"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 2/Item 1"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 3/Item 1")]
+buttons = [NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 1/Button"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 2/Button"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 3/Button")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -24,18 +31,20 @@ columns = 3
 [node name="Grid 1" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 
-[node name="Label 1" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 1"]
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 1"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 23
 text = "Name"
 horizontal_alignment = 1
 
-[node name="Item 1" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 1"]
+[node name="Item" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 1"]
 layout_mode = 2
-texture = ExtResource("1_65qt3")
+texture = ExtResource("5_23o8b")
+expand_mode = 5
 
 [node name="Button" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 1"]
 layout_mode = 2
+tooltip_text = "This is what Tooltips look like"
 text = "Buy"
 
 [node name="Grid 2" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
@@ -49,7 +58,8 @@ horizontal_alignment = 1
 
 [node name="Item 1" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 2"]
 layout_mode = 2
-texture = ExtResource("1_65qt3")
+texture = ExtResource("5_23o8b")
+expand_mode = 5
 
 [node name="Button" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 2"]
 layout_mode = 2
@@ -66,7 +76,8 @@ horizontal_alignment = 1
 
 [node name="Item 1" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 3"]
 layout_mode = 2
-texture = ExtResource("1_65qt3")
+texture = ExtResource("5_23o8b")
+expand_mode = 5
 
 [node name="Button" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Grid 3"]
 layout_mode = 2
