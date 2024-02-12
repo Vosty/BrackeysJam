@@ -57,7 +57,6 @@ _data = {
 material = SubResource("ShaderMaterial_w2ymo")
 texture = ExtResource("2_pm0f4")
 hframes = 2
-frame = 1
 script = ExtResource("3_k60dh")
 animator = NodePath("AnimationPlayer")
 
