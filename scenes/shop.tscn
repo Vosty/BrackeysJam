@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxfgchb7dc2w0"]
+[gd_scene load_steps=9 format=3 uid="uid://bxfgchb7dc2w0"]
 
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
 [ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
 [ext_resource type="Resource" uid="uid://h68udoihxw1p" path="res://Upgrades/Iron_Key.tres" id="3_jqn3n"]
 [ext_resource type="Resource" uid="uid://bai7a6b7y6u3y" path="res://Upgrades/Rusty_Key.tres" id="4_d4ie2"]
+[ext_resource type="PackedScene" uid="uid://dno7xid3tv17d" path="res://scenes/dashboard.tscn" id="5_5d8yj"]
 [ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="5_23o8b"]
 [ext_resource type="Texture2D" uid="uid://cpqiot21hmyii" path="res://assets/Temp_Coin.png" id="5_auf71"]
 [ext_resource type="Texture2D" uid="uid://dn8b671v36oo3" path="res://assets/Shopkeeper.png" id="7_gkr48"]
@@ -14,6 +15,8 @@ available_upgrades = [ExtResource("2_jmf0d"), ExtResource("3_jqn3n"), ExtResourc
 labels = [NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Label"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Label 1"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Label 2")]
 texs = [NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Item"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Item 1"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Item 2")]
 buttons = [NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 1"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 2"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 3")]
+
+[node name="Dashboard" parent="." instance=ExtResource("5_5d8yj")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
