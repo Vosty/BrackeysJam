@@ -4,10 +4,13 @@ extends Node
 @export var labels = []
 @export var texs = []
 @export var buttons = []
-var player
 
 var shop_upgrades = []
+var sold_status = []
+var player : Player
 
+const flash = preload("res://scenes/text_flash.tscn")
+const coin_tex : Texture2D = preload("res://assets/Temp_Coin.png")
 
 
 func set_available_upgrades():
@@ -21,28 +24,72 @@ func set_shop():
 		texs[i] = get_node(texs[i])
 		buttons[i] = get_node(buttons[i])
 	
+	roll_shop()
+	
+	
+func roll_shop():
+	shop_upgrades = []
+	sold_status = []
+	if available_upgrades.size() < 3:
+		create_flash(coin_tex, "No upgrades left!", 500, 600)
+		return
 	var index = randi() % available_upgrades.size()
 	shop_upgrades.append(available_upgrades[index])
 	available_upgrades.remove_at(index)
 	index = randi() % available_upgrades.size()
 	shop_upgrades.append(available_upgrades[index])
 	available_upgrades.remove_at(index)
-	shop_upgrades.append(available_upgrades[randi() % available_upgrades.size()])
+	index = randi() % available_upgrades.size()
+	shop_upgrades.append(available_upgrades[index])
+	available_upgrades.remove_at(index)
 	
 	for i in shop_upgrades.size():
 		labels[i].text = shop_upgrades[i].name
 		texs[i].texture = shop_upgrades[i].tex
 		texs[i].tooltip_text = shop_upgrades[i].description
 		buttons[i].text = str(shop_upgrades[i].cost)
-		
+		sold_status.append(false)
+
+func create_flash(texture : Texture2D, display_message : String, x : float, y : float, display_time : int = 100):
+	var element = flash.instantiate()
+	var tween = create_tween()
+	element.setup(tween, texture, display_message, x, y, display_time)
+	add_child(element)
+
+
 func _ready():
 	set_shop()
+	player = get_node("/root/Player_data")
 	
 func _on_button_1_pressed():
-	pass # Replace with function body.
+	buy_upgrade(0)
 
 func _on_button_2_pressed():
-	pass # Replace with function body.
+	buy_upgrade(1)
 
 func _on_button_3_pressed():
-	pass # Replace with function body.
+	buy_upgrade(2)
+	
+func buy_upgrade(i):
+	if sold_status[i]:
+		return
+	if player.coins < shop_upgrades[i].cost:
+		create_flash(coin_tex, "You're Broke!", 500, 100)
+		return
+	player.update_coins(-1 * shop_upgrades[i].cost)
+	create_flash(coin_tex, "-" + str(shop_upgrades[i].cost), 100, 100)
+	player.power_ups.append(shop_upgrades[i])
+	buttons[i].text = "SOLD"
+	sold_status[i] = true
+
+func _on_reroll_pressed():
+	if player.coins <= 0:
+		create_flash(coin_tex, "You're Broke!", 500, 600)
+		return
+	player.update_coins(-1)
+	create_flash(coin_tex, "-1", 100, 100)
+	roll_shop()
+
+func _on_exit_pressed():
+	player.level = player.level+1
+	get_tree().change_scene_to_file("res://scenes/Level.tscn")
