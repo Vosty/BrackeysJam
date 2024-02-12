@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctw22e4wln1pr"]
+
+[ext_resource type="Script" path="res://scripts/Level.gd" id="1_hdp6s"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_hdp6s")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+scale = Vector2(100, 100)

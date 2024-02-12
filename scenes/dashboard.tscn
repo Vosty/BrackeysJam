@@ -1,7 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://dno7xid3tv17d"]
 
+<<<<<<< HEAD:scenes/dashboard.tscn
+[ext_resource type="Texture2D" uid="uid://ci4g8og0w5tpn" path="res://assets/Temp_Coin.png" id="2_hfbhw"]
+=======
 [ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="2_4r4v0"]
 [ext_resource type="Texture2D" uid="uid://cpqiot21hmyii" path="res://assets/Temp_Coin.png" id="2_hfbhw"]
+>>>>>>> 51fb9d7658c316fb3fb66ceaadba8155ee085235:scripts/dashboard.tscn
 
 [node name="Dashboard" type="Node"]
 
