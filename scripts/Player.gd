@@ -6,6 +6,8 @@ signal Coins_Updated()
 
 signal Keys_Updated()
 
+signal Upgrades_Updated()
+
 enum UPGRADES {NO_EFFECT, MATCH_EXTRA, FAIL_EXTRA, PEEK }
 
 var coins = 0
@@ -59,6 +61,7 @@ func check_upgrades():
 					max_fail_extra = true
 			UPGRADES.PEEK:
 				peek += 1
+	Upgrades_Updated.emit()
 	print( "Match extra: " + str(match_extra))
 	print( "Fail extra: " + str(fail_extra))
 	print( "Peek: " + str(peek))
