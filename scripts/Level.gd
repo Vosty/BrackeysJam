@@ -5,6 +5,7 @@ extends Node2D
 @export var bufferx = 200
 @export var buffery = 200
 @export var starting_keys = 10
+@export var baseboard_tex : Texture
 
 enum CHOOSE_STATES {NO_CHOICE, CHOICE_ONE, CHOICE_TWO, RESULTS_SCREEN, PEEK_STAGE}
 
@@ -51,6 +52,7 @@ func prepare_doors():
 	var j = 0
 	setup_suits(rows, columns)
 	while i < rows:
+		setup_baseboards((i * ((height-(buffery * 2)) / (rows-1))) + buffery)
 		while j < columns:
 			var door = doorScene.instantiate()
 			var doorSpri = door.get_node("Sprite2D")
@@ -59,14 +61,28 @@ func prepare_doors():
 			doorSpri.setup(choose_suit()) ## Assign
 			door.position.x = (j * ((width-(bufferx * 2)) / (columns-1))) + bufferx
 			door.position.y = (i * ((height-(buffery * 2)) / (rows-1))) + buffery
-		
+			
 			doorSpri.Chosen.connect(handle_click)
 			doors.append(doorSpri)
 			add_child(door)
 			j = j+1
 		j = 0
+		
 		i = i+1
-
+		
+func setup_baseboards(door_y_position):
+	var baseboard_length : int = 0
+	var segment_length : int = baseboard_tex.get_width()
+	while baseboard_length < width:
+		#Add new baseboard sprite
+		var new_segment = Sprite2D.new()
+		new_segment.texture = baseboard_tex
+		self.add_child(new_segment)
+		new_segment.position.x = baseboard_length + 32
+		new_segment.position.y = door_y_position + 30
+		baseboard_length += segment_length
+	
+	
 func setup_suits(rows, columns):
 	var num_suits = rows * columns / 2
 	suits_to_win = num_suits

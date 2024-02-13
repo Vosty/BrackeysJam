@@ -1,17 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://b84a3o0vgjdmf"]
+[gd_scene load_steps=14 format=3 uid="uid://b84a3o0vgjdmf"]
 
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
 [ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
 [ext_resource type="Resource" uid="uid://h68udoihxw1p" path="res://Upgrades/Iron_Key.tres" id="3_jqn3n"]
 [ext_resource type="Resource" uid="uid://bai7a6b7y6u3y" path="res://Upgrades/Rusty_Key.tres" id="4_d4ie2"]
 [ext_resource type="PackedScene" uid="uid://dno7xid3tv17d" path="res://scenes/dashboard.tscn" id="5_5d8yj"]
-[ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="5_23o8b"]
 [ext_resource type="Texture2D" uid="uid://cpqiot21hmyii" path="res://assets/Temp_Coin.png" id="5_auf71"]
 [ext_resource type="Resource" uid="uid://b4o5ix58fqp27" path="res://Upgrades/Snake_Fang.tres" id="5_uqm5g"]
 [ext_resource type="Resource" uid="uid://dnex2aapd7nvv" path="res://Upgrades/Key_Ring.tres" id="6_r6voh"]
 [ext_resource type="Resource" uid="uid://c3jeyhghx0sgy" path="res://Upgrades/Milk.tres" id="7_1v8cs"]
 [ext_resource type="Texture2D" uid="uid://dn8b671v36oo3" path="res://assets/Shopkeeper.png" id="7_gkr48"]
 [ext_resource type="Texture2D" uid="uid://duimm01qopjil" path="res://assets/Doors/door1.png" id="8_cgrh2"]
+[ext_resource type="Texture2D" uid="uid://cdvw4awemuqv7" path="res://assets/eye.png" id="9_yh4x6"]
+[ext_resource type="Texture2D" uid="uid://bc7ol6cthyyxs" path="res://assets/Clover.png" id="10_u75pn"]
 
 [node name="Shop" type="Node"]
 script = ExtResource("1_uvbbd")
@@ -27,8 +28,8 @@ buttons = [NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Bu
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 offset_left = 503.0
 offset_top = 240.0
-offset_right = 904.0
-offset_bottom = 474.0
+offset_right = 819.0
+offset_bottom = 387.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
 layout_mode = 2
@@ -64,18 +65,18 @@ horizontal_alignment = 1
 
 [node name="Item" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("5_auf71")
-expand_mode = 3
+texture = ExtResource("9_yh4x6")
+stretch_mode = 5
 
 [node name="Item 1" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("5_23o8b")
-expand_mode = 3
+texture = ExtResource("9_yh4x6")
+stretch_mode = 5
 
 [node name="Item 2" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("5_23o8b")
-expand_mode = 5
+texture = ExtResource("10_u75pn")
+stretch_mode = 5
 
 [node name="Button 1" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
