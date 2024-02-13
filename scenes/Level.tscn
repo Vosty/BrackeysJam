@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dno7xid3tv17d" path="res://scenes/dashboard.tscn" id="2_2yidn"]
 [ext_resource type="PackedScene" uid="uid://b54yxlywprrkk" path="res://scenes/ResultsScreen.tscn" id="3_rxvxk"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource("1_cu03t")
 
 [node name="Marker2D" type="Marker2D" parent="."]

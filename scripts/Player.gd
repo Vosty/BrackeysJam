@@ -65,4 +65,10 @@ func check_upgrades():
 	print( "Match extra: " + str(match_extra))
 	print( "Fail extra: " + str(fail_extra))
 	print( "Peek: " + str(peek))
-	
+
+func get_upgrade_hold_count(upgrade : UPGRADES):
+	var count = 0
+	for power_up in upgrades:
+		if power_up.type == upgrade:
+			count += 1
+	return count

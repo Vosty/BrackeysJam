@@ -5,4 +5,4 @@ class_name Upgrade
 @export var description : String
 @export var cost : int
 @export var tex : Texture
-@export var type : int
+@export var type : Player_data.UPGRADES

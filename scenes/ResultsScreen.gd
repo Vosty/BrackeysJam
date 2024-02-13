@@ -5,6 +5,7 @@ const coin_tex : Texture2D = preload("res://assets/Temp_Coin.png")
 const key_tex : Texture2D = preload("res://assets/Iron_Key.png")
 
 var player : Player
+var closed = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +29,9 @@ func hide_results_screen():
 	get_node("CanvasLayer/Control").hide()
 
 func _on_button_pressed():
+	if closed:
+		return
+	closed = true
 	create_flash(coin_tex, "+5", 50, 100, 100)
 	player.update_coins(5)
 	for i in player.keys:

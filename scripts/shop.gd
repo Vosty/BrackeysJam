@@ -13,9 +13,14 @@ const flash = preload("res://scenes/text_flash.tscn")
 const coin_tex : Texture2D = preload("res://assets/Temp_Coin.png")
 
 
-func set_available_upgrades():
-	# Remove upgrades that the player should not be able to get here.
-	pass
+func get_available_upgrades():
+	var avail = available_upgrades
+	if player.get_upgrade_hold_count(player.UPGRADES.MATCH_EXTRA) >= 5:
+		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.MATCH_EXTRA)
+	if player.get_upgrade_hold_count(player.UPGRADES.FAIL_EXTRA) >= 5:
+		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.FAIL_EXTRA)
+	return avail
+
 	
 
 func set_shop():
@@ -23,7 +28,6 @@ func set_shop():
 		labels[i] = get_node(labels[i])
 		texs[i] = get_node(texs[i])
 		buttons[i] = get_node(buttons[i])
-	
 	roll_shop()
 	
 	
@@ -32,16 +36,11 @@ func roll_shop():
 	sold_status = []
 	if available_upgrades.size() < 3:
 		create_flash(coin_tex, "No upgrades left!", 500, 600)
-		return false
-	var index = randi() % available_upgrades.size()
-	shop_upgrades.append(available_upgrades[index])
-	available_upgrades.remove_at(index)
-	index = randi() % available_upgrades.size()
-	shop_upgrades.append(available_upgrades[index])
-	available_upgrades.remove_at(index)
-	index = randi() % available_upgrades.size()
-	shop_upgrades.append(available_upgrades[index])
-	available_upgrades.remove_at(index)
+		return false # I don't think this should happen anymore
+		
+	for i in 3:
+		var item = roll_item()
+		shop_upgrades.append(roll_item())	
 	
 	for i in shop_upgrades.size():
 		labels[i].text = shop_upgrades[i].name
@@ -50,6 +49,12 @@ func roll_shop():
 		buttons[i].text = str(shop_upgrades[i].cost)
 		sold_status.append(false)
 	return true
+	
+func roll_item():
+	var avail = get_available_upgrades()
+	var index = randi() % avail.size()
+	return avail[index]
+	
 
 func create_flash(texture : Texture2D, display_message : String, x : float, y : float, display_time : int = 100):
 	var element = flash.instantiate()
@@ -59,8 +64,8 @@ func create_flash(texture : Texture2D, display_message : String, x : float, y : 
 
 
 func _ready():
-	set_shop()
 	player = get_node("/root/Player_data")
+	set_shop()
 	
 func _on_button_1_pressed():
 	buy_upgrade(0)
