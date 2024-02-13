@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ef534")
 name = "Sneaky's Eye"
-description = "Lets you 'oeek' at doors at the start of the round."
+description = "Lets you 'peek' at doors at the start of the round."
 cost = 1
 tex = ExtResource("2_8fige")
 type = 4
