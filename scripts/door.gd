@@ -42,13 +42,15 @@ func check_door():
 	material.set_shader_parameter("outline_color", Color(0.11, 0.89, 0.88, 255))
 	material.set_shader_parameter("width", outline_width)
 	checking = true
-	get_node("Node2D/Mon").show()
 	animator.play("Door_Open")
+	await get_tree().create_timer(0.5).timeout
+	get_node("Node2D/Mon").show()
 	
 func uncheck_door(close_door = true):
 	material.set_shader_parameter("width", 0.0)
 	checking = false
 	if close_door:
+		await get_tree().create_timer(0.8).timeout
 		get_node("Node2D/Mon").hide()
 		animator.play("Door_Close")
 

@@ -61,7 +61,7 @@ func prepare_doors():
 			door.position.y = (j * ((height-(buffery * 2)) / (columns-1))) + buffery
 		
 			doorSpri.Chosen.connect(handle_click)
-			doors.append(door)
+			doors.append(doorSpri)
 			add_child(door)
 			j = j+1
 		j = 0
@@ -125,8 +125,11 @@ func handle_click(door):
 		CHOOSE_STATES.PEEK_STAGE: #Allows looking behind door at beginning if able
 			peek -= 1
 			check_door(door)
-			door.uncheck_door()
+			create_flash(key_tex, "PEEKING!", 300.0, 100.0, 100)
 			if peek <= 0:
+				for d in doors:
+					if d.checking:
+						d.uncheck_door(true)
 				state = CHOOSE_STATES.NO_CHOICE
 			
 			pass
