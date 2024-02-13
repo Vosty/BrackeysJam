@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://bx1svtnhbmqig"]
+
+[ext_resource type="Script" path="res://scripts/Upgrade.gd" id="1_7ypt6"]
+[ext_resource type="Texture2D" uid="uid://cgxatk5kfl0mj" path="res://assets/Upgrades/monster_hand.png" id="2_aah1w"]
+
+[resource]
+script = ExtResource("1_7ypt6")
+name = "Gloper's Hand"
+description = "Gives you one free reroll per shop (applies next shop)"
+cost = 2
+tex = ExtResource("2_aah1w")
+type = 7

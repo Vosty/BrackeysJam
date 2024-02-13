@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dkcwmthfipfj0"]
 
 [ext_resource type="Shader" path="res://assets/Shaders/Outline.gdshader" id="1_75228"]
-[ext_resource type="Texture2D" uid="uid://dm1l526kjp05" path="res://assets/Doors/doorOpening-Sheet.png" id="2_h4odd"]
+[ext_resource type="Texture2D" uid="uid://cfnnovxn1sx02" path="res://assets/Doors/doorOpening-Sheet.png" id="2_h4odd"]
 [ext_resource type="Script" path="res://scripts/door.gd" id="3_k60dh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w2ymo"]
