@@ -8,7 +8,7 @@ signal Keys_Updated()
 
 signal Upgrades_Updated()
 
-enum UPGRADES {NO_EFFECT, MATCH_EXTRA, FAIL_EXTRA, PEEK }
+enum UPGRADES {NO_EFFECT, MATCH_EXTRA, FAIL_EXTRA, KEYS_EXTRA, PEEK, CLONE_PAIR }
 
 var coins = 0
 var keys = 10
@@ -16,11 +16,12 @@ var attempts = 0
 var round = 1
 var level = 8
 var upgrades = []
+
 var match_extra : float = 0.0
 var fail_extra : float = 0.0
+var keys_extra : int = 0
+var clone_pairs : int = 0
 var peek : int = 0
-var max_match_extra : bool = false
-var max_fail_extra : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,25 +47,28 @@ func check_upgrades():
 	match_extra = 0
 	fail_extra = 0
 	peek = 0
+	keys_extra = 0
+	clone_pairs = 0
 	for power_up in upgrades:
 		match power_up.type:
 			UPGRADES.NO_EFFECT:
 				pass
 			UPGRADES.MATCH_EXTRA:
 				match_extra = clamp(match_extra + 0.1, 0.0, 0.5)
-				if match_extra >= 0.5:
-					max_match_extra = true
-					
 			UPGRADES.FAIL_EXTRA:
 				fail_extra = clamp(fail_extra +0.1, 0.0, 0.5)
-				if fail_extra >= 0.5:
-					max_fail_extra = true
 			UPGRADES.PEEK:
 				peek += 1
+			UPGRADES.KEYS_EXTRA:
+				keys_extra += 1
+			UPGRADES.CLONE_PAIR:
+				clone_pairs += 1
 	Upgrades_Updated.emit()
 	print( "Match extra: " + str(match_extra))
 	print( "Fail extra: " + str(fail_extra))
 	print( "Peek: " + str(peek))
+	print("Extra Keys: " + str(keys_extra))
+	print("Clone Pairs: " + str(clone_pairs))
 
 func get_upgrade_hold_count(upgrade : UPGRADES):
 	var count = 0

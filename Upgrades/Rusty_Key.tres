@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_1bi8l")
 name = "Rusty Key"
-description = "A rusty iron key, could break at any time"
+description = "Gives you a +10% chance to save a key when you fail to find a match."
 cost = 4
 tex = ExtResource("2_mslj5")
 type = 2

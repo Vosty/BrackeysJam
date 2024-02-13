@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_7hupt")
 name = "Iron Key"
-description = "a sturdy looking iron key."
+description = "Gives you +10% chance to gain an extra key on a match."
 cost = 5
 tex = ExtResource("2_lujfi")
 type = 1

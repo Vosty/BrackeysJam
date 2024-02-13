@@ -1,7 +1,5 @@
 extends Node2D
 
-@export var rows: int = 6
-@export var columns: int = 4
 @export var width = 1080
 @export var height = 720
 @export var bufferx = 200
@@ -35,7 +33,7 @@ func _ready():
 	player = get_node("/root/Player_data")
 	state = CHOOSE_STATES.NO_CHOICE
 	
-	player.set_keys(starting_keys)
+	player.set_keys(starting_keys+player.keys_extra)
 	player.attempts = 0
 	prepare_doors()
 	match_extra = player.match_extra
@@ -45,8 +43,8 @@ func _ready():
 		state = CHOOSE_STATES.PEEK_STAGE
 
 func prepare_doors():
-	rows = player.level / 3
-	columns = (player.level+2) / 3
+	var rows = player.level / 3
+	var columns = (player.level+2) / 3
 	## Prepare all doors
 	var i = 0
 	var j = 0
@@ -86,6 +84,15 @@ func setup_suits(rows, columns):
 	for s in using_suits:
 		suits_in_use.append(s)
 		suits_in_use.append(s)
+		
+	# Clone suits, very stupid logic
+	var index = 0
+	for c in player.clone_pairs:
+		# Replace the two in the front with the two in the back, works inwords
+		# Works because we shuffle everytime we pick suits
+		suits_in_use[index] = suits_in_use[suits_in_use.size() - 1 - index]
+		suits_in_use[index + 1] = suits_in_use[suits_in_use.size() - 2 - index]
+		index += 2
 
 	
 
