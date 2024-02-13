@@ -6,6 +6,9 @@ const key_tex : Texture2D = preload("res://assets/Iron_Key.png")
 
 var player : Player
 var closed = false
+@onready var sfx_player = $SFX_Player
+
+@export var coin_sound : AudioStream
 
 
 # Called when the node enters the scene tree for the first time.
@@ -36,11 +39,13 @@ func _on_button_pressed():
 	create_flash(coin_tex, "+" + str(reward), 50, 100, 100)
 	player.update_coins(reward)
 	for i in player.keys:
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(0.2).timeout
 		player.update_keys(-1)
 		create_flash(key_tex, "-1", 150, 100, 100)
 		await get_tree().create_timer(0.05).timeout
 		create_flash(coin_tex, "+1", 50, 100, 100)
+		sfx_player.stream = coin_sound
+		sfx_player.play()
 		player.update_coins(1)
 		
 	await get_tree().create_timer(3).timeout
