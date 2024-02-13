@@ -41,7 +41,7 @@ func update_upgrades():
 	peek_icon.visible = (player.peek > 0)
 	peek_icon.tooltip_text = "Peek behind " +str(player.peek) + " door(s) at the beginning of each round."
 	fang_icon.visible = (player.clone_pairs > 0)
-	fang_icon.tooltip_text = "At start of round, turns " + str(player.clone_pairs) + " pairs into other existing pairs."
+	fang_icon.tooltip_text = "At start of round, turns " + str(player.clone_pairs) + " pair(s) into other existing pairs."
 	key_ring_icon.visible = player.keys_extra > 0
 	key_ring_icon.tooltip_text = "Start each round with " + str(player.keys_extra) + " extra keys."
 	milk_icon.visible = player.bonus_money > 0
