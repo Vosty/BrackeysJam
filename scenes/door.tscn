@@ -73,6 +73,7 @@ libraries = {
 }
 
 [node name="Node2D" type="Node2D" parent="Sprite2D"]
+position = Vector2(0, 32)
 
 [node name="Mon" type="Sprite2D" parent="Sprite2D/Node2D"]
 
