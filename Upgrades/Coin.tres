@@ -9,4 +9,4 @@ name = "Coin"
 description = "The lowest denomination of currency. Why buy money with money?"
 cost = 1
 tex = ExtResource("2_aq862")
-type = 3
+type = 4
