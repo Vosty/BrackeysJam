@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://c3jeyhghx0sgy"]
+
+[ext_resource type="Script" path="res://scripts/Upgrade.gd" id="1_caxcq"]
+[ext_resource type="Texture2D" uid="uid://dq41pxgaificx" path="res://assets/Upgrades/milk.png" id="2_j6vbw"]
+
+[resource]
+script = ExtResource("1_caxcq")
+name = "Skrob Milk"
+description = "Give's you +1 money at end of round"
+cost = 3
+tex = ExtResource("2_j6vbw")
+type = 6

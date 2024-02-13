@@ -32,8 +32,9 @@ func _on_button_pressed():
 	if closed:
 		return
 	closed = true
-	create_flash(coin_tex, "+5", 50, 100, 100)
-	player.update_coins(5)
+	var reward = 5 + player.bonus_money
+	create_flash(coin_tex, "+" + str(reward), 50, 100, 100)
+	player.update_coins(reward)
 	for i in player.keys:
 		await get_tree().create_timer(0.3).timeout
 		player.update_keys(-1)

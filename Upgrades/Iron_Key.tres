@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://h68udoihxw1p"]
 
 [ext_resource type="Script" path="res://scripts/Upgrade.gd" id="1_7hupt"]
-[ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="2_lujfi"]
+[ext_resource type="Texture2D" uid="uid://0xbxp8aqtwtq" path="res://assets/Clover.png" id="2_v5sd6"]
 
 [resource]
 script = ExtResource("1_7hupt")
 name = "Iron Key"
 description = "Gives you +10% chance to gain an extra key on a match."
 cost = 5
-tex = ExtResource("2_lujfi")
+tex = ExtResource("2_v5sd6")
 type = 1
