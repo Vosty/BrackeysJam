@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_342t2"]
 [ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="2_4r4v0"]
-[ext_resource type="Texture2D" uid="uid://cpqiot21hmyii" path="res://assets/Temp_Coin.png" id="2_hfbhw"]
-[ext_resource type="Texture2D" uid="uid://bc7ol6cthyyxs" path="res://assets/Clover.png" id="4_4oqjb"]
-[ext_resource type="Texture2D" uid="uid://cdvw4awemuqv7" path="res://assets/eye.png" id="5_bvm2r"]
+[ext_resource type="Texture2D" uid="uid://ci4g8og0w5tpn" path="res://assets/Temp_Coin.png" id="2_hfbhw"]
+[ext_resource type="Texture2D" uid="uid://0xbxp8aqtwtq" path="res://assets/Clover.png" id="4_4oqjb"]
+[ext_resource type="Texture2D" uid="uid://xjq3gxtfnv71" path="res://assets/eye.png" id="5_bvm2r"]
 
 [node name="Dashboard" type="Node" node_paths=PackedStringArray("match_extra_label", "fail_extra_label", "peek_label")]
 script = ExtResource("1_342t2")

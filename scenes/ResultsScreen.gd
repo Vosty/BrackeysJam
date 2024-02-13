@@ -35,7 +35,7 @@ func _on_button_pressed():
 	create_flash(coin_tex, "+5", 50, 100, 100)
 	player.update_coins(5)
 	for i in player.keys:
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.3).timeout
 		player.update_keys(-1)
 		create_flash(key_tex, "-1", 150, 100, 100)
 		await get_tree().create_timer(0.05).timeout

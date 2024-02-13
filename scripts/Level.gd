@@ -147,6 +147,8 @@ func check_match():
 		if rng.randf() > fail_extra: #fail extra powerup implementation
 			player.update_keys(-1)
 			create_flash(key_tex, "-1", 100.0, 100.0, 100) # This should be better lol
+		else:
+			create_flash(key_tex, "SAVED", 100.0, 100.0, 100.0)
 	state = CHOOSE_STATES.NO_CHOICE
 
 func check_door(door):
