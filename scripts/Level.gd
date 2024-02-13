@@ -8,7 +8,7 @@ extends Node2D
 @export var buffery = 200
 @export var starting_keys = 10
 
-enum CHOOSE_STATES {NO_CHOICE, CHOICE_ONE, CHOICE_TWO, RESULTS_SCREEN}
+enum CHOOSE_STATES {NO_CHOICE, CHOICE_ONE, CHOICE_TWO, RESULTS_SCREEN, PEEK_STAGE}
 
 
 const doorScene = preload("res://scenes/door.tscn")
@@ -41,6 +41,8 @@ func _ready():
 	match_extra = player.match_extra
 	fail_extra = player.fail_extra
 	peek = player.peek
+	if peek >= 0:
+		state = CHOOSE_STATES.PEEK_STAGE
 
 func prepare_doors():
 	rows = player.level / 3
@@ -112,7 +114,14 @@ func handle_click(door):
 			check_match()
 		CHOOSE_STATES.CHOICE_TWO:
 			pass
+		CHOOSE_STATES.PEEK_STAGE: #Allows looking behind door at beginning if able
+			peek -= 1
+			check_door(door)
+			door.uncheck_door()
+			if peek <= 0:
+				state = CHOOSE_STATES.NO_CHOICE
 			
+			pass
 func check_match():
 	if pick_one.inside == pick_two.inside:
 		print("match!")
