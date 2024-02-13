@@ -8,6 +8,7 @@ extends Node
 var shop_upgrades = []
 var sold_status = []
 var player : Player
+var free_rolls_remaining
 
 const flash = preload("res://scenes/text_flash.tscn")
 const coin_tex : Texture2D = preload("res://assets/Temp_Coin.png")
@@ -19,11 +20,14 @@ func get_available_upgrades():
 		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.MATCH_EXTRA)
 	if player.get_upgrade_hold_count(player.UPGRADES.FAIL_EXTRA) >= 5:
 		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.FAIL_EXTRA)
+	if player.get_upgrade_hold_count(player.UPGRADES.FREE_REROLLS) >= 10:
+		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.FREE_REROLLS)
 	return avail
 
 	
 
 func set_shop():
+	free_rolls_remaining = player.free_rerolls
 	for i in labels.size():
 		labels[i] = get_node(labels[i])
 		texs[i] = get_node(texs[i])
@@ -95,8 +99,12 @@ func _on_reroll_pressed():
 		create_flash(coin_tex, "You're Broke!", 500, 600)
 		return
 	if roll_shop():
-		player.update_coins(-1)
-		create_flash(coin_tex, "-1", 100, 100)
+		if free_rolls_remaining > 0:
+			create_flash(coin_tex, "FREE!", 500, 100)
+			free_rolls_remaining -= 1
+		else:
+			player.update_coins(-1)
+			create_flash(coin_tex, "-1", 100, 100)
 
 func _on_exit_pressed():
 	player.level += 1

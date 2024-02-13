@@ -8,6 +8,7 @@ var player
 @export var fang_icon : TextureRect
 @export var key_ring_icon : TextureRect
 @export var milk_icon : TextureRect
+@export var hand_icon : TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,9 +44,11 @@ func update_upgrades():
 	fang_icon.visible = (player.clone_pairs > 0)
 	fang_icon.tooltip_text = "At start of round, turns " + str(player.clone_pairs) + " pair(s) into other existing pairs."
 	key_ring_icon.visible = player.keys_extra > 0
-	key_ring_icon.tooltip_text = "Start each round with " + str(player.keys_extra) + " extra keys."
+	key_ring_icon.tooltip_text = "Start each round with " + str(player.keys_extra) + " extra key(s)."
 	milk_icon.visible = player.bonus_money > 0
 	milk_icon.tooltip_text = "At end of round, gain " + str(player.bonus_money) + " bonus money."
+	hand_icon.visible = player.free_rerolls > 0
+	hand_icon.tooltip_text = "At each shop, receive " + str(player.free_rerolls) + " free reroll(s)."
 	
 	
 	
