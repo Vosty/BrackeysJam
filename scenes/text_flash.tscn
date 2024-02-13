@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2ixt5xin32mn"]
+[gd_scene load_steps=4 format=3 uid="uid://d2ixt5xin32mn"]
 
 [ext_resource type="Script" path="res://scripts/text_flash.gd" id="1_01ivb"]
 [ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="1_733wy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nurey"]
 
 [node name="TextFlash" type="Node2D"]
 script = ExtResource("1_01ivb")
@@ -18,6 +20,7 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 174.0
 offset_bottom = 82.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nurey")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/PanelContainer"]
 layout_mode = 2
