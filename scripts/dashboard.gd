@@ -2,9 +2,9 @@ extends Node
 
 var player
 
-@export var match_extra_label : Label
-@export var fail_extra_label : Label
-@export var peek_label : Label
+@export var match_extra_icon : TextureRect
+@export var fail_extra_icon : TextureRect
+@export var peek_icon : TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,8 +31,13 @@ func update_keys():
 	key_node.text = str(player.keys)
 	
 func update_upgrades():
-	match_extra_label.text = str(player.match_extra * 100) + "%"
-	fail_extra_label.text = str(player.fail_extra * 100) + "%"
-	peek_label.text = str(player.peek)
+	match_extra_icon.visible = (player.match_extra > 0)
+	match_extra_icon.tooltip_text = str(100 * player.match_extra) + "% chance to gain an extra key when succesfully matching doors."
+	fail_extra_icon.visible = (player.fail_extra > 0)
+	fail_extra_icon.tooltip_text = str(100 * player.fail_extra) + "% chance to gain an extra key when failing to match doors."
+	peek_icon.visible = (player.peek > 0)
+	peek_icon.tooltip_text = "Peek behind " +str(player.peek) + " door(s) at the beginning of each round."
+	
+	
 	
 	

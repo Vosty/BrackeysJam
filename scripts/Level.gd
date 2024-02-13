@@ -36,6 +36,7 @@ func _ready():
 	player.set_keys(starting_keys+player.keys_extra)
 	player.attempts = 0
 	prepare_doors()
+	player.check_upgrades()
 	match_extra = player.match_extra
 	fail_extra = player.fail_extra
 	peek = player.peek

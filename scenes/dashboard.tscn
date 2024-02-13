@@ -6,11 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://0xbxp8aqtwtq" path="res://assets/Clover.png" id="4_4oqjb"]
 [ext_resource type="Texture2D" uid="uid://xjq3gxtfnv71" path="res://assets/eye.png" id="5_bvm2r"]
 
-[node name="Dashboard" type="Node" node_paths=PackedStringArray("match_extra_label", "fail_extra_label", "peek_label")]
+[node name="Dashboard" type="Node" node_paths=PackedStringArray("match_extra_icon", "fail_extra_icon", "peek_icon")]
 script = ExtResource("1_342t2")
-match_extra_label = NodePath("CanvasLayer/Upgrades/GridContainer/match_extra_label")
-fail_extra_label = NodePath("CanvasLayer/Upgrades/GridContainer/fail_extra_label")
-peek_label = NodePath("CanvasLayer/Upgrades/GridContainer/peek_label")
+match_extra_icon = NodePath("CanvasLayer/GridContainer/match_extra_texture")
+fail_extra_icon = NodePath("CanvasLayer/GridContainer/fail_extra_texture")
+peek_icon = NodePath("CanvasLayer/GridContainer/peek_texture")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -51,39 +51,23 @@ tooltip_text = "The amount of attempts you have remaining"
 theme_override_font_sizes/font_size = 30
 text = "100"
 
-[node name="Upgrades" type="PanelContainer" parent="CanvasLayer"]
-offset_left = 1021.0
-offset_top = 3.0
-offset_right = 1080.0
-offset_bottom = 107.0
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+offset_left = 1040.0
+offset_top = 4.0
+offset_right = 1072.0
+offset_bottom = 108.0
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Upgrades"]
-layout_mode = 2
-columns = 2
-
-[node name="match_extra_texture" type="TextureRect" parent="CanvasLayer/Upgrades/GridContainer"]
+[node name="match_extra_texture" type="TextureRect" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 tooltip_text = "Chance of gaining an extra key when making a match."
 texture = ExtResource("4_4oqjb")
 
-[node name="match_extra_label" type="Label" parent="CanvasLayer/Upgrades/GridContainer"]
-layout_mode = 2
-text = "0%"
-
-[node name="fail_extra_texture" type="TextureRect" parent="CanvasLayer/Upgrades/GridContainer"]
+[node name="fail_extra_texture" type="TextureRect" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 tooltip_text = "Chance of gaining an extra key when failing to match doors."
 texture = ExtResource("4_4oqjb")
 
-[node name="fail_extra_label" type="Label" parent="CanvasLayer/Upgrades/GridContainer"]
-layout_mode = 2
-text = "0%"
-
-[node name="peek_texture" type="TextureRect" parent="CanvasLayer/Upgrades/GridContainer"]
+[node name="peek_texture" type="TextureRect" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 tooltip_text = "The amount of peeks available at the beginning of a round."
 texture = ExtResource("5_bvm2r")
-
-[node name="peek_label" type="Label" parent="CanvasLayer/Upgrades/GridContainer"]
-layout_mode = 2
-text = "0"
