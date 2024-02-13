@@ -17,6 +17,8 @@ var upgrades = []
 var match_extra : float = 0.0
 var fail_extra : float = 0.0
 var peek : int = 0
+var max_match_extra : bool = false
+var max_fail_extra : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,10 +49,14 @@ func check_upgrades():
 			UPGRADES.NO_EFFECT:
 				pass
 			UPGRADES.MATCH_EXTRA:
-				match_extra += 0.1
-				
+				match_extra = clamp(match_extra + 0.1, 0.0, 0.5)
+				if match_extra >= 0.5:
+					max_match_extra = true
+					
 			UPGRADES.FAIL_EXTRA:
-				fail_extra += 0.1
+				fail_extra = clamp(fail_extra +0.1, 0.0, 0.5)
+				if fail_extra >= 0.5:
+					max_fail_extra = true
 			UPGRADES.PEEK:
 				peek += 1
 	print( "Match extra: " + str(match_extra))
