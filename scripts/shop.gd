@@ -66,6 +66,7 @@ func create_flash(texture : Texture2D, display_message : String, x : float, y : 
 func _ready():
 	player = get_node("/root/Player_data")
 	set_shop()
+	player.check_upgrades()
 	
 func _on_button_1_pressed():
 	buy_upgrade(0)
