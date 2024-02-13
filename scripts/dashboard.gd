@@ -5,6 +5,8 @@ var player
 @export var match_extra_icon : TextureRect
 @export var fail_extra_icon : TextureRect
 @export var peek_icon : TextureRect
+@export var fang_icon : TextureRect
+@export var key_ring_icon : TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,7 +39,10 @@ func update_upgrades():
 	fail_extra_icon.tooltip_text = str(100 * player.fail_extra) + "% chance to gain an extra key when failing to match doors."
 	peek_icon.visible = (player.peek > 0)
 	peek_icon.tooltip_text = "Peek behind " +str(player.peek) + " door(s) at the beginning of each round."
-	
+	fang_icon.visible = (player.clone_pairs > 0)
+	fang_icon.tooltip_text = "At start of round, turns " + str(player.clone_pairs) + " pairs into other existing pairs"
+	key_ring_icon.visible = player.keys_extra > 0
+	key_ring_icon.tooltip_text = "Start each round with " + str(player.keys_extra) + " extra keys."
 	
 	
 	
