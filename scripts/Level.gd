@@ -57,8 +57,8 @@ func prepare_doors():
 			
 			## Creates a door, adjusts it to rest nicely on the screen within a window
 			doorSpri.setup(choose_suit()) ## Assign
-			door.position.x = (i * ((width-(bufferx * 2)) / (rows-1))) + bufferx
-			door.position.y = (j * ((height-(buffery * 2)) / (columns-1))) + buffery
+			door.position.x = (j * ((width-(bufferx * 2)) / (columns-1))) + bufferx
+			door.position.y = (i * ((height-(buffery * 2)) / (rows-1))) + buffery
 		
 			doorSpri.Chosen.connect(handle_click)
 			doors.append(doorSpri)
