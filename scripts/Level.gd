@@ -41,7 +41,7 @@ func _ready():
 	match_extra = player.match_extra
 	fail_extra = player.fail_extra
 	peek = player.peek
-	if peek >= 0:
+	if peek > 0:
 		state = CHOOSE_STATES.PEEK_STAGE
 
 func prepare_doors():
