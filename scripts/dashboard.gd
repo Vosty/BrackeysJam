@@ -14,6 +14,7 @@ func _ready():
 	player.Upgrades_Updated.connect(update_upgrades)
 	update_keys()
 	update_coins()
+	update_upgrades()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
