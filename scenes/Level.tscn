@@ -1,14 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctw22e4wln1pr"]
+[gd_scene load_steps=8 format=3 uid="uid://ctw22e4wln1pr"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_cu03t"]
 [ext_resource type="PackedScene" uid="uid://dno7xid3tv17d" path="res://scenes/dashboard.tscn" id="2_2yidn"]
 [ext_resource type="Texture2D" uid="uid://comd4ohiv46jg" path="res://assets/baseboard.png" id="2_h5gq4"]
+[ext_resource type="AudioStream" uid="uid://c52w4pcpkvx2j" path="res://assets/Audio/SFX/Coin.wav" id="3_85v15"]
 [ext_resource type="PackedScene" uid="uid://b54yxlywprrkk" path="res://scenes/ResultsScreen.tscn" id="3_rxvxk"]
+[ext_resource type="AudioStream" uid="uid://x2oq5q8gh8fh" path="res://assets/Audio/SFX/Lose_key.wav" id="5_t3eut"]
+[ext_resource type="AudioStream" uid="uid://dwd7v3wf5wfi0" path="res://assets/Audio/SFX/Gain_key.wav" id="5_yu8cn"]
 
 [node name="Node2D2" type="Node2D"]
 script = ExtResource("1_cu03t")
 buffery = 125
 baseboard_tex = ExtResource("2_h5gq4")
+match_sound = ExtResource("3_85v15")
+gain_key_sound = ExtResource("5_yu8cn")
+lose_key_sound = ExtResource("5_t3eut")
+save_key_sound = ExtResource("3_85v15")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 scale = Vector2(100, 100)
@@ -16,3 +23,6 @@ scale = Vector2(100, 100)
 [node name="Dashboard" parent="." instance=ExtResource("2_2yidn")]
 
 [node name="ResultsScreen" parent="." instance=ExtResource("3_rxvxk")]
+
+[node name="SFX_Player" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"

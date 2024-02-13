@@ -6,7 +6,13 @@ extends Node2D
 @export var buffery = 200
 @export var starting_keys = 10
 @export var baseboard_tex : Texture
+@onready var sfx_player = $SFX_Player
 
+@export var match_sound : AudioStream
+@export var gain_key_sound : AudioStream
+@export var lose_key_sound : AudioStream
+@export var save_key_sound : AudioStream
+@export var win_sound : AudioStream
 enum CHOOSE_STATES {NO_CHOICE, CHOICE_ONE, CHOICE_TWO, RESULTS_SCREEN, PEEK_STAGE}
 
 
@@ -152,6 +158,8 @@ func handle_click(door):
 func check_match():
 	if pick_one.inside == pick_two.inside:
 		print("match!")
+		sfx_player.stream = match_sound
+		sfx_player.play()
 		open_door(pick_one)
 		open_door(pick_two)
 		matches_found = matches_found + 1
@@ -174,8 +182,12 @@ func check_match():
 		if rng.randf() > fail_extra: #fail extra powerup implementation
 			player.update_keys(-1)
 			create_flash(key_tex, "-1", 100.0, 100.0, 100) # This should be better lol
+			sfx_player.stream = lose_key_sound
+			sfx_player.play()
 		else:
 			create_flash(key_tex, "SAVED", 100.0, 100.0, 100.0)
+			sfx_player.stream = save_key_sound
+			sfx_player.play()
 	state = CHOOSE_STATES.NO_CHOICE
 
 func check_door(door):
