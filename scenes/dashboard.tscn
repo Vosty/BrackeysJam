@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_342t2"]
 [ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="2_4r4v0"]
-[ext_resource type="Texture2D" uid="uid://ci4g8og0w5tpn" path="res://assets/Temp_Coin.png" id="2_hfbhw"]
-[ext_resource type="Texture2D" uid="uid://0xbxp8aqtwtq" path="res://assets/Clover.png" id="4_4oqjb"]
-[ext_resource type="Texture2D" uid="uid://xjq3gxtfnv71" path="res://assets/eye.png" id="5_bvm2r"]
-[ext_resource type="Texture2D" uid="uid://s5c0buv5bq6b" path="res://assets/Upgrades/fang.png" id="6_gmauj"]
-[ext_resource type="Texture2D" uid="uid://cm50b46hainou" path="res://assets/Upgrades/key_ring.png" id="7_resj5"]
-[ext_resource type="Texture2D" uid="uid://dq41pxgaificx" path="res://assets/Upgrades/milk.png" id="8_lpmxp"]
+[ext_resource type="Texture2D" uid="uid://cpqiot21hmyii" path="res://assets/Temp_Coin.png" id="2_hfbhw"]
+[ext_resource type="Texture2D" uid="uid://bc7ol6cthyyxs" path="res://assets/Clover.png" id="4_4oqjb"]
+[ext_resource type="Texture2D" uid="uid://cdvw4awemuqv7" path="res://assets/eye.png" id="5_bvm2r"]
+[ext_resource type="Texture2D" uid="uid://b7ew3b0xet5vf" path="res://assets/Upgrades/fang.png" id="6_gmauj"]
+[ext_resource type="Texture2D" uid="uid://rey4t7ia67xa" path="res://assets/Upgrades/key_ring.png" id="7_resj5"]
+[ext_resource type="Texture2D" uid="uid://d17sgvqdf1dxs" path="res://assets/Upgrades/milk.png" id="8_lpmxp"]
 
 [node name="Dashboard" type="Node" node_paths=PackedStringArray("match_extra_icon", "fail_extra_icon", "peek_icon", "fang_icon", "key_ring_icon", "milk_icon")]
 script = ExtResource("1_342t2")
