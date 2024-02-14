@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://cwtenex0guyl1"]
+
+[ext_resource type="Script" path="res://scripts/Monster.gd" id="1_rbvqt"]
+[ext_resource type="Texture2D" uid="uid://01spfc1axayl" path="res://assets/MonsterSprites/pizza_man.png" id="2_tm0uy"]
+
+[resource]
+script = ExtResource("1_rbvqt")
+name = "Pizzano"
+suit = 17
+tex = ExtResource("2_tm0uy")
