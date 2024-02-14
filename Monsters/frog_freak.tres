@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://ds2jd4thekg7o"]
+
+[ext_resource type="Script" path="res://scripts/Monster.gd" id="1_xb2op"]
+[ext_resource type="Texture2D" uid="uid://b6ldnwrat0jys" path="res://assets/MonsterSprites/frog_freak.png" id="2_pscfj"]
+
+[resource]
+script = ExtResource("1_xb2op")
+name = "Troggert"
+suit = 6
+tex = ExtResource("2_pscfj")

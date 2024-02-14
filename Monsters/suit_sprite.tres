@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://dbe4guvgh51gs"]
+
+[ext_resource type="Script" path="res://scripts/Monster.gd" id="1_bnylt"]
+[ext_resource type="Texture2D" uid="uid://cwqk5ssi7ks3h" path="res://assets/MonsterSprites/suit sprite.png" id="2_h7yjw"]
+
+[resource]
+script = ExtResource("1_bnylt")
+name = "Ruzzoid"
+suit = 8
+tex = ExtResource("2_h7yjw")

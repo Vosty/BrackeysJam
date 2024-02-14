@@ -1,6 +1,6 @@
 extends Node
 
-enum MATCH_SUITS { WORM, GREEBO , GUNWICH, FACIST, DONKEY, HORSE, COW, ZEBRA, BIRD, DOG, CAT, SUPERMAN, BATMAN, SPIDERMAN, BAGELS, BREAD, RICE, PIZZA, WATER, SODA, PISS, GRASS, FIRE, STEEL, GROUND, PSYCHIC, FAIRY, SLIME }
+enum MATCH_SUITS { WORM, GREEBO , GUNWICH, FACIST, MOOSE, TOMBSTONE, FROG, CHATMERA, FUZZY, DOG, CAT, SUPERMAN, BATMAN, SPIDERMAN, BAGELS, BREAD, RICE, PIZZA, WATER, SODA, PISS, GRASS, FIRE, STEEL, GROUND, PSYCHIC, FAIRY, SLIME }
 
 
 func get_resource(suit):
@@ -17,5 +17,16 @@ func get_resource(suit):
 			return load("res://Monsters/facist.tres")
 		MATCH_SUITS.PIZZA:
 			return load("res://Monsters/pizza_man.tres")
+		MATCH_SUITS.MOOSE:
+			return load("res://Monsters/moose.tres")
+		MATCH_SUITS.TOMBSTONE:
+			return load("res://Monsters/tombstone.tres")
+		MATCH_SUITS.FROG:
+			return load("res://Monsters/frog_freak.tres")
+		MATCH_SUITS.CHATMERA:
+			return load("res://Monsters/cat_chimera.tres")
+		MATCH_SUITS.FUZZY:
+			return load("res://Monsters/suit_sprite.tres")
+		
 		_:
 			return load("res://Monsters/test_monster.tres")

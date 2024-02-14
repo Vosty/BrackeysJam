@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://dhm5t01aw5l5x"]
+
+[ext_resource type="Script" path="res://scripts/Monster.gd" id="1_6q0eh"]
+[ext_resource type="Texture2D" uid="uid://ykk5i8iubpsh" path="res://assets/MonsterSprites/moose.png" id="2_22mq5"]
+
+[resource]
+script = ExtResource("1_6q0eh")
+name = "Moosette"
+suit = 4
+tex = ExtResource("2_22mq5")

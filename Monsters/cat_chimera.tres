@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://dwgji0y6oyasx"]
+
+[ext_resource type="Script" path="res://scripts/Monster.gd" id="1_s3sap"]
+[ext_resource type="Texture2D" uid="uid://dlwy0ierfgfag" path="res://assets/MonsterSprites/cat_chimera.png" id="2_2sfyf"]
+
+[resource]
+script = ExtResource("1_s3sap")
+name = "Chatmera"
+suit = 7
+tex = ExtResource("2_2sfyf")

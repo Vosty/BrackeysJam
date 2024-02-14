@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://c5xbx4f4ma5hh"]
+
+[ext_resource type="Script" path="res://scripts/Monster.gd" id="1_068ti"]
+[ext_resource type="Texture2D" uid="uid://b7qf507io5obi" path="res://assets/MonsterSprites/tombstone.png" id="2_qk505"]
+
+[resource]
+script = ExtResource("1_068ti")
+name = "Sleeping Ryan"
+suit = 5
+tex = ExtResource("2_qk505")
