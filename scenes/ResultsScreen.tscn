@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b54yxlywprrkk"]
+[gd_scene load_steps=3 format=3 uid="uid://b54yxlywprrkk"]
 
 [ext_resource type="Script" path="res://scenes/ResultsScreen.gd" id="1_koqq7"]
+[ext_resource type="AudioStream" uid="uid://c52w4pcpkvx2j" path="res://assets/Audio/SFX/Coin.wav" id="2_ncaq1"]
 
 [node name="ResultsScreen" type="Node2D"]
 script = ExtResource("1_koqq7")
+coin_sound = ExtResource("2_ncaq1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -65,5 +67,7 @@ text = "1000"
 layout_mode = 2
 size_flags_vertical = 8
 text = "Go to Shop"
+
+[node name="SFX_Player" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/Control/PanelContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
