@@ -69,5 +69,6 @@ size_flags_vertical = 8
 text = "Go to Shop"
 
 [node name="SFX_Player" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [connection signal="pressed" from="CanvasLayer/Control/PanelContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
