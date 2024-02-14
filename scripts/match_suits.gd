@@ -15,5 +15,7 @@ func get_resource(suit):
 			return load("res://Monsters/ostrich.tres")
 		MATCH_SUITS.FACIST:
 			return load("res://Monsters/facist.tres")
+		MATCH_SUITS.PIZZA:
+			return load("res://Monsters/pizza_man.tres")
 		_:
 			return load("res://Monsters/test_monster.tres")
