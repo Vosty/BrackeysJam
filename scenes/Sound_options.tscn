@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctimkfr2fkk0n"]
+
+[ext_resource type="Texture2D" uid="uid://l5p8eif30pib" path="res://assets/Music_Note.png" id="1_nqjuu"]
+[ext_resource type="Script" path="res://scripts/AudioControls.gd" id="1_xxfej"]
+[ext_resource type="Texture2D" uid="uid://c4kkehv23kckg" path="res://assets/SoundIcon.png" id="2_2bhty"]
+
+[node name="SoundOptions" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_xxfej")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 17.0
+offset_top = 662.0
+offset_right = 256.0
+offset_bottom = 702.0
+scale = Vector2(1.12, 1.12)
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="MusicIcon" type="TextureRect" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_nqjuu")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MusicSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+
+[node name="SFXIcon" type="TextureRect" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_2bhty")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="SFXSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/GridContainer/MusicSlider" to="CanvasLayer" method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/GridContainer/SFXSlider" to="CanvasLayer" method="_on_sfx_slider_value_changed"]

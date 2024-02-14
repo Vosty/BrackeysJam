@@ -1,19 +1,20 @@
-[gd_scene load_steps=15 format=3 uid="uid://b84a3o0vgjdmf"]
+[gd_scene load_steps=16 format=3 uid="uid://b84a3o0vgjdmf"]
 
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
 [ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
 [ext_resource type="Resource" uid="uid://h68udoihxw1p" path="res://Upgrades/Iron_Key.tres" id="3_jqn3n"]
 [ext_resource type="Resource" uid="uid://bai7a6b7y6u3y" path="res://Upgrades/Rusty_Key.tres" id="4_d4ie2"]
 [ext_resource type="PackedScene" uid="uid://dno7xid3tv17d" path="res://scenes/dashboard.tscn" id="5_5d8yj"]
-[ext_resource type="Texture2D" uid="uid://ci4g8og0w5tpn" path="res://assets/Temp_Coin.png" id="5_auf71"]
+[ext_resource type="Texture2D" uid="uid://cpqiot21hmyii" path="res://assets/Temp_Coin.png" id="5_auf71"]
 [ext_resource type="Resource" uid="uid://b4o5ix58fqp27" path="res://Upgrades/Snake_Fang.tres" id="5_uqm5g"]
 [ext_resource type="Resource" uid="uid://dnex2aapd7nvv" path="res://Upgrades/Key_Ring.tres" id="6_r6voh"]
 [ext_resource type="Resource" uid="uid://c3jeyhghx0sgy" path="res://Upgrades/Milk.tres" id="7_1v8cs"]
-[ext_resource type="Texture2D" uid="uid://cwp287eugbmue" path="res://assets/Shopkeeper.png" id="7_gkr48"]
+[ext_resource type="Texture2D" uid="uid://dn8b671v36oo3" path="res://assets/Shopkeeper.png" id="7_gkr48"]
 [ext_resource type="Resource" uid="uid://bx1svtnhbmqig" path="res://Upgrades/Monster_Hand.tres" id="8_743kg"]
-[ext_resource type="Texture2D" uid="uid://b26ue37rnh21r" path="res://assets/Doors/door1.png" id="8_cgrh2"]
-[ext_resource type="Texture2D" uid="uid://xjq3gxtfnv71" path="res://assets/eye.png" id="9_yh4x6"]
-[ext_resource type="Texture2D" uid="uid://0xbxp8aqtwtq" path="res://assets/Upgrades/Clover.png" id="10_u75pn"]
+[ext_resource type="Texture2D" uid="uid://duimm01qopjil" path="res://assets/Doors/door1.png" id="8_cgrh2"]
+[ext_resource type="Texture2D" uid="uid://cdvw4awemuqv7" path="res://assets/eye.png" id="9_yh4x6"]
+[ext_resource type="Texture2D" uid="uid://cxc681ot3g7cb" path="res://assets/Upgrades/Clover.png" id="10_u75pn"]
+[ext_resource type="PackedScene" uid="uid://ctimkfr2fkk0n" path="res://scenes/Sound_options.tscn" id="15_wmsew"]
 
 [node name="Shop" type="Node"]
 script = ExtResource("1_uvbbd")
@@ -130,6 +131,8 @@ expand_icon = true
 position = Vector2(265, 359)
 scale = Vector2(0.374618, 0.374618)
 texture = ExtResource("7_gkr48")
+
+[node name="SoundOptions" parent="." instance=ExtResource("15_wmsew")]
 
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 2" to="." method="_on_button_2_pressed"]
