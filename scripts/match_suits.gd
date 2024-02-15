@@ -2,6 +2,7 @@ extends Node
 
 enum MATCH_SUITS { WORM, GREEBO , GUNWICH, FACIST, MOOSE, TOMBSTONE, FROG, CHATMERA, FUZZY, DOG, CAT, SUPERMAN, BATMAN, SPIDERMAN, BAGELS, BREAD, RICE, PIZZA, WATER, SODA, PISS, GRASS, FIRE, STEEL, GROUND, PSYCHIC, FAIRY, SLIME }
 
+enum TRAP_SUITS { MINUS_KEY, CLOSE_DOOR, SWAP_DOOR }
 
 func get_resource(suit):
 	match MATCH_SUITS.get(suit):
@@ -27,6 +28,8 @@ func get_resource(suit):
 			return load("res://Monsters/cat_chimera.tres")
 		MATCH_SUITS.FUZZY:
 			return load("res://Monsters/suit_sprite.tres")
-		
+			
+		TRAP_SUITS.MINUS_KEY, TRAP_SUITS.CLOSE_DOOR, TRAP_SUITS.CLOSE_DOOR:
+			return load("res://Traps/key_eater.tres")
 		_:
 			return load("res://Monsters/test_monster.tres")

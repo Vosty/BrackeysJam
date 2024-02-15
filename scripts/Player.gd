@@ -13,6 +13,7 @@ enum UPGRADES {NO_EFFECT, MATCH_EXTRA, FAIL_EXTRA, KEYS_EXTRA, PEEK, CLONE_PAIR,
 var coins = 0
 var keys = 10
 var attempts = 0
+var traps_hit = 0
 var round = 1
 var level = 8
 var upgrades = []

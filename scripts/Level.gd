@@ -13,7 +13,7 @@ extends Node2D
 @export var lose_key_sound : AudioStream
 @export var save_key_sound : AudioStream
 @export var win_sound : AudioStream
-enum CHOOSE_STATES {NO_CHOICE, CHOICE_ONE, CHOICE_TWO, RESULTS_SCREEN, PEEK_STAGE}
+enum CHOOSE_STATES {NO_CHOICE, CHOICE_ONE, CHOICE_TWO, RESULTS_SCREEN, PEEK_STAGE, TRAP_REVEAL}
 
 
 const doorScene = preload("res://scenes/door.tscn")
@@ -21,6 +21,7 @@ const flash = preload("res://scenes/text_flash.tscn")
 const key_tex : Texture2D = preload("res://assets/Iron_Key.png")
 const coin_tex : Texture2D = preload("res://assets/Temp_Coin.png")
 var suits = MatchSuits.MATCH_SUITS
+var traps = MatchSuits.TRAP_SUITS
 var player : Player
 
 var rng = RandomNumberGenerator.new()
@@ -29,6 +30,7 @@ var suits_in_use = []
 var state = CHOOSE_STATES.NO_CHOICE
 var suits_to_win : int
 var matches_found : int = 0
+var trap_number : int = 0
 var pick_one : Door
 var pick_two : Door
 var match_extra : float
@@ -38,17 +40,31 @@ var peek : int
 func _ready():
 	## Set-up
 	player = get_node("/root/Player_data")
-	state = CHOOSE_STATES.NO_CHOICE
+	
 	
 	player.set_keys(starting_keys+player.keys_extra)
 	player.attempts = 0
+	player.traps_hit = 0
 	prepare_doors()
 	player.check_upgrades()
 	match_extra = player.match_extra
 	fail_extra = player.fail_extra
+	
+	if trap_number > 0:
+		state = CHOOSE_STATES.TRAP_REVEAL
+		var traps = doors.filter(func (d): return d.is_trap)
+		for t in traps:
+			t.reveal_trap()
+		await get_tree().create_timer(5).timeout
+		for t in traps:
+			t.uncheck_door()
+	
+		
 	peek = player.peek
 	if peek > 0:
 		state = CHOOSE_STATES.PEEK_STAGE
+	else:
+		state = CHOOSE_STATES.NO_CHOICE
 
 func prepare_doors():
 	var rows = player.level / 3
@@ -65,6 +81,8 @@ func prepare_doors():
 			
 			## Creates a door, adjusts it to rest nicely on the screen within a window
 			doorSpri.setup(choose_suit()) ## Assign
+			if doorSpri.inside in MatchSuits.TRAP_SUITS:
+				doorSpri.is_trap = true
 			door.position.x = (j * ((width-(bufferx * 2)) / (columns-1))) + bufferx
 			door.position.y = (i * ((height-(buffery * 2)) / (rows-1))) + buffery
 			
@@ -90,18 +108,19 @@ func setup_baseboards(door_y_position):
 	
 	
 func setup_suits(rows, columns):
-	var num_suits = rows * columns / 2
+	trap_number = floor(sqrt(rows * columns)) - 2
+	print("Traps: " + str(trap_number))
+	var num_suits = (((rows * columns) - trap_number) / 2)
+	var odd = ((num_suits * 2) + trap_number) % 2 == 1
+	if odd:
+		trap_number += 1
 	suits_to_win = num_suits
-	var odd = rows * columns % 2 == 1
 	print(str(num_suits))
 	var using_suits = suits.keys()
 	# Shuffle list of all possible suits
 	using_suits.shuffle()
-	# Remove suits we don't need
-	if odd:
-		using_suits.resize(num_suits+1)
-	else:
-		using_suits.resize(num_suits)
+	# Remove suits we don't need:
+	using_suits.resize(num_suits)
 	# Now make two copies of all of these suits
 	suits_in_use = []
 	for s in using_suits:
@@ -117,7 +136,14 @@ func setup_suits(rows, columns):
 		suits_in_use[index + 1] = suits_in_use[suits_in_use.size() - 2 - index]
 		index += 2
 
-	
+	#Finally, add traps
+	for t in trap_number:
+		suits_in_use.append(roll_trap())
+
+func roll_trap():
+	var traps_list = traps.keys()
+	traps_list.shuffle()
+	return traps_list.pop_front()
 
 func choose_suit():
 	suits_in_use.shuffle()
@@ -131,13 +157,19 @@ func handle_click(door):
 		return
 	player.attempts +=1
 	match state:
-		CHOOSE_STATES.RESULTS_SCREEN:
+		CHOOSE_STATES.RESULTS_SCREEN || CHOOSE_STATES.TRAP_REVEAL:
 			return
 		CHOOSE_STATES.NO_CHOICE:
+			if door.is_trap:
+				spring_trap(door)
+				return
 			pick_one = door
 			check_door(door)
 			state = CHOOSE_STATES.CHOICE_ONE
 		CHOOSE_STATES.CHOICE_ONE:
+			if door.is_trap:
+				spring_trap(door)
+				return
 			pick_two = door
 			check_door(door)
 			state = CHOOSE_STATES.CHOICE_TWO
@@ -191,11 +223,17 @@ func check_match():
 	state = CHOOSE_STATES.NO_CHOICE
 
 func check_door(door):
-	create_flash(key_tex, door.inside, height/2, width/2)
+	create_flash(key_tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
 	door.check_door()
 	
 func open_door(door):
 	door.open_door()
+	
+func spring_trap(door):
+	door.spring_trap()
+	player.traps_hit += 1
+	create_flash(key_tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
+	pass
 
 func create_flash(texture : Texture2D, display_message : String, x : float, y : float, display_time : int = 100):
 	var element = flash.instantiate()
