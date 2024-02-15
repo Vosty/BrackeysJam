@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://lwvlmgcnv2w"]
+
+[ext_resource type="Script" path="res://scripts/Monster.gd" id="1_wlta4"]
+[ext_resource type="Texture2D" uid="uid://bwwtr1xj3liqx" path="res://assets/MonsterSprites/Skelpy.png" id="2_dv4g4"]
+
+[resource]
+script = ExtResource("1_wlta4")
+name = "Skelpy"
+suit = 11
+tex = ExtResource("2_dv4g4")
