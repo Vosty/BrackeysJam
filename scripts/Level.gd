@@ -22,6 +22,12 @@ const doorScene = preload("res://scenes/door.tscn")
 const flash = preload("res://scenes/text_flash.tscn")
 const key_tex : Texture2D = preload("res://assets/Iron_Key.png")
 const coin_tex : Texture2D = preload("res://assets/Temp_Coin.png")
+
+const clover_tex : Texture2D = preload("res://assets/Upgrades/Clover.png")
+const cuff_links_tex : Texture2D = preload("res://assets/Upgrades/cufflinks.png")
+const eye_tex : Texture2D = preload("res://assets/eye.png")
+
+
 var suits = MatchSuits.MATCH_SUITS
 var traps = MatchSuits.TRAP_SUITS
 var player : Player
@@ -86,6 +92,8 @@ func prepare_doors():
 
 			door.position.x = (j * ((width-(bufferx * 2)) / (columns-1))) + bufferx
 			door.position.y = (i * ((height-(buffery * 2)) / (rows-1))) + buffery
+			
+			doorSpri.pos = Vector2i(i, j)
 			
 			doorSpri.Chosen.connect(handle_click)
 			doors.append(doorSpri)
@@ -183,17 +191,20 @@ func handle_click(door):
 		CHOOSE_STATES.CHOICE_ONE:
 			if door.is_trap:
 				spring_trap(door)
+				pick_one.uncheck_door()
+				lose_key()
+				state = CHOOSE_STATES.NO_CHOICE
 				return
 			pick_two = door
 			check_door(door)
 			state = CHOOSE_STATES.CHOICE_TWO
-			check_match()
+			check_match(door)
 		CHOOSE_STATES.CHOICE_TWO:
 			pass
 		CHOOSE_STATES.PEEK_STAGE: #Allows looking behind door at beginning if able
 			peek -= 1
 			check_door(door)
-			create_flash(key_tex, "PEEKING!", 300.0, 100.0, 100)
+			create_flash(eye_tex, "PEEKING!", 300.0, 100.0, 100)
 			if peek <= 0:
 				for d in doors:
 					if d.checking:
@@ -201,7 +212,7 @@ func handle_click(door):
 				state = CHOOSE_STATES.NO_CHOICE
 			
 			pass
-func check_match():
+func check_match(door):
 	if pick_one.inside == pick_two.inside:
 		print("match!")
 		sfx_player.stream = match_sound
@@ -212,28 +223,37 @@ func check_match():
 		# Match_Extra powerup
 		if rng.randf() <= match_extra:
 			player.update_keys(1)
-			create_flash(key_tex, "+1", 100.0, 100.0, 100.0)
+			create_flash(clover_tex, "+1", 100.0, 100.0, 100.0)
 			print("Match extra")
 			
 		if matches_found >= suits_to_win:
 			state = CHOOSE_STATES.RESULTS_SCREEN
 			await get_tree().create_timer(3).timeout
 			get_node("ResultsScreen").show_results_screen()
+		
+		# Shades Power-up	
+		if player.nearby_show > 0:
+			var nearby = get_nearby_doors(door)
+			if nearby.size() == 0:
+				return
+			create_flash(eye_tex, "PEEKING!", 300.0, 100.0, 100)
+			nearby.shuffle()
+			var show = []	
+			for i in player.nearby_show:
+				if nearby.size() > 1:
+					show.append(nearby.pop_front())
+			for d in show:
+				d.check_door()
+				await get_tree().create_timer(0.75).timeout
+				d.uncheck_door()
+			
 		## Do not decrement attempts!
 	else:
 		print("die")
 		pick_one.uncheck_door()
 		pick_two.uncheck_door()
-		
-		if rng.randf() > fail_extra: #fail extra powerup implementation
-			player.update_keys(-1)
-			create_flash(key_tex, "-1", 100.0, 100.0, 100) # This should be better lol
-			sfx_player.stream = lose_key_sound
-			sfx_player.play()
-		else:
-			create_flash(key_tex, "SAVED", 100.0, 100.0, 100.0)
-			sfx_player.stream = save_key_sound
-			sfx_player.play()
+		lose_key()
+
 	state = CHOOSE_STATES.NO_CHOICE
 
 func check_door(door):
@@ -243,9 +263,26 @@ func check_door(door):
 func open_door(door):
 	door.open_door()
 	
+func lose_key():
+		if rng.randf() > fail_extra: #fail extra powerup implementation
+			player.update_keys(-1)
+			create_flash(key_tex, "-1", 100.0, 100.0, 100) # This should be better lol
+			sfx_player.stream = lose_key_sound
+			sfx_player.play()
+		else:
+			create_flash(clover_tex, "SAVED", 100.0, 100.0, 100.0)
+			sfx_player.stream = save_key_sound
+			sfx_player.play()
+	
 func spring_trap(door):
 	door.spring_trap()
 	player.traps_hit += 1
+	if rng.randf() <= player.trap_avoid:
+		create_flash(cuff_links_tex, "TRAP AVOIDED!", get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
+		sfx_player.stream = save_key_sound
+		sfx_player.play()
+		return
+	
 	create_flash(key_tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
 	match traps.get(door.inside):
 		traps.MINUS_KEY:
@@ -293,6 +330,25 @@ func spring_trap(door):
 			dx.setup(dy.inside)
 			dy.setup(inside)
 			
+
+func get_nearby_doors(door):
+	var nearby = []
+	var up = find_door(door.pos.x, door.pos.y - 1)
+	if up:
+		nearby.append(up)
+	var down = find_door(door.pos.x, door.pos.y + 1)
+	if down:
+		nearby.append(down)
+	var left = find_door(door.pos.x - 1, door.pos.y)
+	if left:
+		nearby.append(left)
+	var right = find_door(door.pos.x + 1, door.pos.y)
+	if right:
+		nearby.append(right)
+	return nearby
+
+func find_door(x : int, y : int):
+	return doors.filter(func(test : Door): return test.pos == Vector2i(x,y) && !test.checking && !test.open).pop_front()
 
 
 func create_flash(texture : Texture2D, display_message : String, x : float, y : float, display_time : int = 100):

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://c2oo23xd3x785"]
+
+[ext_resource type="Script" path="res://scripts/Upgrade.gd" id="1_i6keu"]
+[ext_resource type="Texture2D" uid="uid://wufkpnwte1kk" path="res://assets/Upgrades/shades.png" id="2_qwx03"]
+
+[resource]
+script = ExtResource("1_i6keu")
+name = "Pizzaman Shades"
+description = "When you fiReveal a nearby door."
+cost = 8
+tex = ExtResource("2_qwx03")
+type = 9

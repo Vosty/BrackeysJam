@@ -10,6 +10,9 @@ var checking = false
 var monster : Monster = null
 var trap : Trap = null
 var is_trap = false
+var pos : Vector2i
+
+static var trap_phase = false
 
 @export var animator : AnimationPlayer
 @export var outline_width = 10.0
@@ -61,12 +64,14 @@ func uncheck_door(close_door = true):
 		animator.play("Door_Close")
 		
 func reveal_trap():
+	trap_phase = true
 	material.set_shader_parameter("outline_color", Color(0.91, 0.29, 0.28, 255))
 	material.set_shader_parameter("width", outline_width)
 	animator.play("Door_Open")
 	checking = true
 	await get_tree().create_timer(0.5).timeout
 	get_node("Node2D/Mon").show()
+	trap_phase = false
 
 func open_door():
 	uncheck_door(false)
@@ -92,14 +97,13 @@ func fade(fade_amount):
 	material.set_shader_parameter("fade", fade_amount)
 
 func spring_trap():
-	uncheck_door(false)
 	open = true
 	animator.play("Door_Open")
 	await get_tree().create_timer(0.5).timeout
 	get_node("Node2D/Mon").show()
 
 func _on_area_2d_mouse_entered():
-	if !checking && !open:
+	if !checking && !open && !trap_phase:
 		highlight()
 
 func _on_area_2d_mouse_exited():

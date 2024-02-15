@@ -7,6 +7,6 @@
 script = ExtResource("1_yon5f")
 name = "Snakeshifter's Fang"
 description = "At start of round, turns one pair into another."
-cost = 8
+cost = 5
 tex = ExtResource("2_ds5dw")
 type = 5
