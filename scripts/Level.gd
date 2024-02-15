@@ -8,6 +8,7 @@ extends Node2D
 @export var baseboard_tex : Texture
 @export var wall_tex : Texture
 @export var floor_tex : Texture
+@export var light_tex : Texture
 @onready var sfx_player = $SFX_Player
 
 @export var match_sound : AudioStream
@@ -49,6 +50,7 @@ func _ready():
 	## Set-up
 	player = get_node("/root/Player_data")
 	
+	draw_floor_bottom()
 	
 	player.set_keys(starting_keys+player.keys_extra)
 	player.attempts = 0
@@ -91,10 +93,15 @@ func prepare_doors():
 			doorSpri.setup(choose_suit()) ## Assign
 
 			door.position.x = (j * ((width-(bufferx * 2)) / (columns-1))) + bufferx
+			# ^ width - 2x buffer leaves total usable width
+			# ^ dividing by the columns minus 1 leaves the horizontal distance between doors.
 			door.position.y = (i * ((height-(buffery * 2)) / (rows-1))) + buffery
 			
-			doorSpri.pos = Vector2i(i, j)
 			
+			doorSpri.pos = Vector2i(i, j)
+			# Add lights between doors
+			if j < columns -1 :
+				add_lights(door.position.x, door.position.y, ((width-(bufferx * 2)) / (columns-1)))
 			doorSpri.Chosen.connect(handle_click)
 			doors.append(doorSpri)
 			add_child(door)
@@ -125,6 +132,31 @@ func setup_baseboards(door_y_position):
 		new_floor.position.x = baseboard_length + 32
 		new_floor.position.y = door_y_position + 64
 		baseboard_length += segment_length
+	
+func add_lights(x_pos, y_pos, h_diff):
+	# the lights should be midway between doors
+	# Easiest way to add lights after each door except the last in the row.
+	var new_light = Sprite2D.new()
+	new_light.texture = light_tex
+	self.add_child(new_light)
+	new_light.position.x = x_pos + (h_diff / 2)
+	new_light.position.y = y_pos
+	
+func draw_floor_bottom(): # Draws floor tiles through the bottom buffery region
+	var floor_segment_height : int = 16
+	var floor_segment_width : int = floor_tex.get_width()
+	var current_floor_height : int = height - buffery
+	var current_floor_width : int = 0
+	while current_floor_height < height:
+		current_floor_width = 0
+		while current_floor_width < width:
+			var new_floor = Sprite2D.new()
+			new_floor.texture = floor_tex
+			self.add_child(new_floor)
+			new_floor.position.x = current_floor_width + 32
+			new_floor.position.y = current_floor_height
+			current_floor_width += floor_segment_width
+		current_floor_height += floor_segment_height
 	
 	
 func setup_suits(rows, columns):
