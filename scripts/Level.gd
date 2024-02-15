@@ -262,11 +262,12 @@ func check_match(door):
 			state = CHOOSE_STATES.RESULTS_SCREEN
 			await get_tree().create_timer(3).timeout
 			get_node("ResultsScreen").show_results_screen()
-		
+			return
 		# Shades Power-up	
 		if player.nearby_show > 0:
 			var nearby = get_nearby_doors(door)
 			if nearby.size() == 0:
+				state = CHOOSE_STATES.NO_CHOICE
 				return
 			create_flash(eye_tex, "PEEKING!", 300.0, 100.0, 100)
 			nearby.shuffle()

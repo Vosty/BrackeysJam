@@ -1,31 +1,32 @@
-[gd_scene load_steps=22 format=3 uid="uid://b84a3o0vgjdmf"]
+[gd_scene load_steps=23 format=3 uid="uid://b84a3o0vgjdmf"]
 
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
 [ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
 [ext_resource type="Resource" uid="uid://h68udoihxw1p" path="res://Upgrades/Iron_Key.tres" id="3_jqn3n"]
 [ext_resource type="Resource" uid="uid://bai7a6b7y6u3y" path="res://Upgrades/Rusty_Key.tres" id="4_d4ie2"]
 [ext_resource type="PackedScene" uid="uid://dno7xid3tv17d" path="res://scenes/dashboard.tscn" id="5_5d8yj"]
-[ext_resource type="Texture2D" uid="uid://cpqiot21hmyii" path="res://assets/Temp_Coin.png" id="5_auf71"]
 [ext_resource type="Resource" uid="uid://b4o5ix58fqp27" path="res://Upgrades/Snake_Fang.tres" id="5_uqm5g"]
 [ext_resource type="Resource" uid="uid://dnex2aapd7nvv" path="res://Upgrades/Key_Ring.tres" id="6_r6voh"]
 [ext_resource type="Resource" uid="uid://c3jeyhghx0sgy" path="res://Upgrades/Milk.tres" id="7_1v8cs"]
 [ext_resource type="Resource" uid="uid://bx1svtnhbmqig" path="res://Upgrades/Monster_Hand.tres" id="8_743kg"]
-[ext_resource type="Texture2D" uid="uid://duimm01qopjil" path="res://assets/Doors/door1.png" id="8_cgrh2"]
-[ext_resource type="AudioStream" uid="uid://c52w4pcpkvx2j" path="res://assets/Audio/SFX/Coin.wav" id="9_r4r3v"]
-[ext_resource type="Texture2D" uid="uid://cdvw4awemuqv7" path="res://assets/eye.png" id="9_yh4x6"]
-[ext_resource type="AudioStream" uid="uid://c20g8y6flt55a" path="res://assets/Audio/SFX/Bell.wav" id="10_1kkdk"]
-[ext_resource type="Texture2D" uid="uid://cxc681ot3g7cb" path="res://assets/Upgrades/Clover.png" id="10_u75pn"]
-[ext_resource type="Texture2D" uid="uid://cy1q6vpn5y3bh" path="res://assets/pixel_bell.png" id="12_cq3om"]
-[ext_resource type="Texture2D" uid="uid://0es4imerv43x" path="res://assets/pixel_bell_depressed.png" id="13_brnwm"]
-[ext_resource type="Texture2D" uid="uid://pglqg7xg6vjb" path="res://assets/Improved_smaller_shopkeeper.png" id="14_iqlq0"]
-[ext_resource type="Texture2D" uid="uid://b4j3kew0r88qq" path="res://assets/Backgrounds/New_Room.png" id="14_porh4"]
+[ext_resource type="Texture2D" uid="uid://b26ue37rnh21r" path="res://assets/Doors/door1.png" id="8_cgrh2"]
+[ext_resource type="AudioStream" uid="uid://tevuf6ekdtrn" path="res://assets/Audio/SFX/Coin.wav" id="9_r4r3v"]
+[ext_resource type="Resource" uid="uid://b61mdgtbr4v8k" path="res://Upgrades/cuff_links.tres" id="9_y723m"]
+[ext_resource type="Texture2D" uid="uid://xjq3gxtfnv71" path="res://assets/eye.png" id="9_yh4x6"]
+[ext_resource type="AudioStream" uid="uid://biyh5w7coknsv" path="res://assets/Audio/SFX/Bell.wav" id="10_1kkdk"]
+[ext_resource type="Texture2D" uid="uid://0xbxp8aqtwtq" path="res://assets/Upgrades/Clover.png" id="10_u75pn"]
+[ext_resource type="Resource" uid="uid://c2oo23xd3x785" path="res://Upgrades/Shades.tres" id="10_vuf7m"]
+[ext_resource type="Texture2D" uid="uid://cxkqxdxob0wb" path="res://assets/pixel_bell.png" id="12_cq3om"]
+[ext_resource type="Texture2D" uid="uid://efiivj31dqv6" path="res://assets/pixel_bell_depressed.png" id="13_brnwm"]
+[ext_resource type="Texture2D" uid="uid://28707hjh87n0" path="res://assets/Improved_smaller_shopkeeper.png" id="14_iqlq0"]
+[ext_resource type="Texture2D" uid="uid://buw6v0j2tuqw8" path="res://assets/Backgrounds/New_Room.png" id="14_porh4"]
 [ext_resource type="PackedScene" uid="uid://ctimkfr2fkk0n" path="res://scenes/Sound_options.tscn" id="15_wmsew"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ukpmh"]
 
 [node name="Shop" type="Node"]
 script = ExtResource("1_uvbbd")
-available_upgrades = [ExtResource("3_jqn3n"), ExtResource("4_d4ie2"), ExtResource("2_jmf0d"), ExtResource("5_uqm5g"), ExtResource("6_r6voh"), ExtResource("7_1v8cs"), ExtResource("8_743kg")]
+available_upgrades = [ExtResource("3_jqn3n"), ExtResource("4_d4ie2"), ExtResource("2_jmf0d"), ExtResource("5_uqm5g"), ExtResource("6_r6voh"), ExtResource("7_1v8cs"), ExtResource("8_743kg"), ExtResource("9_y723m"), ExtResource("10_vuf7m")]
 labels = [NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Label"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Label 1"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Label 2")]
 texs = [NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Item"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Item 1"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Item 2")]
 buttons = [NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 1"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 2"), NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 3")]
@@ -120,10 +121,10 @@ texture_pressed = ExtResource("13_brnwm")
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer2"]
-offset_left = 654.0
-offset_top = 480.0
-offset_right = 904.0
-offset_bottom = 569.0
+offset_left = 912.0
+offset_top = 565.0
+offset_right = 1042.0
+offset_bottom = 654.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2/PanelContainer"]
 layout_mode = 2
@@ -134,15 +135,6 @@ theme_override_constants/margin_bottom = 10
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer2/PanelContainer/MarginContainer"]
 layout_mode = 2
-columns = 2
-
-[node name="Reroll" type="Button" parent="CanvasLayer2/PanelContainer/MarginContainer/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-tooltip_text = "Replaces all items offered in the shop (1 gold)"
-text = "Reroll"
-icon = ExtResource("5_auf71")
-expand_icon = true
 
 [node name="Exit" type="Button" parent="CanvasLayer2/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
@@ -170,5 +162,4 @@ texture = ExtResource("14_iqlq0")
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Bell_Button" to="." method="_on_bell_button_pressed"]
-[connection signal="pressed" from="CanvasLayer2/PanelContainer/MarginContainer/GridContainer/Reroll" to="." method="_on_reroll_pressed"]
 [connection signal="pressed" from="CanvasLayer2/PanelContainer/MarginContainer/GridContainer/Exit" to="." method="_on_exit_pressed"]
