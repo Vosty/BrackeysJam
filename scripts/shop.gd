@@ -22,6 +22,10 @@ func get_available_upgrades():
 		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.FAIL_EXTRA)
 	if player.get_upgrade_hold_count(player.UPGRADES.FREE_REROLLS) >= 10:
 		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.FREE_REROLLS)
+	if player.get_upgrade_hold_count(player.UPGRADES.TRAP_AVOID) >= 5:
+		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.TRAP_AVOID)
+	if player.get_upgrade_hold_count(player.UPGRADES.NEARBY_SHOW) >= 10:
+		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.NEARBY_SHOW)
 	return avail
 
 	

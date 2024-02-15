@@ -9,6 +9,8 @@ var player
 @export var key_ring_icon : TextureRect
 @export var milk_icon : TextureRect
 @export var hand_icon : TextureRect
+@export var cuff_links_icon : TextureRect
+@export var shades_icon : TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -49,6 +51,11 @@ func update_upgrades():
 	milk_icon.tooltip_text = "At end of round, gain " + str(player.bonus_money) + " bonus money."
 	hand_icon.visible = player.free_rerolls > 0
 	hand_icon.tooltip_text = "At each shop, receive " + str(player.free_rerolls) + " free reroll(s)."
+	cuff_links_icon.visible = player.trap_avoid > 0
+	cuff_links_icon.tooltip_text = str(100 * player.trap_avoid) + "% chance to not trigger a trap door when opened."
+	shades_icon.visible = player.nearby_show > 0
+	shades_icon.tooltip_text = "After matching a door, reveal " + str(player.nearby_show) + " nearby doors."
+	
 	
 	
 	
