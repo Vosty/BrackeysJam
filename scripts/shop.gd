@@ -4,11 +4,16 @@ extends Node
 @export var labels = []
 @export var texs = []
 @export var buttons = []
+@export var buy_sound : AudioStream
+@export var bell_sound : AudioStream
+@onready var sfx_player = $SFX_Player
+
 
 var shop_upgrades = []
 var sold_status = []
 var player : Player
 var free_rolls_remaining
+
 
 const flash = preload("res://scenes/text_flash.tscn")
 const coin_tex : Texture2D = preload("res://assets/Temp_Coin.png")
@@ -113,6 +118,8 @@ func _on_exit_pressed():
 
 
 func _on_bell_button_pressed():
+	sfx_player.stream = bell_sound
+	sfx_player.play()
 	if player.coins <= 0:
 		create_flash(coin_tex, "You're Broke!", 500, 600)
 		return

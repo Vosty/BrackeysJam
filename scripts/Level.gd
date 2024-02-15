@@ -6,6 +6,8 @@ extends Node2D
 @export var buffery = 200
 @export var starting_keys = 10
 @export var baseboard_tex : Texture
+@export var wall_tex : Texture
+@export var floor_tex : Texture
 @onready var sfx_player = $SFX_Player
 
 @export var match_sound : AudioStream
@@ -95,14 +97,25 @@ func prepare_doors():
 		
 func setup_baseboards(door_y_position):
 	var baseboard_length : int = 0
-	var segment_length : int = baseboard_tex.get_width()
+	var segment_length : int = wall_tex.get_width()
+	
 	while baseboard_length < width:
 		#Add new baseboard sprite
+		var new_wall = Sprite2D.new()
 		var new_segment = Sprite2D.new()
+		var new_floor = Sprite2D.new()
+		new_wall.texture = wall_tex
 		new_segment.texture = baseboard_tex
+		new_floor.texture = floor_tex
+		self.add_child(new_wall)
 		self.add_child(new_segment)
+		self.add_child(new_floor)
+		new_wall.position.x = baseboard_length + 32
+		new_wall.position.y = door_y_position - 12
 		new_segment.position.x = baseboard_length + 32
 		new_segment.position.y = door_y_position + 30
+		new_floor.position.x = baseboard_length + 32
+		new_floor.position.y = door_y_position + 64
 		baseboard_length += segment_length
 	
 	
