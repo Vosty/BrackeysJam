@@ -3,6 +3,7 @@ render_mode unshaded;
 
 uniform float width : hint_range(0.0,30.0);
 uniform vec4 outline_color : source_color;
+uniform float fade : hint_range(0.0,1.0) ;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
@@ -20,7 +21,7 @@ void fragment()
 	alpha += texture(TEXTURE, UV + vec2(0.0, -size)).a;
 	
 	vec4 final_color = mix(sprite_color, outline_color, clamp(alpha,0.0, 1.0 ));
-	COLOR  = vec4(final_color.rgb, clamp(abs(alpha) + sprite_color.a, 0.0, 1.0));
+	COLOR  = vec4(final_color.rgb, clamp(abs(alpha) + sprite_color.a * fade, 0.0, 1.0));
 }
 
 //void light() {

@@ -17,11 +17,12 @@ var is_trap = false
 #Set up function, called when created by the level scene
 func setup(internal):
 	inside = internal
+	is_trap = inside in MatchSuits.TRAP_SUITS
 	if !is_trap:
-		monster = MatchSuits.get_resource(internal)
+		monster = MatchSuits.get_resource_mon(internal)
 		get_node("Node2D/Mon").texture = monster.tex
 	else:
-		trap = MatchSuits.get_resource(internal)
+		trap = MatchSuits.get_resource_trap(internal)
 		get_node("Node2D/Mon").texture = trap.tex
 
 
@@ -71,6 +72,24 @@ func open_door():
 	uncheck_door(false)
 	open = true
 	animator.play("Door_Open")
+
+func close_door():
+	open = false
+	material.set_shader_parameter("outline_color", Color(0.91, 0.91, 0.20, 255))
+	material.set_shader_parameter("width", outline_width)
+	await get_tree().create_timer(0.8).timeout
+	material.set_shader_parameter("width", 0.0)
+	get_node("Node2D/Mon").hide()
+	animator.play("Door_Close")
+	
+func fade_out(tween : Tween):
+	tween.tween_method(fade, 1.0, 0.0, 0.75)
+	
+func fade_in(tween: Tween):
+	tween.tween_method(fade, 0.0, 1.0, 0.75)
+	
+func fade(fade_amount):
+	material.set_shader_parameter("fade", fade_amount)
 
 func spring_trap():
 	uncheck_door(false)

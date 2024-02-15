@@ -4,7 +4,7 @@ enum MATCH_SUITS { WORM, GREEBO , GUNWICH, FACIST, MOOSE, TOMBSTONE, FROG, CHATM
 
 enum TRAP_SUITS { MINUS_KEY, CLOSE_DOOR, SWAP_DOOR }
 
-func get_resource(suit):
+func get_resource_mon(suit):
 	match MATCH_SUITS.get(suit):
 		MATCH_SUITS.SLIME:
 			return load("res://Monsters/test_monster.tres")
@@ -28,8 +28,15 @@ func get_resource(suit):
 			return load("res://Monsters/cat_chimera.tres")
 		MATCH_SUITS.FUZZY:
 			return load("res://Monsters/suit_sprite.tres")
-			
-		TRAP_SUITS.MINUS_KEY, TRAP_SUITS.CLOSE_DOOR, TRAP_SUITS.CLOSE_DOOR:
-			return load("res://Traps/key_eater.tres")
 		_:
 			return load("res://Monsters/test_monster.tres")
+
+
+func get_resource_trap(suit):
+	match TRAP_SUITS.get(suit):
+		TRAP_SUITS.MINUS_KEY:
+			return load("res://Traps/key_eater.tres")
+		TRAP_SUITS.CLOSE_DOOR:
+			return load("res://Traps/door_closer.tres")
+		TRAP_SUITS.SWAP_DOOR:
+			return load("res://Traps/door_swapper.tres")
