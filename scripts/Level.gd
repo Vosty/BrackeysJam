@@ -9,6 +9,7 @@ extends Node2D
 @export var wall_tex : Texture
 @export var floor_tex : Texture
 @export var light_tex : Texture
+@export var v_beam_tex : Texture
 @onready var sfx_player = $SFX_Player
 
 @export var match_sound : AudioStream
@@ -50,8 +51,8 @@ func _ready():
 	## Set-up
 	player = get_node("/root/Player_data")
 	
-	draw_floor_bottom()
-	
+	draw_walls()
+	draw_sides()
 	player.set_keys(starting_keys+player.keys_extra)
 	player.attempts = 0
 	player.traps_hit = 0
@@ -111,24 +112,19 @@ func prepare_doors():
 		i = i+1
 		
 func setup_baseboards(door_y_position):
-	var baseboard_length : int = 0
-	var segment_length : int = wall_tex.get_width()
+	var baseboard_length : int = bufferx - 108
+	var segment_length : int = baseboard_tex.get_width()
 	
-	while baseboard_length < width:
+	while baseboard_length <= width - bufferx + (segment_length):
 		#Add new baseboard sprite
-		var new_wall = Sprite2D.new()
 		var new_segment = Sprite2D.new()
 		var new_floor = Sprite2D.new()
-		new_wall.texture = wall_tex
 		new_segment.texture = baseboard_tex
 		new_floor.texture = floor_tex
-		self.add_child(new_wall)
 		self.add_child(new_segment)
 		self.add_child(new_floor)
-		new_wall.position.x = baseboard_length + 32
-		new_wall.position.y = door_y_position - 12
 		new_segment.position.x = baseboard_length + 32
-		new_segment.position.y = door_y_position + 30
+		new_segment.position.y = door_y_position + 32
 		new_floor.position.x = baseboard_length + 32
 		new_floor.position.y = door_y_position + 64
 		baseboard_length += segment_length
@@ -140,7 +136,7 @@ func add_lights(x_pos, y_pos, h_diff):
 	new_light.texture = light_tex
 	self.add_child(new_light)
 	new_light.position.x = x_pos + (h_diff / 2)
-	new_light.position.y = y_pos
+	new_light.position.y = y_pos - 32
 	
 func draw_floor_bottom(): # Draws floor tiles through the bottom buffery region
 	var floor_segment_height : int = 16
@@ -157,7 +153,39 @@ func draw_floor_bottom(): # Draws floor tiles through the bottom buffery region
 			new_floor.position.y = current_floor_height
 			current_floor_width += floor_segment_width
 		current_floor_height += floor_segment_height
+
+func draw_sides():
+	var current_height = buffery - 128
+	var beam_width = v_beam_tex.get_width()
+	var beam_height = v_beam_tex.get_height()
+	while current_height < height:
+		var new_beam_left = Sprite2D.new()
+		var new_beam_right = Sprite2D.new()
+		new_beam_left.texture = v_beam_tex 
+		new_beam_right.texture = v_beam_tex
+		self.add_child(new_beam_left)
+		self.add_child(new_beam_right)
+		new_beam_left.position.x = bufferx - (beam_width * 7)
+		new_beam_right.position.x = width - bufferx + (beam_width * 7)
+		new_beam_left.position.y = current_height
+		new_beam_right.position.y = current_height
+		current_height += beam_height
 	
+func draw_walls():
+	var wall_length : int = bufferx - 108
+	var segment_length : int = wall_tex.get_width()
+	var wall_height : int = wall_tex.get_height()
+	var current_height : int =0
+	while current_height < height:
+		wall_length = bufferx - 108
+		while wall_length <= width - bufferx + (segment_length):
+			var new_wall = Sprite2D.new()
+			new_wall.texture = wall_tex
+			self.add_child(new_wall)
+			new_wall.position.x = wall_length + 32
+			new_wall.position.y = current_height
+			wall_length += segment_length
+		current_height += wall_height
 	
 func setup_suits(rows, columns):
 	trap_number = floor(sqrt(rows * columns)) - 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctw22e4wln1pr"]
+[gd_scene load_steps=13 format=3 uid="uid://ctw22e4wln1pr"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_cu03t"]
 [ext_resource type="PackedScene" uid="uid://dno7xid3tv17d" path="res://scenes/dashboard.tscn" id="2_2yidn"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bl2pmuy0lmfc4" path="res://assets/Backgrounds/Sconce.png" id="5_33elf"]
 [ext_resource type="AudioStream" uid="uid://x2oq5q8gh8fh" path="res://assets/Audio/SFX/Lose_key.wav" id="5_t3eut"]
 [ext_resource type="AudioStream" uid="uid://dwd7v3wf5wfi0" path="res://assets/Audio/SFX/Gain_key.wav" id="5_yu8cn"]
+[ext_resource type="Texture2D" uid="uid://dkd0krnoi61e8" path="res://assets/Backgrounds/Beam_V.png" id="6_g14cw"]
 [ext_resource type="PackedScene" uid="uid://ctimkfr2fkk0n" path="res://scenes/Sound_options.tscn" id="8_d8dxd"]
 
 [node name="Node2D2" type="Node2D"]
@@ -19,10 +20,17 @@ baseboard_tex = ExtResource("2_h5gq4")
 wall_tex = ExtResource("3_iiep4")
 floor_tex = ExtResource("4_rcm6k")
 light_tex = ExtResource("5_33elf")
+v_beam_tex = ExtResource("6_g14cw")
 match_sound = ExtResource("3_85v15")
 gain_key_sound = ExtResource("5_yu8cn")
 lose_key_sound = ExtResource("5_t3eut")
 save_key_sound = ExtResource("3_85v15")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(27.04, 18.04)
+color = Color(0.478431, 0.768627, 1, 1)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 scale = Vector2(100, 100)
