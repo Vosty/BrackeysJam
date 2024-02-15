@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trap" load_steps=3 format=3 uid="uid://dk2shp7hlfilx"]
+
+[ext_resource type="Script" path="res://scripts/Trap.gd" id="1_finol"]
+[ext_resource type="Texture2D" uid="uid://dk8iivr4htvcr" path="res://assets/Rusty_Key.png" id="2_55lh6"]
+
+[resource]
+script = ExtResource("1_finol")
+name = "Door Swapper"
+suit = 2
+tex = ExtResource("2_55lh6")

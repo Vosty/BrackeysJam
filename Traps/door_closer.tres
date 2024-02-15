@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trap" load_steps=3 format=3 uid="uid://ka8ww5p8bixh"]
+
+[ext_resource type="Script" path="res://scripts/Trap.gd" id="1_s5w3b"]
+[ext_resource type="Texture2D" uid="uid://dk8iivr4htvcr" path="res://assets/Rusty_Key.png" id="2_iplqj"]
+
+[resource]
+script = ExtResource("1_s5w3b")
+name = "Door Closer"
+suit = 1
+tex = ExtResource("2_iplqj")

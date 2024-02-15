@@ -81,8 +81,7 @@ func prepare_doors():
 			
 			## Creates a door, adjusts it to rest nicely on the screen within a window
 			doorSpri.setup(choose_suit()) ## Assign
-			if doorSpri.inside in MatchSuits.TRAP_SUITS:
-				doorSpri.is_trap = true
+
 			door.position.x = (j * ((width-(bufferx * 2)) / (columns-1))) + bufferx
 			door.position.y = (i * ((height-(buffery * 2)) / (rows-1))) + buffery
 			
@@ -111,11 +110,13 @@ func setup_suits(rows, columns):
 	trap_number = floor(sqrt(rows * columns)) - 2
 	print("Traps: " + str(trap_number))
 	var num_suits = (((rows * columns) - trap_number) / 2)
-	var odd = ((num_suits * 2) + trap_number) % 2 == 1
+	var odd = ((num_suits * 2) + trap_number) != rows * columns
 	if odd:
 		trap_number += 1
+		print("ODD")
 	suits_to_win = num_suits
-	print(str(num_suits))
+	print("Traps: " + str(trap_number))
+	print("Num Suits: " + str(num_suits))
 	var using_suits = suits.keys()
 	# Shuffle list of all possible suits
 	using_suits.shuffle()
@@ -233,7 +234,53 @@ func spring_trap(door):
 	door.spring_trap()
 	player.traps_hit += 1
 	create_flash(key_tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
-	pass
+	match traps.get(door.inside):
+		traps.MINUS_KEY:
+			player.update_keys(-3)
+			create_flash(key_tex, "-3", 100.0, 100.0, 100)
+			sfx_player.stream = lose_key_sound
+			sfx_player.play()
+		traps.CLOSE_DOOR:
+			sfx_player.stream = lose_key_sound
+			sfx_player.play()
+			var open_doors = doors.filter(func(d): return d.open && !d.is_trap)
+			if open_doors.size() < 2:
+				return
+			open_doors.shuffle()
+			var dx = open_doors.pop_front()
+			var dy = open_doors.filter(func(d): return d.inside == dx.inside).pop_front()
+			dx.close_door()
+			dy.close_door()
+			matches_found -= 1
+			open_doors.erase(dy)
+			if open_doors.size() < 2:
+				return
+			open_doors.shuffle()
+			dx = open_doors.pop_front()
+			dy = open_doors.filter(func(d): return d.inside == dx.inside).pop_front()
+			dx.close_door()
+			dy.close_door()
+			matches_found -= 1
+		traps.SWAP_DOOR:
+			var closed_doors = doors.filter(func(d): return !d.open && !d.is_trap && !d.checking)
+			if closed_doors.size() < 2:
+				return
+			closed_doors.shuffle()
+			var dx = closed_doors.pop_front()
+			closed_doors.shuffle()
+			var dy = closed_doors.pop_front()
+			var tween = create_tween()
+			tween.set_parallel(true)
+			dx.fade_out(tween)
+			dy.fade_out(tween)
+			tween = tween.chain()
+			dx.fade_in(tween)
+			dy.fade_in(tween)
+			var inside = dx.inside
+			dx.setup(dy.inside)
+			dy.setup(inside)
+			
+
 
 func create_flash(texture : Texture2D, display_message : String, x : float, y : float, display_time : int = 100):
 	var element = flash.instantiate()
