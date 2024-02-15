@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b84a3o0vgjdmf"]
+[gd_scene load_steps=19 format=3 uid="uid://b84a3o0vgjdmf"]
 
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
 [ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
@@ -13,8 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://duimm01qopjil" path="res://assets/Doors/door1.png" id="8_cgrh2"]
 [ext_resource type="Texture2D" uid="uid://cdvw4awemuqv7" path="res://assets/eye.png" id="9_yh4x6"]
 [ext_resource type="Texture2D" uid="uid://cxc681ot3g7cb" path="res://assets/Upgrades/Clover.png" id="10_u75pn"]
+[ext_resource type="Texture2D" uid="uid://cfagdrssugce1" path="res://assets/Bell.png" id="12_2g7xt"]
 [ext_resource type="Texture2D" uid="uid://pglqg7xg6vjb" path="res://assets/Improved_smaller_shopkeeper.png" id="14_iqlq0"]
+[ext_resource type="Texture2D" uid="uid://b4j3kew0r88qq" path="res://assets/Backgrounds/New_Room.png" id="14_porh4"]
 [ext_resource type="PackedScene" uid="uid://ctimkfr2fkk0n" path="res://scenes/Sound_options.tscn" id="15_wmsew"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ukpmh"]
 
 [node name="Shop" type="Node"]
 script = ExtResource("1_uvbbd")
@@ -28,10 +32,12 @@ buttons = [NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Bu
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
-offset_left = 503.0
-offset_top = 240.0
-offset_right = 819.0
-offset_bottom = 387.0
+offset_left = 718.0
+offset_top = 264.0
+offset_right = 1034.0
+offset_bottom = 446.0
+rotation = 0.219528
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ukpmh")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
 layout_mode = 2
@@ -43,27 +49,33 @@ theme_override_constants/margin_bottom = 10
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_constants/h_separation = 23
+theme_override_constants/h_separation = 60
 theme_override_constants/v_separation = 16
 columns = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme_override_font_sizes/font_size = 23
 text = "Coin"
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Label 1" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme_override_font_sizes/font_size = 23
 text = "Iron Key"
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Label 2" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme_override_font_sizes/font_size = 23
 text = "Rusty Key"
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Item" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
@@ -91,6 +103,14 @@ text = "Buy"
 [node name="Button 3" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 text = "Buy"
+
+[node name="Bell_Reroll" type="TextureButton" parent="CanvasLayer"]
+offset_left = 462.0
+offset_top = 483.0
+offset_right = 914.0
+offset_bottom = 875.0
+scale = Vector2(0.200001, 0.200001)
+texture_normal = ExtResource("12_2g7xt")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
@@ -127,6 +147,11 @@ text = "Exit"
 icon = ExtResource("8_cgrh2")
 expand_icon = true
 
+[node name="ShopBG" type="Sprite2D" parent="."]
+position = Vector2(542, 362)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_porh4")
+
 [node name="Shopkeeper" type="Sprite2D" parent="."]
 position = Vector2(273, 351)
 scale = Vector2(6.37481, 6.37481)
@@ -137,5 +162,6 @@ texture = ExtResource("14_iqlq0")
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Bell_Reroll" to="." method="_on_bell_reroll_pressed"]
 [connection signal="pressed" from="CanvasLayer2/PanelContainer/MarginContainer/GridContainer/Reroll" to="." method="_on_reroll_pressed"]
 [connection signal="pressed" from="CanvasLayer2/PanelContainer/MarginContainer/GridContainer/Exit" to="." method="_on_exit_pressed"]

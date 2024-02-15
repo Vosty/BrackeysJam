@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_cu03t"]
 [ext_resource type="PackedScene" uid="uid://dno7xid3tv17d" path="res://scenes/dashboard.tscn" id="2_2yidn"]
-[ext_resource type="Texture2D" uid="uid://comd4ohiv46jg" path="res://assets/baseboard.png" id="2_h5gq4"]
+[ext_resource type="Texture2D" uid="uid://comd4ohiv46jg" path="res://assets/Backgrounds/baseboard.png" id="2_h5gq4"]
 [ext_resource type="AudioStream" uid="uid://c52w4pcpkvx2j" path="res://assets/Audio/SFX/Coin.wav" id="3_85v15"]
 [ext_resource type="PackedScene" uid="uid://b54yxlywprrkk" path="res://scenes/ResultsScreen.tscn" id="3_rxvxk"]
 [ext_resource type="AudioStream" uid="uid://x2oq5q8gh8fh" path="res://assets/Audio/SFX/Lose_key.wav" id="5_t3eut"]
