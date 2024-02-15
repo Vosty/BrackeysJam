@@ -51,8 +51,8 @@ func _ready():
 	## Set-up
 	player = get_node("/root/Player_data")
 	
-	#draw_walls()
-	#draw_sides()
+	draw_walls()
+	draw_sides()
 	player.set_keys(starting_keys+player.keys_extra)
 	player.attempts = 0
 	player.traps_hit = 0
