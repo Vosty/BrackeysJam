@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/Clouds.gd" id="1_cc6kw"]
 [ext_resource type="Texture2D" uid="uid://dk8iivr4htvcr" path="res://assets/Rusty_Key.png" id="2_7nypl"]
 [ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="3_bt3jc"]
-[ext_resource type="Texture2D" uid="uid://crijtayt61cyc" path="res://assets/MenuButton.png" id="4_e3w4b"]
+[ext_resource type="Texture2D" uid="uid://crijtayt61cyc" path="res://assets/UI/MenuButton.png" id="4_yite7"]
 
 [node name="Clouds" type="Node2D"]
 script = ExtResource("1_cc6kw")
-clouds_tex = [ExtResource("2_7nypl"), ExtResource("3_bt3jc"), ExtResource("4_e3w4b")]
+clouds_tex = [ExtResource("2_7nypl"), ExtResource("3_bt3jc"), ExtResource("4_yite7")]
