@@ -110,3 +110,18 @@ func _on_exit_pressed():
 	player.level += 1
 	player.round += 1
 	get_tree().change_scene_to_file("res://scenes/Level.tscn")
+
+
+func _on_bell_reroll_pressed():
+	if player.coins <= 0:
+		create_flash(coin_tex, "You're Broke!", 500, 600)
+		return
+	if roll_shop():
+		if free_rolls_remaining > 0:
+			create_flash(coin_tex, "FREE!", 500, 100)
+			free_rolls_remaining -= 1
+		else:
+			player.update_coins(-1)
+			create_flash(coin_tex, "-1", 100, 100)
+
+	pass # Replace with function body.
