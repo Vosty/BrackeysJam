@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctw22e4wln1pr"]
+[gd_scene load_steps=15 format=3 uid="uid://ctw22e4wln1pr"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_cu03t"]
 [ext_resource type="PackedScene" uid="uid://dno7xid3tv17d" path="res://scenes/dashboard.tscn" id="2_2yidn"]
@@ -12,6 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://dwd7v3wf5wfi0" path="res://assets/Audio/SFX/Gain_key.wav" id="5_yu8cn"]
 [ext_resource type="Texture2D" uid="uid://dkd0krnoi61e8" path="res://assets/Backgrounds/Beam_V.png" id="6_g14cw"]
 [ext_resource type="PackedScene" uid="uid://ctimkfr2fkk0n" path="res://scenes/Sound_options.tscn" id="8_d8dxd"]
+[ext_resource type="Texture2D" uid="uid://cp473n75yetm5" path="res://assets/Backgrounds/Sky.png" id="10_go6iw"]
+[ext_resource type="PackedScene" uid="uid://cmhua4k1v0ari" path="res://scenes/clouds.tscn" id="11_nfg5p"]
 
 [node name="Node2D2" type="Node2D"]
 script = ExtResource("1_cu03t")
@@ -25,6 +27,12 @@ match_sound = ExtResource("3_85v15")
 gain_key_sound = ExtResource("5_yu8cn")
 lose_key_sound = ExtResource("5_t3eut")
 save_key_sound = ExtResource("3_85v15")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("10_go6iw")
+offset = Vector2(540, 360)
+
+[node name="Clouds" parent="." instance=ExtResource("11_nfg5p")]
 
 [node name="Marker2D" type="Marker2D" parent="."]
 scale = Vector2(100, 100)
