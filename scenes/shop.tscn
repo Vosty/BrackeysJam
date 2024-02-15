@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b84a3o0vgjdmf"]
+[gd_scene load_steps=20 format=3 uid="uid://b84a3o0vgjdmf"]
 
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
 [ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
@@ -13,7 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://duimm01qopjil" path="res://assets/Doors/door1.png" id="8_cgrh2"]
 [ext_resource type="Texture2D" uid="uid://cdvw4awemuqv7" path="res://assets/eye.png" id="9_yh4x6"]
 [ext_resource type="Texture2D" uid="uid://cxc681ot3g7cb" path="res://assets/Upgrades/Clover.png" id="10_u75pn"]
-[ext_resource type="Texture2D" uid="uid://cfagdrssugce1" path="res://assets/Bell.png" id="12_2g7xt"]
+[ext_resource type="Texture2D" uid="uid://cy1q6vpn5y3bh" path="res://assets/pixel_bell.png" id="12_cq3om"]
+[ext_resource type="Texture2D" path="res://assets/pixel_bell_depressed.png" id="13_brnwm"]
 [ext_resource type="Texture2D" uid="uid://pglqg7xg6vjb" path="res://assets/Improved_smaller_shopkeeper.png" id="14_iqlq0"]
 [ext_resource type="Texture2D" uid="uid://b4j3kew0r88qq" path="res://assets/Backgrounds/New_Room.png" id="14_porh4"]
 [ext_resource type="PackedScene" uid="uid://ctimkfr2fkk0n" path="res://scenes/Sound_options.tscn" id="15_wmsew"]
@@ -104,13 +105,13 @@ text = "Buy"
 layout_mode = 2
 text = "Buy"
 
-[node name="Bell_Reroll" type="TextureButton" parent="CanvasLayer"]
-offset_left = 462.0
-offset_top = 483.0
-offset_right = 914.0
-offset_bottom = 875.0
-scale = Vector2(0.200001, 0.200001)
-texture_normal = ExtResource("12_2g7xt")
+[node name="Bell_Button" type="TextureButton" parent="CanvasLayer"]
+offset_left = 529.0
+offset_top = 498.0
+offset_right = 593.0
+offset_bottom = 562.0
+texture_normal = ExtResource("12_cq3om")
+texture_pressed = ExtResource("13_brnwm")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
@@ -162,6 +163,6 @@ texture = ExtResource("14_iqlq0")
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button 3" to="." method="_on_button_3_pressed"]
-[connection signal="pressed" from="CanvasLayer/Bell_Reroll" to="." method="_on_bell_reroll_pressed"]
+[connection signal="pressed" from="CanvasLayer/Bell_Button" to="." method="_on_bell_button_pressed"]
 [connection signal="pressed" from="CanvasLayer2/PanelContainer/MarginContainer/GridContainer/Reroll" to="." method="_on_reroll_pressed"]
 [connection signal="pressed" from="CanvasLayer2/PanelContainer/MarginContainer/GridContainer/Exit" to="." method="_on_exit_pressed"]
