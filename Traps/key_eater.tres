@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trap" load_steps=3 format=3 uid="uid://bhy2jvf17do3q"]
+
+[ext_resource type="Script" path="res://scripts/Trap.gd" id="1_agjhp"]
+[ext_resource type="Texture2D" uid="uid://dk8iivr4htvcr" path="res://assets/Rusty_Key.png" id="2_arhuj"]
+
+[resource]
+script = ExtResource("1_agjhp")
+name = "Key Eeater"
+suit = 0
+tex = ExtResource("2_arhuj")

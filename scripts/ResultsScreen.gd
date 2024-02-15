@@ -26,6 +26,7 @@ func _process(delta):
 
 func show_results_screen():
 	get_node("CanvasLayer/Control/PanelContainer/MarginContainer/GridContainer/AttemptsCount").text = str(player.attempts)
+	get_node("CanvasLayer/Control/PanelContainer/MarginContainer/GridContainer/TrapsCount").text = str(player.traps_hit)
 	get_node("CanvasLayer/Control").show()
 
 func hide_results_screen():
@@ -55,6 +56,7 @@ func _on_button_pressed():
 
 func update_keys():
 	get_node("CanvasLayer/Control/PanelContainer/MarginContainer/GridContainer/KeyCount").text = str(player.keys)
+	
 
 func create_flash(texture : Texture2D, display_message : String, x : float, y : float, display_time : int = 100):
 	var element = flash.instantiate()

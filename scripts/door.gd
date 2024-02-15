@@ -7,7 +7,9 @@ signal Chosen(inside)
 var inside = "hi"
 var open = false
 var checking = false
-var monster : Monster
+var monster : Monster = null
+var trap : Trap = null
+var is_trap = false
 
 @export var animator : AnimationPlayer
 @export var outline_width = 10.0
@@ -15,9 +17,12 @@ var monster : Monster
 #Set up function, called when created by the level scene
 func setup(internal):
 	inside = internal
-	monster = MatchSuits.get_resource(internal)
-	if monster != null:
+	if !is_trap:
+		monster = MatchSuits.get_resource(internal)
 		get_node("Node2D/Mon").texture = monster.tex
+	else:
+		trap = MatchSuits.get_resource(internal)
+		get_node("Node2D/Mon").texture = trap.tex
 
 
 # Called when the node enters the scene tree for the first time.
@@ -53,15 +58,26 @@ func uncheck_door(close_door = true):
 		await get_tree().create_timer(0.8).timeout
 		get_node("Node2D/Mon").hide()
 		animator.play("Door_Close")
+		
+func reveal_trap():
+	material.set_shader_parameter("outline_color", Color(0.91, 0.29, 0.28, 255))
+	material.set_shader_parameter("width", outline_width)
+	animator.play("Door_Open")
+	checking = true
+	await get_tree().create_timer(0.5).timeout
+	get_node("Node2D/Mon").show()
 
 func open_door():
 	uncheck_door(false)
-	material.set_shader_parameter("outline_color", Color(0.91, 0.29, 0.28, 255))
-	material.set_shader_parameter("width", outline_width)
 	open = true
 	animator.play("Door_Open")
 
-
+func spring_trap():
+	uncheck_door(false)
+	open = true
+	animator.play("Door_Open")
+	await get_tree().create_timer(0.5).timeout
+	get_node("Node2D/Mon").show()
 
 func _on_area_2d_mouse_entered():
 	if !checking && !open:
@@ -70,8 +86,6 @@ func _on_area_2d_mouse_entered():
 func _on_area_2d_mouse_exited():
 	if !checking && !open:
 		dehighlight()
-	
-
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton && event.pressed:
