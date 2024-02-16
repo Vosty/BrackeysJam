@@ -421,4 +421,11 @@ func create_flash(texture : Texture2D, display_message : String, x : float, y : 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	pass
+	
+func _input(event):
+	if Input.is_action_pressed("Skip"):
+		#get_node("ResultsScreen").show_results_screen()
+		get_tree().change_scene_to_file("res://scenes/shop.tscn")
+		
