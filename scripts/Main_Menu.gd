@@ -7,6 +7,7 @@ extends Control
 @onready var instructions_panel = $Instructions_Panel
 
 
+
 func _on_play_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/Level.tscn")
 	pass # Replace with function body.
@@ -53,7 +54,7 @@ func _on_quit_button_pressed():
 
 func _on_directions_pressed():
 	instructions_panel.visible = true
-
-
+	
+	
 func _on_back_button_pressed():
 	instructions_panel.visible = false
