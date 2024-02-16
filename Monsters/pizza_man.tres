@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_rbvqt")
-name = "Pizzano"
+name = "Pizzaman"
 suit = 16
 tex = ExtResource("2_tm0uy")

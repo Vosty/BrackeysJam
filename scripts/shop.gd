@@ -5,9 +5,14 @@ extends Node
 @export var texs = []
 @export var buttons = []
 @export var buy_sound : AudioStream
-@export var bell_sound : AudioStream
+@export var reroll_sound : AudioStream
+@export var free_reroll_sound : AudioStream
+@export var broke_sound : AudioStream
+@export var leave_sound : AudioStream
 @onready var sfx_player = $SFX_Player
 
+@onready var bell = $CanvasLayer/Bell_Button
+@export var outline_width = 5
 
 var shop_upgrades = []
 var sold_status = []
@@ -29,7 +34,7 @@ func get_available_upgrades():
 		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.FREE_REROLLS)
 	if player.get_upgrade_hold_count(player.UPGRADES.TRAP_AVOID) >= 5:
 		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.TRAP_AVOID)
-	if player.get_upgrade_hold_count(player.UPGRADES.NEARBY_SHOW) >= 10:
+	if player.get_upgrade_hold_count(player.UPGRADES.NEARBY_SHOW) >= 4:
 		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.NEARBY_SHOW)
 	return avail
 
@@ -37,6 +42,9 @@ func get_available_upgrades():
 
 func set_shop():
 	free_rolls_remaining = player.free_rerolls
+	if free_rolls_remaining > 0:
+		bell.material.set_shader_parameter("outline_color", Color(0.91, 0.91, 0.20, 255))
+		bell.material.set_shader_parameter("width", outline_width)
 	for i in labels.size():
 		labels[i] = get_node(labels[i])
 		texs[i] = get_node(texs[i])
@@ -95,44 +103,46 @@ func buy_upgrade(i):
 		return
 	if player.coins < shop_upgrades[i].cost:
 		create_flash(coin_tex, "You're Broke!", 500, 100)
+		sfx_player.stream = broke_sound
+		sfx_player.play()
 		return
 	player.update_coins(-1 * shop_upgrades[i].cost)
 	create_flash(coin_tex, "-" + str(shop_upgrades[i].cost), 100, 100)
+	sfx_player.stream = buy_sound
+	sfx_player.play()
 	player.upgrades.append(shop_upgrades[i])
 	buttons[i].text = "SOLD"
 	sold_status[i] = true
 	player.check_upgrades()
 
-func _on_reroll_pressed():
-	if player.coins <= 0:
-		create_flash(coin_tex, "You're Broke!", 500, 600)
-		return
-	if roll_shop():
-		if free_rolls_remaining > 0:
-			create_flash(coin_tex, "FREE!", 500, 100)
-			free_rolls_remaining -= 1
-		else:
-			player.update_coins(-1)
-			create_flash(coin_tex, "-1", 100, 100)
 
 func _on_exit_pressed():
 	player.level += 1
 	player.round += 1
+	sfx_player.steam = leave_sound
+	sfx_player.play()
 	get_tree().change_scene_to_file("res://scenes/Level.tscn")
 
 
 
 func _on_bell_button_pressed():
-	sfx_player.stream = bell_sound
-	sfx_player.play()
-	if player.coins <= 0:
-		create_flash(coin_tex, "You're Broke!", 500, 600)
+
+	if player.coins <= 0 && free_rolls_remaining <= 0:
+		create_flash(coin_tex, "You're Broke!", 500, 100)
+		sfx_player.stream = broke_sound
+		sfx_player.play()
 		return
 	if roll_shop():
 		if free_rolls_remaining > 0:
+			sfx_player.stream = free_reroll_sound
+			sfx_player.play()
 			create_flash(coin_tex, "FREE!", 500, 100)
 			free_rolls_remaining -= 1
+			if free_rolls_remaining <= 0:
+				bell.material.set_shader_parameter("width", 0)
 		else:
+			sfx_player.stream = reroll_sound
+			sfx_player.play()
 			player.update_coins(-1)
 			create_flash(coin_tex, "-1", 100, 100)
 
