@@ -40,7 +40,7 @@ func update_upgrades():
 	match_extra_icon.visible = (player.match_extra > 0)
 	match_extra_icon.tooltip_text = str(100 * player.match_extra) + "% chance to gain an extra key when succesfully matching doors."
 	fail_extra_icon.visible = (player.fail_extra > 0)
-	fail_extra_icon.tooltip_text = str(100 * player.fail_extra) + "% chance to gain an extra key when failing to match doors."
+	fail_extra_icon.tooltip_text = str(100 * player.fail_extra) + "% chance to save a key when failing to match doors."
 	peek_icon.visible = (player.peek > 0)
 	peek_icon.tooltip_text = "Peek behind " +str(player.peek) + " door(s) at the beginning of each round."
 	fang_icon.visible = (player.clone_pairs > 0)

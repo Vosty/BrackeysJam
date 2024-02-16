@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://b4ywhvyspd8x2"]
 
 [ext_resource type="Script" path="res://scripts/Monster.gd" id="1_hska8"]
-[ext_resource type="Texture2D" uid="uid://bjng00yqwqoaw" path="res://assets/MonsterSprites/greebo.png" id="2_2xira"]
+[ext_resource type="Texture2D" uid="uid://bngnnhjbsso6c" path="res://assets/MonsterSprites/greebo.png" id="2_2xira"]
 
 [resource]
 script = ExtResource("1_hska8")
-name = "Slime"
+name = "TEST_MONSTER"
 suit = 27
 tex = ExtResource("2_2xira")

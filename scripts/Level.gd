@@ -293,6 +293,7 @@ func handle_click(door):
 func check_match(door):
 	if pick_one.inside == pick_two.inside:
 		print("match!")
+		create_flash(door.monster.tex, door.monster.name, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
 		sfx_status.stream = match_sound
 		sfx_status.play()
 		open_door(pick_one)
@@ -348,10 +349,6 @@ func check_match(door):
 func check_door(door):
 	sfx_doors.stream = open_door_sound
 	sfx_doors.play()
-	if !door.is_trap:
-		create_flash(door.monster.tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
-	else:
-		create_flash(door.trap.tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
 	door.check_door()
 	
 func uncheck_door(door, close = true):
@@ -408,7 +405,7 @@ func spring_trap(door):
 		sfx_effects.play()
 		return
 	
-	create_flash(door.trap.tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
+	#create_flash(door.trap.tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
 	sfx_status.stream = trap_sound
 	sfx_status.play()
 	match traps.get(door.inside):

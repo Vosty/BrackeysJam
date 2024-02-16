@@ -68,14 +68,18 @@ func peek_door(tween : Tween):
 	var mon = get_node("Node2D/Mon")
 	mon.show()
 	mon.modulate.a = 0.0
+	tween.set_parallel()
 	tween.tween_property(mon, 'modulate:a', 1.0, 1.05)
+	tween.tween_method(fade, 1.0, .5, 1.05)
 	
 func unpeek_door(tween : Tween):
 	material.set_shader_parameter("width", 0.0)
 	
 	var mon = get_node("Node2D/Mon")
 	print(str(mon.modulate))
+	tween.set_parallel()
 	tween.tween_property(mon, 'modulate:a', 0.0, 1.05)
+	tween.tween_method(fade, .5, 1.0, 1.05)
 	await get_tree().create_timer(1.05).timeout
 	checking = false
 	mon.hide()
@@ -115,6 +119,8 @@ func close_door():
 	animator.play("Door_Close")
 	
 func fade_out(tween : Tween):
+	material.set_shader_parameter("outline_color", Color(0.91, 0.91, 0.20, 255))
+	material.set_shader_parameter("width", outline_width)
 	tween.tween_method(fade, 1.0, 0.0, 0.75)
 	
 func fade_in(tween: Tween):
