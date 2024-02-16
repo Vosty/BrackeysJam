@@ -496,4 +496,6 @@ func _input(event):
 	if Input.is_action_pressed("Skip"):
 		#get_node("ResultsScreen").show_results_screen()
 		get_tree().change_scene_to_file("res://scenes/shop.tscn")
+	if Input.is_action_pressed("money"):
+		player.update_coins(5)
 		

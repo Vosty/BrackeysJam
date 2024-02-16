@@ -5,6 +5,7 @@ extends Control
 @export var quit_button : TextureButton
 @export var options_button : TextureButton
 @onready var instructions_panel = $Instructions_Panel
+@onready var credits_panel = $"Credits Panel"
 
 
 
@@ -58,3 +59,10 @@ func _on_directions_pressed():
 	
 func _on_back_button_pressed():
 	instructions_panel.visible = false
+	credits_panel.visible = false
+	
+	
+
+
+func _on_options_button_pressed():
+	credits_panel.visible = true
