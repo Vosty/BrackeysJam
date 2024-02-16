@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bymgy2hcf3oyn"]
 
 [ext_resource type="Script" path="res://scripts/Main_Menu.gd" id="1_wdhwn"]
-[ext_resource type="Texture2D" uid="uid://cohrgtarse0kt" path="res://assets/Backgrounds/BG1.png" id="2_yodb4"]
-[ext_resource type="Texture2D" uid="uid://crijtayt61cyc" path="res://assets/UI/MenuButton.png" id="3_tmm0j"]
-[ext_resource type="Texture2D" uid="uid://cblrxi114tf3d" path="res://assets/UI/MenuButton2.png" id="4_vfk8n"]
+[ext_resource type="Texture2D" uid="uid://fxthyxjousjp" path="res://assets/Backgrounds/BG1.png" id="2_yodb4"]
+[ext_resource type="Texture2D" uid="uid://c5t2d8ovatlrd" path="res://assets/UI/MenuButton.png" id="3_tmm0j"]
+[ext_resource type="Texture2D" uid="uid://b3cr2l2umkwhn" path="res://assets/UI/MenuButton2.png" id="4_vfk8n"]
 
 [node name="Menu" type="Control" node_paths=PackedStringArray("play_button", "tutorial_button", "quit_button", "options_button")]
 layout_mode = 3

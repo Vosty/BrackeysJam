@@ -341,7 +341,10 @@ func check_match(door):
 	state = CHOOSE_STATES.NO_CHOICE
 
 func check_door(door):
-	create_flash(door.monster.tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
+	if !door.is_trap:
+		create_flash(door.monster.tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
+	else:
+		create_flash(door.trap.tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
 	door.check_door()
 	
 func open_door(door):
