@@ -38,9 +38,10 @@ const flash = preload("res://scenes/text_flash.tscn")
 const key_tex : Texture2D = preload("res://assets/Iron_Key.png")
 const coin_tex : Texture2D = preload("res://assets/Temp_Coin.png")
 
-const clover_tex : Texture2D = preload("res://assets/Upgrades/Clover.png")
+const horn_tex : Texture2D = preload("res://assets/Upgrades/greebo_horn.png")
+const cloth_tex : Texture2D = preload("res://assets/Upgrades/stranger_cloth.png")
 const cuff_links_tex : Texture2D = preload("res://assets/Upgrades/cufflinks.png")
-const eye_tex : Texture2D = preload("res://assets/eye.png")
+const eye_tex : Texture2D = preload("res://assets/Upgrades/seeker_eye.png")
 const shades_tex : Texture2D = preload("res://assets/Upgrades/shades.png")
 
 
@@ -278,6 +279,8 @@ func handle_click(door):
 		CHOOSE_STATES.CHOICE_TWO:
 			pass
 		CHOOSE_STATES.PEEK_STAGE: #Allows looking behind door at beginning if able
+			if peek <= 0:
+				return
 			peek -= 1
 			peek_door(door)
 			create_flash(eye_tex, "PEEKING!", 300.0, 100.0, 100)
@@ -305,7 +308,7 @@ func check_match(door):
 			sfx_effects.stream = gain_key_sound
 			sfx_effects.play()
 			await get_tree().create_timer(.30).timeout
-			create_flash(clover_tex, "+1", 100.0, 100.0, 100.0)
+			create_flash(horn_tex, "+1", 100.0, 100.0, 100.0)
 			print("Match extra")
 			
 		if matches_found >= suits_to_win:
@@ -390,7 +393,7 @@ func lose_key():
 			sfx_effects.play()
 		else:
 			await get_tree().create_timer(0.30).timeout
-			create_flash(clover_tex, "SAVED", 100.0, 100.0, 100.0)
+			create_flash(cloth_tex, "SAVED", 100.0, 100.0, 100.0)
 			sfx_effects.stream = save_key_sound
 			sfx_effects.play()
 	

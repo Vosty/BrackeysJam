@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://dvls6tj85hcx2"]
+
+[ext_resource type="Script" path="res://scripts/Monster.gd" id="1_pwem4"]
+[ext_resource type="Texture2D" uid="uid://desp5w3lrs1rp" path="res://assets/MonsterSprites/Squurtle.png" id="2_jtac7"]
+
+[resource]
+script = ExtResource("1_pwem4")
+name = "Squ-urtle"
+suit = 0
+tex = ExtResource("2_jtac7")
