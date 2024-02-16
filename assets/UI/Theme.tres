@@ -1,3 +1,6 @@
-[gd_resource type="Theme" format=3 uid="uid://dpepvem0a1wpw"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dpepvem0a1wpw"]
+
+[ext_resource type="FontFile" uid="uid://cdm2t6777veyl" path="res://assets/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="1_tbkhq"]
 
 [resource]
+Label/fonts/font = ExtResource("1_tbkhq")
