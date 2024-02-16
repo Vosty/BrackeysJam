@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b54yxlywprrkk"]
 
 [ext_resource type="Script" path="res://scripts/ResultsScreen.gd" id="1_6ttil"]
-[ext_resource type="AudioStream" uid="uid://c52w4pcpkvx2j" path="res://assets/Audio/SFX/Coin.wav" id="2_ncaq1"]
+[ext_resource type="AudioStream" uid="uid://tevuf6ekdtrn" path="res://assets/Audio/SFX/Coin.wav" id="2_ncaq1"]
 [ext_resource type="StyleBox" uid="uid://dehb46trjw82d" path="res://assets/UI/Stylebox_1.tres" id="3_4xskx"]
 
 [node name="ResultsScreen" type="Node2D"]
@@ -19,9 +19,9 @@ offset_bottom = 40.0
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 385.0
-offset_top = 263.0
+offset_top = 253.0
 offset_right = 695.0
-offset_bottom = 435.0
+offset_bottom = 459.0
 theme_override_styles/panel = ExtResource("3_4xskx")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/PanelContainer"]
@@ -29,7 +29,7 @@ layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = -7
+theme_override_constants/margin_bottom = 10
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/PanelContainer/MarginContainer"]
 layout_mode = 2

@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 Player_data="*res://scripts/Player.gd"
 MatchSuits="*res://scripts/match_suits.gd"
+Music="*res://scenes/music.tscn"
+SoundOptions="*res://scenes/Sound_options.tscn"
 
 [display]
 

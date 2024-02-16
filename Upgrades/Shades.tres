@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_i6keu")
 name = "Pizzaman Shades"
-description = "When you fiReveal a nearby door."
+description = "When you find a match, reveal a nearby door."
 cost = 8
 tex = ExtResource("2_qwx03")
 type = 9
