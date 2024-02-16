@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://c4h2sadq2arvw"]
+
+[ext_resource type="Script" path="res://scripts/Monster.gd" id="1_ddawr"]
+[ext_resource type="Texture2D" uid="uid://ifp4jn6s888p" path="res://assets/MonsterSprites/hentaimonster.png" id="2_jnknh"]
+
+[resource]
+script = ExtResource("1_ddawr")
+name = "Squidragon"
+suit = 26
+tex = ExtResource("2_jnknh")

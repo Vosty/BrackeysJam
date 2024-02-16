@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://d26uaejjp1ilk"]
+
+[ext_resource type="Script" path="res://scripts/Monster.gd" id="1_kx8to"]
+[ext_resource type="Texture2D" uid="uid://cxqj2xa0vaknq" path="res://assets/MonsterSprites/Morrimancer Enslaver of Worlds2.png" id="2_un0eg"]
+
+[resource]
+script = ExtResource("1_kx8to")
+name = "Morrimancer, Enslaver of Worlds"
+suit = 16
+tex = ExtResource("2_un0eg")

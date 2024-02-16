@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://cfvi6c5qo3dna"]
+
+[ext_resource type="Script" path="res://scripts/Monster.gd" id="1_rho7i"]
+[ext_resource type="Texture2D" uid="uid://bc47ubm76767m" path="res://assets/MonsterSprites/gloper.png" id="2_fmmhi"]
+
+[resource]
+script = ExtResource("1_rho7i")
+name = "Gloper"
+suit = 13
+tex = ExtResource("2_fmmhi")
