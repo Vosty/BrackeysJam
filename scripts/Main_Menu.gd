@@ -4,7 +4,9 @@ extends Control
 @export var tutorial_button : TextureButton
 @export var quit_button : TextureButton
 @export var options_button : TextureButton
-	
+@onready var instructions_panel = $Instructions_Panel
+
+
 
 func _on_play_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/Level.tscn")
@@ -48,3 +50,11 @@ func _on_quit_button_mouse_exited():
 
 func _on_quit_button_pressed():
 	get_tree().quit()
+
+
+func _on_directions_pressed():
+	instructions_panel.visible = true
+	
+	
+func _on_back_button_pressed():
+	instructions_panel.visible = false
