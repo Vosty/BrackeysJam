@@ -4,6 +4,8 @@ extends Sprite2D
 
 signal Chosen(inside)
 
+signal Close_Finished()
+
 var inside = "hi"
 var open = false
 var checking = false
@@ -41,7 +43,10 @@ func _process(delta):
 
 
 func highlight(): #Effectively turns the shader outline on
-	material.set_shader_parameter("outline_color", Color(0.11, 0.49, 0.88, 255))
+	if Player_data.is_peeking:
+		material.set_shader_parameter("outline_color", Color(0.81, 0.49, 0.88, 255))
+	else:
+		material.set_shader_parameter("outline_color", Color(0.11, 0.49, 0.88, 255))
 	material.set_shader_parameter("width", outline_width)
 	
 func dehighlight(): #Effectively turns the shader outline off
@@ -55,9 +60,35 @@ func check_door():
 	await get_tree().create_timer(0.5).timeout
 	get_node("Node2D/Mon").show()
 	
+func peek_door(tween : Tween):
+	material.set_shader_parameter("outline_color", Color(0.61, 0.29, 0.68, 255))
+	material.set_shader_parameter("width", outline_width)
+	checking = true
+	#await get_tree().create_timer(0.5).timeout
+	var mon = get_node("Node2D/Mon")
+	mon.show()
+	mon.modulate.a = 0.0
+	tween.set_parallel()
+	tween.tween_property(mon, 'modulate:a', 1.0, 1.05)
+	tween.tween_method(fade, 1.0, .5, 1.05)
+	
+func unpeek_door(tween : Tween):
+	material.set_shader_parameter("width", 0.0)
+	
+	var mon = get_node("Node2D/Mon")
+	print(str(mon.modulate))
+	tween.set_parallel()
+	tween.tween_property(mon, 'modulate:a', 0.0, 1.05)
+	tween.tween_method(fade, .5, 1.0, 1.05)
+	await get_tree().create_timer(1.05).timeout
+	checking = false
+	mon.hide()
+	mon.modulate.a = 1.0
+	
 func uncheck_door(close_door = true):
 	material.set_shader_parameter("width", 0.0)
 	checking = false
+	trap_phase = false
 	if close_door:
 		await get_tree().create_timer(0.8).timeout
 		get_node("Node2D/Mon").hide()
@@ -71,7 +102,7 @@ func reveal_trap():
 	checking = true
 	await get_tree().create_timer(0.5).timeout
 	get_node("Node2D/Mon").show()
-	trap_phase = false
+
 
 func open_door():
 	uncheck_door(false)
@@ -88,6 +119,8 @@ func close_door():
 	animator.play("Door_Close")
 	
 func fade_out(tween : Tween):
+	material.set_shader_parameter("outline_color", Color(0.91, 0.91, 0.20, 255))
+	material.set_shader_parameter("width", outline_width)
 	tween.tween_method(fade, 1.0, 0.0, 0.75)
 	
 func fade_in(tween: Tween):
@@ -98,6 +131,7 @@ func fade(fade_amount):
 
 func spring_trap():
 	open = true
+	material.set_shader_parameter("width", 0.0)
 	animator.play("Door_Open")
 	await get_tree().create_timer(0.5).timeout
 	get_node("Node2D/Mon").show()
@@ -113,3 +147,8 @@ func _on_area_2d_mouse_exited():
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton && event.pressed:
 		Chosen.emit(self)
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "Door_Close":
+		Close_Finished.emit()

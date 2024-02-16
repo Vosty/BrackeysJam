@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://bc8kkoy3bo2ob"]
+
+[ext_resource type="Script" path="res://scripts/Monster.gd" id="1_6bye3"]
+[ext_resource type="Texture2D" uid="uid://ct0nolta6rvwl" path="res://assets/MonsterSprites/mysterious cloaked figure.png" id="2_dexw1"]
+
+[resource]
+script = ExtResource("1_6bye3")
+name = "Stranger"
+suit = 19
+tex = ExtResource("2_dexw1")

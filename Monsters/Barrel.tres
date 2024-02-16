@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://d385vv7oqjreb"]
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://dv0rgi54mv58h"]
 
 [ext_resource type="Script" path="res://scripts/Monster.gd" id="1_js5ja"]
-[ext_resource type="Texture2D" uid="uid://dd8bduyvmmqg3" path="res://assets/MonsterSprites/barrel-kun.png" id="2_aqopj"]
+[ext_resource type="Texture2D" uid="uid://d0rpr8vhgaao8" path="res://assets/MonsterSprites/barrel-kun.png" id="2_aqopj"]
 
 [resource]
 script = ExtResource("1_js5ja")
 name = "Barrel-kun"
-suit = 14
+suit = 13
 tex = ExtResource("2_aqopj")

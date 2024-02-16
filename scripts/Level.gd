@@ -12,6 +12,7 @@ extends Node2D
 @export var v_beam_tex : Texture
 @onready var sfx_effects = $SFX_Effects
 @onready var sfx_doors: = $SFX_Doors
+@onready var sfx_status = $SFX_Status
 
 @export var match_sound : AudioStream
 @export var fail_sound : AudioStream
@@ -24,6 +25,9 @@ extends Node2D
 @export var game_over_sound : AudioStream
 @export var peek_sound : AudioStream
 @export var shades_sound : AudioStream
+
+@export var open_door_sound : AudioStream
+@export var close_door_sound : AudioStream
 
 
 enum CHOOSE_STATES {NO_CHOICE, CHOICE_ONE, CHOICE_TWO, RESULTS_SCREEN, PEEK_STAGE, TRAP_REVEAL}
@@ -75,14 +79,15 @@ func _ready():
 		state = CHOOSE_STATES.TRAP_REVEAL
 		var traps = doors.filter(func (d): return d.is_trap)
 		for t in traps:
-			t.reveal_trap()
+			reveal_trap(t)
 		await get_tree().create_timer(5).timeout
 		for t in traps:
-			t.uncheck_door()
+			uncheck_door(t)
 	
 		
 	peek = player.peek
 	if peek > 0:
+		player.is_peeking = true
 		state = CHOOSE_STATES.PEEK_STAGE
 	else:
 		state = CHOOSE_STATES.NO_CHOICE
@@ -114,6 +119,7 @@ func prepare_doors():
 			if j < columns -1 :
 				add_lights(door.position.x, door.position.y, ((width-(bufferx * 2)) / (columns-1)))
 			doorSpri.Chosen.connect(handle_click)
+			doorSpri.Close_Finished.connect(play_close_sound)
 			doors.append(doorSpri)
 			add_child(door)
 			j = j+1
@@ -261,7 +267,7 @@ func handle_click(door):
 		CHOOSE_STATES.CHOICE_ONE:
 			if door.is_trap:
 				spring_trap(door)
-				pick_one.uncheck_door()
+				uncheck_door(pick_one)
 				lose_key()
 				state = CHOOSE_STATES.NO_CHOICE
 				return
@@ -273,23 +279,23 @@ func handle_click(door):
 			pass
 		CHOOSE_STATES.PEEK_STAGE: #Allows looking behind door at beginning if able
 			peek -= 1
-			check_door(door)
+			peek_door(door)
 			create_flash(eye_tex, "PEEKING!", 300.0, 100.0, 100)
-			sfx_effects.stream = peek_sound
-			sfx_effects.play()
 			if peek <= 0:
+				player.is_peeking = false
 				await get_tree().create_timer(1).timeout
 				for d in doors:
 					if d.checking:
-						d.uncheck_door(true)
+						unpeek_door(d)
 				state = CHOOSE_STATES.NO_CHOICE
 			
 			pass
 func check_match(door):
 	if pick_one.inside == pick_two.inside:
 		print("match!")
-		sfx_doors.stream = match_sound
-		sfx_doors.play()
+		create_flash(door.monster.tex, door.monster.name, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
+		sfx_status.stream = match_sound
+		sfx_status.play()
 		open_door(pick_one)
 		open_door(pick_two)
 		matches_found = matches_found + 1
@@ -325,27 +331,55 @@ func check_match(door):
 				if nearby.size() > 0:
 					show.append(nearby.pop_front())
 			for d in show:
-				d.check_door()
+				check_door(d)
 				await get_tree().create_timer(0.75).timeout
-				d.uncheck_door()
+				uncheck_door(d)
 			
 		## Do not decrement attempts!
 	else:
 		print("die")
-		sfx_doors.stream = fail_sound
-		sfx_doors.play()
-		pick_one.uncheck_door()
-		pick_two.uncheck_door()
+		sfx_status.stream = fail_sound
+		sfx_status.play()
+		uncheck_door(pick_one)
+		uncheck_door(pick_two)
 		lose_key()
 
 	state = CHOOSE_STATES.NO_CHOICE
 
 func check_door(door):
-	create_flash(door.monster.tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
+	sfx_doors.stream = open_door_sound
+	sfx_doors.play()
 	door.check_door()
 	
+func uncheck_door(door, close = true):
+	door.uncheck_door(close)
+	
 func open_door(door):
+	sfx_doors.stream = open_door_sound
+	sfx_doors.play()
 	door.open_door()
+
+func close_door(door):
+	door.close_door()
+	
+func play_close_sound():
+	sfx_doors.stream = close_door_sound
+	sfx_doors.play()
+	
+func reveal_trap(door):
+	sfx_doors.stream = open_door_sound
+	sfx_doors.play()
+	door.reveal_trap()
+	
+func peek_door(door):
+	sfx_effects.stream = peek_sound
+	sfx_effects.play()
+	var tween = create_tween()
+	door.peek_door(tween)
+	
+func unpeek_door(door):
+	var tween = create_tween()
+	door.unpeek_door(tween)
 	
 func lose_key():
 		if rng.randf() > fail_extra: #fail extra powerup implementation
@@ -361,6 +395,8 @@ func lose_key():
 			sfx_effects.play()
 	
 func spring_trap(door):
+	sfx_doors.stream = open_door_sound
+	sfx_doors.play()
 	door.spring_trap()
 	player.traps_hit += 1
 	if rng.randf() <= player.trap_avoid:
@@ -369,15 +405,17 @@ func spring_trap(door):
 		sfx_effects.play()
 		return
 	
-	create_flash(door.trap.tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
-	sfx_doors.stream = trap_sound
-	sfx_doors.play()
+	#create_flash(door.trap.tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
+	sfx_status.stream = trap_sound
+	sfx_status.play()
 	match traps.get(door.inside):
 		traps.MINUS_KEY:
-			player.update_keys(-3)
-			create_flash(key_tex, "-3", 100.0, 100.0, 100)
-			sfx_effects.stream = lose_key_sound
-			sfx_effects.play()
+			for i in 3:
+				await get_tree().create_timer(0.20).timeout
+				player.update_keys(-1)
+				create_flash(key_tex, "-1", 100.0, 100.0, 100)
+				sfx_effects.stream = lose_key_sound
+				sfx_effects.play()
 		traps.CLOSE_DOOR:
 			sfx_effects.stream = lose_key_sound
 			sfx_effects.play()
@@ -387,8 +425,8 @@ func spring_trap(door):
 			open_doors.shuffle()
 			var dx = open_doors.pop_front()
 			var dy = open_doors.filter(func(d): return d.inside == dx.inside).pop_front()
-			dx.close_door()
-			dy.close_door()
+			close_door(dx)
+			close_door(dy)
 			matches_found -= 1
 			open_doors.erase(dy)
 			if open_doors.size() < 2:
@@ -396,8 +434,8 @@ func spring_trap(door):
 			open_doors.shuffle()
 			dx = open_doors.pop_front()
 			dy = open_doors.filter(func(d): return d.inside == dx.inside).pop_front()
-			dx.close_door()
-			dy.close_door()
+			close_door(dx)
+			close_door(dy)
 			matches_found -= 1
 		traps.SWAP_DOOR:
 			var closed_doors = doors.filter(func(d): return !d.open && !d.is_trap && !d.checking)
