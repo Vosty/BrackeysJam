@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://864mskd75opw"]
+
+[ext_resource type="Script" path="res://scripts/Monster.gd" id="1_vl4m8"]
+[ext_resource type="Texture2D" uid="uid://cc22so0rdxdc6" path="res://assets/MonsterSprites/SpiderPrincess.png" id="2_t0gda"]
+
+[resource]
+script = ExtResource("1_vl4m8")
+name = "Spider Princess"
+suit = 18
+tex = ExtResource("2_t0gda")

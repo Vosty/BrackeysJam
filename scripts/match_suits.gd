@@ -1,6 +1,6 @@
 extends Node
 
-enum MATCH_SUITS { WORM, GREEBO , GUNWICH, FACIST, MOOSE, TOMBSTONE, FROG, CHATMERA, FUZZY, BORKS, SKROB, SKELPY, BATMAN, SPIDERMAN, BAGELS, BREAD, RICE, PIZZA, WATER, SODA, PISS, GRASS, FIRE, STEEL, GROUND, PSYCHIC, FAIRY, SLIME }
+enum MATCH_SUITS { WORM, GREEBO , GUNWICH, FACIST, MOOSE, TOMBSTONE, FROG, CHATMERA, FUZZY, BORKS, SKROB, SKELPY, BATMAN, GLOPER, BARREL, BREAD, MORRIMANCER, PIZZA, SPIDER, SODA, PISS, GRASS, SNAKESHIFTER, STEEL, GROUND, PSYCHIC, SQUIDRAGON, SLIME }
 
 enum TRAP_SUITS { MINUS_KEY, CLOSE_DOOR, SWAP_DOOR }
 
@@ -34,6 +34,18 @@ func get_resource_mon(suit):
 			return load("res://Monsters/skrob.tres")
 		MATCH_SUITS.SKELPY:
 			return load("res://Monsters/minotaur.tres")
+		MATCH_SUITS.BARREL:
+			return load("res://Monsters/Barrel.tres")
+		MATCH_SUITS.GLOPER:
+			return load("res://Monsters/Gloper.tres")
+		MATCH_SUITS.MORRIMANCER:
+			return load("res://Monsters/Morrimancer.tres")
+		MATCH_SUITS.SNAKESHIFTER:
+			return load("res://Monsters/Snakeshifter.tres")
+		MATCH_SUITS.SPIDER:
+			return load("res://Monsters/Spider_princess.tres")
+		MATCH_SUITS.SQUIDRAGON:
+			return load("res://Monsters/Squidragon.tres")
 		_:
 			return load("res://Monsters/test_monster.tres")
 

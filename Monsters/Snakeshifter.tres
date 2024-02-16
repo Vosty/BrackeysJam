@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://dh3m1s4m0xqrt"]
+
+[ext_resource type="Script" path="res://scripts/Monster.gd" id="1_13m04"]
+[ext_resource type="Texture2D" uid="uid://dvuxak7vh5jew" path="res://assets/MonsterSprites/Snakeshifter.png" id="2_kvtit"]
+
+[resource]
+script = ExtResource("1_13m04")
+name = "Snakeshifter"
+suit = 22
+tex = ExtResource("2_kvtit")
