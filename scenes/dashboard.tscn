@@ -1,11 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://dno7xid3tv17d"]
+[gd_scene load_steps=14 format=3 uid="uid://dno7xid3tv17d"]
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_342t2"]
 [ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="2_4r4v0"]
 [ext_resource type="Texture2D" uid="uid://ci4g8og0w5tpn" path="res://assets/Temp_Coin.png" id="2_hfbhw"]
-[ext_resource type="Texture2D" uid="uid://0xbxp8aqtwtq" path="res://assets/Upgrades/Clover.png" id="4_4oqjb"]
-[ext_resource type="Texture2D" uid="uid://xjq3gxtfnv71" path="res://assets/eye.png" id="5_bvm2r"]
+[ext_resource type="Texture2D" uid="uid://bs4jcpwqnmd6p" path="res://assets/Upgrades/greebo_horn.png" id="4_6mns3"]
+[ext_resource type="Texture2D" uid="uid://3e74eltk1o5k" path="res://assets/Upgrades/stranger_cloth.png" id="5_nfntm"]
 [ext_resource type="Texture2D" uid="uid://s5c0buv5bq6b" path="res://assets/Upgrades/fang.png" id="6_gmauj"]
+[ext_resource type="Texture2D" uid="uid://del3nmpvoa5st" path="res://assets/Upgrades/seeker_eye.png" id="6_k31h4"]
 [ext_resource type="Texture2D" uid="uid://cm50b46hainou" path="res://assets/Upgrades/key_ring.png" id="7_resj5"]
 [ext_resource type="Texture2D" uid="uid://dq41pxgaificx" path="res://assets/Upgrades/milk.png" id="8_lpmxp"]
 [ext_resource type="Texture2D" uid="uid://une0bapbsm71" path="res://assets/Upgrades/monster_hand.png" id="9_qlnpg"]
@@ -75,17 +76,17 @@ offset_bottom = 324.0
 [node name="match_extra_texture" type="TextureRect" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 tooltip_text = "Chance of gaining an extra key when making a match."
-texture = ExtResource("4_4oqjb")
+texture = ExtResource("4_6mns3")
 
 [node name="fail_extra_texture" type="TextureRect" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 tooltip_text = "Chance of gaining an extra key when failing to match doors."
-texture = ExtResource("4_4oqjb")
+texture = ExtResource("5_nfntm")
 
 [node name="peek_texture" type="TextureRect" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 tooltip_text = "The amount of peeks available at the beginning of a round."
-texture = ExtResource("5_bvm2r")
+texture = ExtResource("6_k31h4")
 
 [node name="fang_texture" type="TextureRect" parent="CanvasLayer/GridContainer"]
 layout_mode = 2

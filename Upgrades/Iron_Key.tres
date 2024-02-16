@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://h68udoihxw1p"]
 
 [ext_resource type="Script" path="res://scripts/Upgrade.gd" id="1_7hupt"]
-[ext_resource type="Texture2D" uid="uid://0xbxp8aqtwtq" path="res://assets/Upgrades/Clover.png" id="2_v5sd6"]
+[ext_resource type="Texture2D" uid="uid://bs4jcpwqnmd6p" path="res://assets/Upgrades/greebo_horn.png" id="2_0w1tg"]
 
 [resource]
 script = ExtResource("1_7hupt")
-name = "Iron Key"
+name = "Greebo Horn "
 description = "Gives you +10% chance to gain an extra key on a match."
 cost = 5
-tex = ExtResource("2_v5sd6")
+tex = ExtResource("2_0w1tg")
 type = 1

@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://bai7a6b7y6u3y"]
 
 [ext_resource type="Script" path="res://scripts/Upgrade.gd" id="1_1bi8l"]
-[ext_resource type="Texture2D" uid="uid://0xbxp8aqtwtq" path="res://assets/Upgrades/Clover.png" id="2_kjgld"]
+[ext_resource type="Texture2D" uid="uid://3e74eltk1o5k" path="res://assets/Upgrades/stranger_cloth.png" id="2_y81li"]
 
 [resource]
 script = ExtResource("1_1bi8l")
-name = "Rusty Key"
+name = "Stranger Cloth"
 description = "Gives you a +5% chance to save a key when you fail to find a match."
 cost = 4
-tex = ExtResource("2_kjgld")
+tex = ExtResource("2_y81li")
 type = 2
