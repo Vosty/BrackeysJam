@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://bymgy2hcf3oyn"]
+[gd_scene load_steps=14 format=3 uid="uid://bymgy2hcf3oyn"]
 
 [ext_resource type="Script" path="res://scripts/Main_Menu.gd" id="1_wdhwn"]
 [ext_resource type="Texture2D" uid="uid://cohrgtarse0kt" path="res://assets/Backgrounds/BG1.png" id="2_yodb4"]
 [ext_resource type="Texture2D" uid="uid://crijtayt61cyc" path="res://assets/UI/MenuButton.png" id="3_tmm0j"]
 [ext_resource type="Texture2D" uid="uid://cblrxi114tf3d" path="res://assets/UI/MenuButton2.png" id="4_vfk8n"]
+[ext_resource type="StyleBox" uid="uid://dehb46trjw82d" path="res://assets/UI/Stylebox_1.tres" id="5_qrc6o"]
+[ext_resource type="FontFile" uid="uid://brrsn7hu01hxa" path="res://assets/Fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="6_tcbx5"]
+[ext_resource type="Theme" uid="uid://dpepvem0a1wpw" path="res://assets/UI/Theme.tres" id="6_tklfc"]
+[ext_resource type="Texture2D" uid="uid://jq5jm7r62q04" path="res://assets/UI/Door_Closed.png" id="8_vhkoc"]
+[ext_resource type="Texture2D" uid="uid://ctame1f6cywnp" path="res://assets/UI/Door_Open.png" id="9_2eupt"]
+[ext_resource type="Texture2D" uid="uid://rey4t7ia67xa" path="res://assets/Upgrades/key_ring.png" id="9_pymjb"]
+[ext_resource type="Texture2D" uid="uid://rl4n50a1m2ti" path="res://assets/Upgrades/shades.png" id="10_01fqc"]
+[ext_resource type="Texture2D" uid="uid://brnd1a0ftdje7" path="res://assets/UI/Arrow_2.png" id="10_t0ej2"]
+[ext_resource type="Texture2D" uid="uid://bjng00yqwqoaw" path="res://assets/MonsterSprites/greebo.png" id="11_baaif"]
 
 [node name="Menu" type="Control" node_paths=PackedStringArray("play_button", "tutorial_button", "quit_button", "options_button")]
 layout_mode = 3
@@ -12,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_tklfc")
 script = ExtResource("1_wdhwn")
 play_button = NodePath("Play_Button")
 tutorial_button = NodePath("Directions")
@@ -57,12 +67,14 @@ flip_h = true
 
 [node name="Label" type="Label" parent="Directions"]
 layout_mode = 0
-offset_left = 40.5369
-offset_top = 30.4027
-offset_right = 158.537
-offset_bottom = 77.4027
+offset_left = 37.6414
+offset_top = 15.9252
+offset_right = 155.642
+offset_bottom = 94.9252
 theme_override_font_sizes/font_size = 31
-text = "Tutorial"
+text = "How to
+Play"
+horizontal_alignment = 1
 
 [node name="OptionsButton" type="TextureButton" parent="."]
 layout_mode = 0
@@ -101,13 +113,125 @@ offset_bottom = 92.2857
 theme_override_font_sizes/font_size = 34
 text = "Quit"
 
+[node name="Instructions_Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 80.0
+offset_top = 110.0
+offset_right = 1035.0
+offset_bottom = 681.0
+theme_override_styles/panel = ExtResource("5_qrc6o")
+
+[node name="Title Label" type="Label" parent="Instructions_Panel"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 4.0
+offset_right = 754.0
+offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("6_tcbx5")
+theme_override_font_sizes/font_size = 34
+text = "Welcome to the Monster Hotel!"
+
+[node name="Label" type="Label" parent="Instructions_Panel"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 58.0
+offset_right = 865.0
+offset_bottom = 409.0
+theme = ExtResource("6_tklfc")
+text = "The Basics:
+Your goal is to correctly match the guests of each room by  clicking on the doors to their room.
+
+After each round you receive a flat salary of five coins plus tips equal to your remaining attempts.
+
+You may use the money you earn to buy items from the shop that will help you in future rounds.
+
+Traps: Some rooms have traps hidden inside them. But don't worry you will be told which ones at the beginning of each round. Just be careful to avoid them."
+autowrap_mode = 2
+
+[node name="Door_Texture" type="TextureRect" parent="Instructions_Panel"]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 122.0
+offset_right = 708.0
+offset_bottom = 315.0
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("8_vhkoc")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Door_open" type="TextureRect" parent="Instructions_Panel"]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 122.0
+offset_right = 844.0
+offset_bottom = 315.0
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("9_2eupt")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Door_open2" type="TextureRect" parent="Instructions_Panel"]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 144.0
+offset_right = 861.4
+offset_bottom = 337.0
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("10_t0ej2")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Monster" type="TextureRect" parent="Instructions_Panel"]
+layout_mode = 0
+offset_left = 562.0
+offset_top = 123.0
+offset_right = 848.0
+offset_bottom = 316.0
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("11_baaif")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Item_Texture" type="TextureRect" parent="Instructions_Panel"]
+layout_mode = 0
+offset_left = 397.0
+offset_top = 317.0
+offset_right = 437.0
+offset_bottom = 357.0
+scale = Vector2(1.96, 1.96)
+texture = ExtResource("9_pymjb")
+stretch_mode = 5
+
+[node name="Item_Texture2" type="TextureRect" parent="Instructions_Panel"]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 319.0
+offset_right = 543.0
+offset_bottom = 359.0
+scale = Vector2(1.96, 1.96)
+texture = ExtResource("10_01fqc")
+stretch_mode = 5
+
+[node name="BackButton" type="Button" parent="Instructions_Panel"]
+layout_mode = 0
+offset_left = 860.0
+offset_top = 520.0
+offset_right = 907.0
+offset_bottom = 551.0
+theme = ExtResource("6_tklfc")
+theme_override_fonts/font = ExtResource("6_tcbx5")
+text = "Back"
+
 [connection signal="mouse_entered" from="Play_Button" to="." method="_on_play_button_mouse_entered"]
 [connection signal="mouse_exited" from="Play_Button" to="." method="_on_play_button_mouse_exited"]
 [connection signal="pressed" from="Play_Button" to="." method="_on_play_button_pressed"]
 [connection signal="mouse_entered" from="Directions" to="." method="_on_directions_mouse_entered"]
 [connection signal="mouse_exited" from="Directions" to="." method="_on_directions_mouse_exited"]
+[connection signal="pressed" from="Directions" to="." method="_on_directions_pressed"]
 [connection signal="mouse_entered" from="OptionsButton" to="." method="_on_options_button_mouse_entered"]
 [connection signal="mouse_exited" from="OptionsButton" to="." method="_on_options_button_mouse_exited"]
 [connection signal="mouse_entered" from="QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="mouse_exited" from="QuitButton" to="." method="_on_quit_button_mouse_exited"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Instructions_Panel/BackButton" to="." method="_on_back_button_pressed"]

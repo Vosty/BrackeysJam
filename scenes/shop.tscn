@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b84a3o0vgjdmf"]
+[gd_scene load_steps=25 format=3 uid="uid://b84a3o0vgjdmf"]
 
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
 [ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
@@ -21,7 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://pglqg7xg6vjb" path="res://assets/Improved_smaller_shopkeeper.png" id="14_iqlq0"]
 [ext_resource type="Texture2D" uid="uid://b4j3kew0r88qq" path="res://assets/Backgrounds/New_Room.png" id="14_porh4"]
 [ext_resource type="StyleBox" uid="uid://dehb46trjw82d" path="res://assets/UI/Stylebox_1.tres" id="18_addwe"]
-[ext_resource type="Texture2D" uid="uid://dikxbqdlgey0h" path="res://assets/Doors/door final.png" id="19_b2xnq"]
+[ext_resource type="Texture2D" uid="uid://jq5jm7r62q04" path="res://assets/UI/Door_Closed.png" id="19_0l80o"]
+[ext_resource type="Texture2D" uid="uid://ctame1f6cywnp" path="res://assets/UI/Door_Open.png" id="20_mo5qf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ukpmh"]
 
@@ -135,7 +136,8 @@ theme_override_constants/separation = 0
 
 [node name="TextureButton" type="TextureButton" parent="CanvasLayer2/PanelContainer/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("19_b2xnq")
+texture_normal = ExtResource("19_0l80o")
+texture_pressed = ExtResource("20_mo5qf")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="CanvasLayer2/PanelContainer/VBoxContainer"]

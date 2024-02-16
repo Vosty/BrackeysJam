@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmhua4k1v0ari"]
+[gd_scene load_steps=4 format=3 uid="uid://cmhua4k1v0ari"]
 
 [ext_resource type="Script" path="res://scripts/Clouds.gd" id="1_cc6kw"]
-[ext_resource type="Texture2D" uid="uid://dk8iivr4htvcr" path="res://assets/Rusty_Key.png" id="2_7nypl"]
-[ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="3_bt3jc"]
-[ext_resource type="Texture2D" uid="uid://crijtayt61cyc" path="res://assets/UI/MenuButton.png" id="4_yite7"]
+[ext_resource type="Texture2D" uid="uid://fla2bbeu3aps" path="res://assets/Backgrounds/cloud1.png" id="2_nudpl"]
+[ext_resource type="Texture2D" uid="uid://ghb0roptdbvd" path="res://assets/Backgrounds/Cloud2.png" id="3_axe5c"]
 
 [node name="Clouds" type="Node2D"]
+position = Vector2(-1, 0)
 script = ExtResource("1_cc6kw")
-clouds_tex = [ExtResource("2_7nypl"), ExtResource("3_bt3jc"), ExtResource("4_yite7")]
+clouds_tex = [ExtResource("2_nudpl"), ExtResource("3_axe5c")]
+cloud_speed = 15.0
