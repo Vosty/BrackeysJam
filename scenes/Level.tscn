@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_cu03t"]
 [ext_resource type="PackedScene" uid="uid://dno7xid3tv17d" path="res://scenes/dashboard.tscn" id="2_2yidn"]
 [ext_resource type="Texture2D" uid="uid://comd4ohiv46jg" path="res://assets/Backgrounds/baseboard.png" id="2_h5gq4"]
+[ext_resource type="Texture2D" uid="uid://cfy1lpt363652" path="res://assets/Backgrounds/brick_tile.png" id="3_0p4kn"]
 [ext_resource type="AudioStream" uid="uid://c52w4pcpkvx2j" path="res://assets/Audio/SFX/Coin.wav" id="3_85v15"]
-[ext_resource type="Texture2D" uid="uid://bhcglv144sbd5" path="res://assets/Backgrounds/Wallpattern.png" id="3_iiep4"]
 [ext_resource type="PackedScene" uid="uid://b54yxlywprrkk" path="res://scenes/ResultsScreen.tscn" id="3_rxvxk"]
 [ext_resource type="Texture2D" uid="uid://buik1u1457euw" path="res://assets/Backgrounds/Floor_pattern.png" id="4_rcm6k"]
 [ext_resource type="Texture2D" uid="uid://bl2pmuy0lmfc4" path="res://assets/Backgrounds/Sconce.png" id="5_33elf"]
@@ -19,7 +19,7 @@
 script = ExtResource("1_cu03t")
 buffery = 125
 baseboard_tex = ExtResource("2_h5gq4")
-wall_tex = ExtResource("3_iiep4")
+wall_tex = ExtResource("3_0p4kn")
 floor_tex = ExtResource("4_rcm6k")
 light_tex = ExtResource("5_33elf")
 v_beam_tex = ExtResource("6_g14cw")

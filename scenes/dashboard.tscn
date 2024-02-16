@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dno7xid3tv17d"]
+[gd_scene load_steps=13 format=3 uid="uid://dno7xid3tv17d"]
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_342t2"]
 [ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="2_4r4v0"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://hu4im7e6aqsy" path="res://assets/Upgrades/monster_hand.png" id="9_qlnpg"]
 [ext_resource type="Texture2D" uid="uid://be2fh17uuy21k" path="res://assets/Upgrades/cufflinks.png" id="10_hkawt"]
 [ext_resource type="Texture2D" uid="uid://rl4n50a1m2ti" path="res://assets/Upgrades/shades.png" id="11_0wcve"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7i5eu"]
 
 [node name="Dashboard" type="Node" node_paths=PackedStringArray("match_extra_icon", "fail_extra_icon", "peek_icon", "fang_icon", "key_ring_icon", "milk_icon", "hand_icon", "cuff_links_icon", "shades_icon")]
 script = ExtResource("1_342t2")
@@ -29,6 +31,7 @@ shades_icon = NodePath("CanvasLayer/GridContainer/shades_texture")
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 offset_right = 234.0
 offset_bottom = 82.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7i5eu")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
 layout_mode = 2

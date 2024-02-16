@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b84a3o0vgjdmf"]
+[gd_scene load_steps=24 format=3 uid="uid://b84a3o0vgjdmf"]
 
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
 [ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://pglqg7xg6vjb" path="res://assets/Improved_smaller_shopkeeper.png" id="14_iqlq0"]
 [ext_resource type="Texture2D" uid="uid://b4j3kew0r88qq" path="res://assets/Backgrounds/New_Room.png" id="14_porh4"]
 [ext_resource type="PackedScene" uid="uid://ctimkfr2fkk0n" path="res://scenes/Sound_options.tscn" id="15_wmsew"]
+[ext_resource type="StyleBox" uid="uid://dehb46trjw82d" path="res://assets/UI/Stylebox_1.tres" id="18_addwe"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ukpmh"]
 
@@ -125,6 +126,7 @@ offset_left = 912.0
 offset_top = 565.0
 offset_right = 1042.0
 offset_bottom = 654.0
+theme_override_styles/panel = ExtResource("18_addwe")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2/PanelContainer"]
 layout_mode = 2
