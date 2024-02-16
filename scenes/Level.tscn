@@ -1,18 +1,25 @@
-[gd_scene load_steps=14 format=3 uid="uid://ctw22e4wln1pr"]
+[gd_scene load_steps=21 format=3 uid="uid://ctw22e4wln1pr"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_cu03t"]
 [ext_resource type="PackedScene" uid="uid://dno7xid3tv17d" path="res://scenes/dashboard.tscn" id="2_2yidn"]
 [ext_resource type="Texture2D" uid="uid://bi8ai4i2qlk2y" path="res://assets/Backgrounds/baseboard.png" id="2_h5gq4"]
 [ext_resource type="Texture2D" uid="uid://bq0tqdevjue3r" path="res://assets/Backgrounds/brick_tile.png" id="3_0p4kn"]
-[ext_resource type="AudioStream" uid="uid://tevuf6ekdtrn" path="res://assets/Audio/SFX/Coin.wav" id="3_85v15"]
 [ext_resource type="PackedScene" uid="uid://b54yxlywprrkk" path="res://scenes/ResultsScreen.tscn" id="3_rxvxk"]
 [ext_resource type="Texture2D" uid="uid://bqj7gx0fpch5p" path="res://assets/Backgrounds/Floor_pattern.png" id="4_rcm6k"]
 [ext_resource type="Texture2D" uid="uid://bstmmtgopfpg3" path="res://assets/Backgrounds/Sconce.png" id="5_33elf"]
 [ext_resource type="AudioStream" uid="uid://47fnxtkg26j7" path="res://assets/Audio/SFX/Lose_key.wav" id="5_t3eut"]
 [ext_resource type="AudioStream" uid="uid://c7gbac4k4hjcb" path="res://assets/Audio/SFX/Gain_key.wav" id="5_yu8cn"]
 [ext_resource type="Texture2D" uid="uid://dxrao8bbr41hj" path="res://assets/Backgrounds/Beam_V.png" id="6_g14cw"]
+[ext_resource type="AudioStream" uid="uid://dp7u0liv7acpy" path="res://assets/Audio/SFX/match_sound.wav" id="7_aqhoi"]
+[ext_resource type="AudioStream" uid="uid://b7dsilkxorw2g" path="res://assets/Audio/SFX/match_wrong.wav" id="8_aq1ou"]
+[ext_resource type="AudioStream" uid="uid://cdyfhtqjow2w0" path="res://assets/Audio/SFX/trap_hit.wav" id="9_01fss"]
 [ext_resource type="Texture2D" uid="uid://cktf37v6fralb" path="res://assets/Backgrounds/Sky.png" id="10_go6iw"]
 [ext_resource type="PackedScene" uid="uid://cmhua4k1v0ari" path="res://scenes/clouds.tscn" id="11_nfg5p"]
+[ext_resource type="AudioStream" uid="uid://belntiussgkh3" path="res://assets/Audio/SFX/key_saved.wav" id="12_j8eng"]
+[ext_resource type="AudioStream" uid="uid://cy21dy5rc8jtg" path="res://assets/Audio/SFX/trap_saved.wav" id="13_w672x"]
+[ext_resource type="AudioStream" uid="uid://c8wmkk8bvnm1l" path="res://assets/Audio/SFX/win_sound.wav" id="14_ntsd2"]
+[ext_resource type="AudioStream" uid="uid://coktg387reyso" path="res://assets/Audio/SFX/peeking.wav" id="14_vlv4c"]
+[ext_resource type="AudioStream" uid="uid://cjfmxmkacu6xe" path="res://assets/Audio/SFX/shades.wav" id="15_541wg"]
 
 [node name="Node2D2" type="Node2D"]
 script = ExtResource("1_cu03t")
@@ -22,10 +29,16 @@ wall_tex = ExtResource("3_0p4kn")
 floor_tex = ExtResource("4_rcm6k")
 light_tex = ExtResource("5_33elf")
 v_beam_tex = ExtResource("6_g14cw")
-match_sound = ExtResource("3_85v15")
+match_sound = ExtResource("7_aqhoi")
+fail_sound = ExtResource("8_aq1ou")
+trap_sound = ExtResource("9_01fss")
 gain_key_sound = ExtResource("5_yu8cn")
 lose_key_sound = ExtResource("5_t3eut")
-save_key_sound = ExtResource("3_85v15")
+save_key_sound = ExtResource("12_j8eng")
+trap_save_sound = ExtResource("13_w672x")
+win_sound = ExtResource("14_ntsd2")
+peek_sound = ExtResource("14_vlv4c")
+shades_sound = ExtResource("15_541wg")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("10_go6iw")
@@ -40,5 +53,10 @@ scale = Vector2(100, 100)
 
 [node name="ResultsScreen" parent="." instance=ExtResource("3_rxvxk")]
 
-[node name="SFX_Player" type="AudioStreamPlayer" parent="."]
+[node name="SFX_Effects" type="AudioStreamPlayer" parent="."]
+max_polyphony = 6
+bus = &"SFX"
+
+[node name="SFX_Doors" type="AudioStreamPlayer" parent="."]
+max_polyphony = 6
 bus = &"SFX"

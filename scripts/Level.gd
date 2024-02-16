@@ -10,13 +10,22 @@ extends Node2D
 @export var floor_tex : Texture
 @export var light_tex : Texture
 @export var v_beam_tex : Texture
-@onready var sfx_player = $SFX_Player
+@onready var sfx_effects = $SFX_Effects
+@onready var sfx_doors: = $SFX_Doors
 
 @export var match_sound : AudioStream
+@export var fail_sound : AudioStream
+@export var trap_sound : AudioStream
 @export var gain_key_sound : AudioStream
 @export var lose_key_sound : AudioStream
 @export var save_key_sound : AudioStream
+@export var trap_save_sound : AudioStream
 @export var win_sound : AudioStream
+@export var game_over_sound : AudioStream
+@export var peek_sound : AudioStream
+@export var shades_sound : AudioStream
+
+
 enum CHOOSE_STATES {NO_CHOICE, CHOICE_ONE, CHOICE_TWO, RESULTS_SCREEN, PEEK_STAGE, TRAP_REVEAL}
 
 
@@ -28,6 +37,7 @@ const coin_tex : Texture2D = preload("res://assets/Temp_Coin.png")
 const clover_tex : Texture2D = preload("res://assets/Upgrades/Clover.png")
 const cuff_links_tex : Texture2D = preload("res://assets/Upgrades/cufflinks.png")
 const eye_tex : Texture2D = preload("res://assets/eye.png")
+const shades_tex : Texture2D = preload("res://assets/Upgrades/shades.png")
 
 
 var suits = MatchSuits.MATCH_SUITS
@@ -265,7 +275,10 @@ func handle_click(door):
 			peek -= 1
 			check_door(door)
 			create_flash(eye_tex, "PEEKING!", 300.0, 100.0, 100)
+			sfx_effects.stream = peek_sound
+			sfx_effects.play()
 			if peek <= 0:
+				await get_tree().create_timer(1).timeout
 				for d in doors:
 					if d.checking:
 						d.uncheck_door(true)
@@ -275,19 +288,25 @@ func handle_click(door):
 func check_match(door):
 	if pick_one.inside == pick_two.inside:
 		print("match!")
-		sfx_player.stream = match_sound
-		sfx_player.play()
+		sfx_doors.stream = match_sound
+		sfx_doors.play()
 		open_door(pick_one)
 		open_door(pick_two)
 		matches_found = matches_found + 1
 		# Match_Extra powerup
 		if rng.randf() <= match_extra:
 			player.update_keys(1)
+			sfx_effects.stream = gain_key_sound
+			sfx_effects.play()
+			await get_tree().create_timer(.30).timeout
 			create_flash(clover_tex, "+1", 100.0, 100.0, 100.0)
 			print("Match extra")
 			
 		if matches_found >= suits_to_win:
 			state = CHOOSE_STATES.RESULTS_SCREEN
+			await get_tree().create_timer(0.85).timeout
+			sfx_effects.stream = win_sound
+			sfx_effects.play()
 			await get_tree().create_timer(3).timeout
 			get_node("ResultsScreen").show_results_screen()
 			return
@@ -297,11 +316,13 @@ func check_match(door):
 			if nearby.size() == 0:
 				state = CHOOSE_STATES.NO_CHOICE
 				return
-			create_flash(eye_tex, "PEEKING!", 300.0, 100.0, 100)
+			create_flash(shades_tex, "PEEKING!", 300.0, 100.0, 100)
+			sfx_effects.stream = shades_sound
+			sfx_effects.play()
 			nearby.shuffle()
 			var show = []	
 			for i in player.nearby_show:
-				if nearby.size() > 1:
+				if nearby.size() > 0:
 					show.append(nearby.pop_front())
 			for d in show:
 				d.check_door()
@@ -311,6 +332,8 @@ func check_match(door):
 		## Do not decrement attempts!
 	else:
 		print("die")
+		sfx_doors.stream = fail_sound
+		sfx_doors.play()
 		pick_one.uncheck_door()
 		pick_two.uncheck_door()
 		lose_key()
@@ -318,7 +341,7 @@ func check_match(door):
 	state = CHOOSE_STATES.NO_CHOICE
 
 func check_door(door):
-	create_flash(key_tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
+	create_flash(door.monster.tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
 	door.check_door()
 	
 func open_door(door):
@@ -327,33 +350,37 @@ func open_door(door):
 func lose_key():
 		if rng.randf() > fail_extra: #fail extra powerup implementation
 			player.update_keys(-1)
+			await get_tree().create_timer(0.30).timeout
 			create_flash(key_tex, "-1", 100.0, 100.0, 100) # This should be better lol
-			sfx_player.stream = lose_key_sound
-			sfx_player.play()
+			sfx_effects.stream = lose_key_sound
+			sfx_effects.play()
 		else:
+			await get_tree().create_timer(0.30).timeout
 			create_flash(clover_tex, "SAVED", 100.0, 100.0, 100.0)
-			sfx_player.stream = save_key_sound
-			sfx_player.play()
+			sfx_effects.stream = save_key_sound
+			sfx_effects.play()
 	
 func spring_trap(door):
 	door.spring_trap()
 	player.traps_hit += 1
 	if rng.randf() <= player.trap_avoid:
 		create_flash(cuff_links_tex, "TRAP AVOIDED!", get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
-		sfx_player.stream = save_key_sound
-		sfx_player.play()
+		sfx_effects.stream = trap_save_sound
+		sfx_effects.play()
 		return
 	
-	create_flash(key_tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
+	create_flash(door.trap.tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
+	sfx_doors.stream = trap_sound
+	sfx_doors.play()
 	match traps.get(door.inside):
 		traps.MINUS_KEY:
 			player.update_keys(-3)
 			create_flash(key_tex, "-3", 100.0, 100.0, 100)
-			sfx_player.stream = lose_key_sound
-			sfx_player.play()
+			sfx_effects.stream = lose_key_sound
+			sfx_effects.play()
 		traps.CLOSE_DOOR:
-			sfx_player.stream = lose_key_sound
-			sfx_player.play()
+			sfx_effects.stream = lose_key_sound
+			sfx_effects.play()
 			var open_doors = doors.filter(func(d): return d.open && !d.is_trap)
 			if open_doors.size() < 2:
 				return

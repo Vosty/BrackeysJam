@@ -37,8 +37,11 @@ func _on_button_pressed():
 		return
 	closed = true
 	var reward = 5 + player.bonus_money
+	sfx_player.stream = coin_sound
+	sfx_player.play()
 	create_flash(coin_tex, "+" + str(reward), 50, 100, 100)
 	player.update_coins(reward)
+	await get_tree().create_timer(0.5).timeout
 	for i in player.keys:
 		await get_tree().create_timer(0.2).timeout
 		player.update_keys(-1)
