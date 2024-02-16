@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkcwmthfipfj0"]
+[gd_scene load_steps=10 format=3 uid="uid://dkcwmthfipfj0"]
 
 [ext_resource type="Shader" path="res://assets/Shaders/Outline.gdshader" id="1_75228"]
 [ext_resource type="Texture2D" uid="uid://cfnnovxn1sx02" path="res://assets/Doors/doorOpening-Sheet.png" id="2_h4odd"]
 [ext_resource type="Script" path="res://scripts/door.gd" id="3_k60dh"]
+[ext_resource type="Texture2D" uid="uid://bngnnhjbsso6c" path="res://assets/MonsterSprites/greebo.png" id="4_61tga"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w2ymo"]
 resource_local_to_scene = true
@@ -16,7 +17,7 @@ size = Vector2(96, 128)
 
 [sub_resource type="Animation" id="Animation_42yuo"]
 resource_name = "Door_Close"
-length = 0.5
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -78,7 +79,9 @@ libraries = {
 position = Vector2(0, 32)
 
 [node name="Mon" type="Sprite2D" parent="Sprite2D/Node2D"]
+texture = ExtResource("4_61tga")
 
 [connection signal="input_event" from="Sprite2D/Area2D" to="Sprite2D" method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Sprite2D/Area2D" to="Sprite2D" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Sprite2D/Area2D" to="Sprite2D" method="_on_area_2d_mouse_exited"]
+[connection signal="animation_finished" from="Sprite2D/AnimationPlayer" to="Sprite2D" method="_on_animation_player_animation_finished"]
