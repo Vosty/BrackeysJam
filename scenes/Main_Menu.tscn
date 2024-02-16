@@ -53,6 +53,7 @@ offset_left = 56.4621
 offset_top = 28.9549
 offset_right = 124.462
 offset_bottom = 75.9549
+theme_override_fonts/font = ExtResource("7_trrc7")
 theme_override_font_sizes/font_size = 34
 text = "Play"
 
@@ -72,6 +73,7 @@ offset_left = 40.5369
 offset_top = 30.4027
 offset_right = 158.537
 offset_bottom = 77.4027
+theme_override_fonts/font = ExtResource("7_trrc7")
 theme_override_font_sizes/font_size = 31
 text = "Tutorial"
 
@@ -90,8 +92,9 @@ offset_left = 37.1429
 offset_top = 37.1429
 offset_right = 152.143
 offset_bottom = 79.1429
+theme_override_fonts/font = ExtResource("7_trrc7")
 theme_override_font_sizes/font_size = 34
-text = "Options"
+text = "Credits"
 
 [node name="QuitButton" type="TextureButton" parent="."]
 layout_mode = 0
@@ -109,6 +112,7 @@ offset_left = 71.4286
 offset_top = 34.2857
 offset_right = 160.429
 offset_bottom = 92.2857
+theme_override_fonts/font = ExtResource("7_trrc7")
 theme_override_font_sizes/font_size = 34
 text = "Quit"
 
@@ -221,6 +225,47 @@ offset_bottom = 479.0
 texture_normal = ExtResource("14_mchxw")
 texture_pressed = ExtResource("15_gk0y6")
 
+[node name="Credits Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 66.0
+offset_top = 42.0
+offset_right = 1032.0
+offset_bottom = 657.0
+theme_override_styles/panel = ExtResource("5_2pp2w")
+
+[node name="Title" type="Label" parent="Credits Panel"]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 15.0
+offset_right = 625.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("6_cf8fi")
+theme_override_font_sizes/font_size = 67
+text = "Credits"
+
+[node name="Label2" type="Label" parent="Credits Panel"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 119.0
+offset_right = 963.0
+offset_bottom = 266.0
+theme_override_fonts/font = ExtResource("7_trrc7")
+theme_override_font_sizes/font_size = 23
+text = "Made by CannnedPineapple, Jentin, and Vosty for the 2024 Brackeys Game Jam "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BackButton2" type="Button" parent="Credits Panel"]
+layout_mode = 0
+offset_left = 892.0
+offset_top = 565.0
+offset_right = 953.0
+offset_bottom = 601.0
+theme_override_fonts/font = ExtResource("6_cf8fi")
+theme_override_font_sizes/font_size = 22
+text = "Back"
+
 [connection signal="mouse_entered" from="Play_Button" to="." method="_on_play_button_mouse_entered"]
 [connection signal="mouse_exited" from="Play_Button" to="." method="_on_play_button_mouse_exited"]
 [connection signal="pressed" from="Play_Button" to="." method="_on_play_button_pressed"]
@@ -229,7 +274,9 @@ texture_pressed = ExtResource("15_gk0y6")
 [connection signal="pressed" from="Directions" to="." method="_on_directions_pressed"]
 [connection signal="mouse_entered" from="OptionsButton" to="." method="_on_options_button_mouse_entered"]
 [connection signal="mouse_exited" from="OptionsButton" to="." method="_on_options_button_mouse_exited"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="mouse_entered" from="QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="mouse_exited" from="QuitButton" to="." method="_on_quit_button_mouse_exited"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Instructions_Panel/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Credits Panel/BackButton2" to="." method="_on_back_button_pressed"]
