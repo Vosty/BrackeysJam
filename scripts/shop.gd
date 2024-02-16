@@ -121,6 +121,7 @@ func _on_exit_pressed():
 	get_tree().change_scene_to_file("res://scenes/Level.tscn")
 
 
+
 func _on_bell_button_pressed():
 	sfx_player.stream = bell_sound
 	sfx_player.play()
@@ -134,3 +135,10 @@ func _on_bell_button_pressed():
 		else:
 			player.update_coins(-1)
 			create_flash(coin_tex, "-1", 100, 100)
+
+
+func _on_texture_button_pressed():
+	player.level += 1
+	player.round += 1
+	get_tree().change_scene_to_file("res://scenes/Level.tscn")
+
