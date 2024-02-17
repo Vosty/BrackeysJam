@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://wfo13ub2hwnv"]
+
+[ext_resource type="Resource" uid="uid://cwtenex0guyl1" path="res://Monsters/pizza_man.tres" id="1_cvf2v"]
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_okvpo"]
+[ext_resource type="Texture2D" uid="uid://01spfc1axayl" path="res://assets/MonsterSprites/pizza_man.png" id="2_xr0if"]
+
+[resource]
+script = ExtResource("1_okvpo")
+dialogues = [null, "How do I get the ladies like you, Pizzaman?", "I recommend more toppings."]
+required_monsters = [ExtResource("2_xr0if")]
+forced_start = ExtResource("1_cvf2v")

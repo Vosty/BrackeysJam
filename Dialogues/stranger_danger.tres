@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://i2ipl5hr7ktd"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_bur6y"]
+[ext_resource type="Resource" uid="uid://bc8kkoy3bo2ob" path="res://Monsters/stranger.tres" id="1_uulga"]
+
+[resource]
+script = ExtResource("1_bur6y")
+dialogues = ["...", "My mom said not to talk to strangers!"]
+required_monsters = [ExtResource("1_uulga")]
+forced_start = ExtResource("1_uulga")
