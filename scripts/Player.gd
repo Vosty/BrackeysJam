@@ -51,6 +51,7 @@ func new_game():
 	total_attempts = 0
 	total_traps = 0
 	total_time = 0.0
+	check_upgrades()
 
 	
 func update_coins(delta: int):

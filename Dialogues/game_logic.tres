@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_ikueh")
-dialogues = []
+dialogues = ["So why is the hotel filled with traps?", "Gotta keep out squatters somehow!"]
 required_monsters = []

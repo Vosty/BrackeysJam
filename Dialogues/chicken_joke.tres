@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_3he7x")
-dialogues = []
+dialogues = ["Why did the Snakeshifter cross the road?", ".... There are roads in this game?"]
 required_monsters = []

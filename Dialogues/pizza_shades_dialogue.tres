@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://dvhgsaubepuew"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://dvhgsaubepuew"]
 
-[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_krfe0"]
+[ext_resource type="Resource" uid="uid://cwtenex0guyl1" path="res://Monsters/pizza_man.tres" id="1_vw1oi"]
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="2_v3isn"]
 
 [resource]
-script = ExtResource("1_krfe0")
-dialogues = []
-required_monsters = []
+script = ExtResource("2_v3isn")
+dialogues = [null, "Why do you wear shades Pizzaman?", "Huh?", "It's awfully dark here in the hotel.", "It's to hide the fact that I don't have eyes."]
+required_monsters = [ExtResource("1_vw1oi")]
+forced_start = ExtResource("1_vw1oi")

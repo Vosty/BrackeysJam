@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b84a3o0vgjdmf"]
+[gd_scene load_steps=39 format=3 uid="uid://b84a3o0vgjdmf"]
 
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
 [ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
@@ -36,6 +36,7 @@
 [ext_resource type="Resource" uid="uid://brstgdn2d8g23" path="res://Monsters/Snakeshifter.tres" id="34_62osa"]
 [ext_resource type="Resource" uid="uid://cldovagm03pcm" path="res://Monsters/skrob.tres" id="35_nj6ri"]
 [ext_resource type="Resource" uid="uid://c6qsdbuawfe0g" path="res://Monsters/Spider_princess.tres" id="36_3liww"]
+[ext_resource type="Resource" uid="uid://cwtenex0guyl1" path="res://Monsters/pizza_man.tres" id="37_xe7oa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1kh6i"]
 shader = ExtResource("19_tsiju")
@@ -181,7 +182,7 @@ bus = &"SFX"
 
 [node name="TalkShop" type="Node" parent="."]
 script = ExtResource("27_k17hy")
-talkable_monsters = [ExtResource("28_bnt72"), ExtResource("29_umarf"), ExtResource("30_pqwdd"), ExtResource("31_5dmpp"), ExtResource("32_lmx4s"), ExtResource("33_wfowp"), ExtResource("34_62osa"), ExtResource("35_nj6ri"), ExtResource("36_3liww")]
+talkable_monsters = [ExtResource("28_bnt72"), ExtResource("29_umarf"), ExtResource("30_pqwdd"), ExtResource("31_5dmpp"), ExtResource("32_lmx4s"), ExtResource("33_wfowp"), ExtResource("34_62osa"), ExtResource("35_nj6ri"), ExtResource("36_3liww"), ExtResource("37_xe7oa")]
 positions = [NodePath("Postion 1"), NodePath("Position 2")]
 
 [node name="Postion 1" type="Marker2D" parent="TalkShop"]
