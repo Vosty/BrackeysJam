@@ -2,7 +2,7 @@ extends Node2D
 
 const flash = preload("res://scenes/text_flash.tscn")
 const coin_tex : Texture2D = preload("res://assets/Temp_Coin.png")
-const key_tex : Texture2D = preload("res://assets/Iron_Key.png")
+const key_tex : Texture2D = preload("res://assets/key.png")
 
 var player : Player
 var closed = false

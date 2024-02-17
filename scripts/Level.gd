@@ -25,6 +25,7 @@ extends Node2D
 @export var game_over_sound : AudioStream
 @export var peek_sound : AudioStream
 @export var shades_sound : AudioStream
+@export var swap_sound : AudioStream
 
 @export var open_door_sound : AudioStream
 @export var close_door_sound : AudioStream
@@ -35,7 +36,7 @@ enum CHOOSE_STATES {NO_CHOICE, CHOICE_ONE, CHOICE_TWO, RESULTS_SCREEN, PEEK_STAG
 
 const doorScene = preload("res://scenes/door.tscn")
 const flash = preload("res://scenes/text_flash.tscn")
-const key_tex : Texture2D = preload("res://assets/Iron_Key.png")
+const key_tex : Texture2D = preload("res://assets/key.png")
 const coin_tex : Texture2D = preload("res://assets/Temp_Coin.png")
 
 const horn_tex : Texture2D = preload("res://assets/Upgrades/greebo_horn.png")
@@ -455,6 +456,9 @@ func spring_trap(door):
 			var dx = closed_doors.pop_front()
 			closed_doors.shuffle()
 			var dy = closed_doors.pop_front()
+			await get_tree().create_timer(1).timeout
+			sfx_effects.stream = swap_sound
+			sfx_effects.play()
 			var tween = create_tween()
 			tween.set_parallel(true)
 			dx.fade_out(tween)
@@ -490,6 +494,9 @@ func find_door(x : int, y : int):
 func game_over():
 	state = CHOOSE_STATES.RESULTS_SCREEN
 	Door.results_phase = true
+	sfx_effects.stream = game_over_sound
+	sfx_effects.play()
+	await get_tree().create_timer(2).timeout
 	get_node("GameOverScreen").show_gameover_screen()
 
 func create_flash(texture : Texture2D, display_message : String, x : float, y : float, display_time : int = 100):

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2ixt5xin32mn"]
+[gd_scene load_steps=5 format=3 uid="uid://d2ixt5xin32mn"]
 
 [ext_resource type="Script" path="res://scripts/text_flash.gd" id="1_01ivb"]
 [ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="1_733wy"]
+[ext_resource type="FontFile" uid="uid://botmp0ay4n8wy" path="res://assets/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="3_14cej"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nurey"]
 
@@ -19,7 +20,7 @@ offset_bottom = 40.0
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_right = 174.0
-offset_bottom = 82.0
+offset_bottom = 77.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_nurey")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/PanelContainer"]
@@ -36,9 +37,11 @@ columns = 2
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("1_733wy")
-expand_mode = 3
+expand_mode = 2
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_14cej")
 theme_override_font_sizes/font_size = 30
 text = "FLASH"
