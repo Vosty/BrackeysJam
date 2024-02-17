@@ -252,7 +252,19 @@ offset_right = 963.0
 offset_bottom = 266.0
 theme_override_fonts/font = ExtResource("7_trrc7")
 theme_override_font_sizes/font_size = 23
-text = "Made by CannnedPineapple, Jentin, and Vosty for the 2024 Brackeys Game Jam "
+text = "Made for the 2024 Brackeys Game Jam
+
+Jentin: Programming, Art
+
+Vosty: Programming, Art, SFX, Music
+
+CannnedPineapple: Art
+
+
+Song is a cover of Giant Steps by John Coltrane
+
+
+Special Thanks to Matt Evers"
 horizontal_alignment = 1
 autowrap_mode = 2
 

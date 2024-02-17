@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://dno7xid3tv17d"]
+[gd_scene load_steps=15 format=3 uid="uid://dno7xid3tv17d"]
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_342t2"]
-[ext_resource type="Texture2D" uid="uid://boqndmx702s0u" path="res://assets/Iron_Key.png" id="2_4r4v0"]
 [ext_resource type="Texture2D" uid="uid://ci4g8og0w5tpn" path="res://assets/Temp_Coin.png" id="2_hfbhw"]
+[ext_resource type="Texture2D" uid="uid://1bt5ugis0ojn" path="res://assets/key.png" id="3_3tcxj"]
+[ext_resource type="FontFile" uid="uid://botmp0ay4n8wy" path="res://assets/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="3_jak82"]
 [ext_resource type="Texture2D" uid="uid://bs4jcpwqnmd6p" path="res://assets/Upgrades/greebo_horn.png" id="4_6mns3"]
 [ext_resource type="Texture2D" uid="uid://3e74eltk1o5k" path="res://assets/Upgrades/stranger_cloth.png" id="5_nfntm"]
 [ext_resource type="Texture2D" uid="uid://s5c0buv5bq6b" path="res://assets/Upgrades/fang.png" id="6_gmauj"]
@@ -53,17 +54,20 @@ expand_mode = 3
 [node name="Coin Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 tooltip_text = "Money. Spend in the shop between rounds."
+theme_override_fonts/font = ExtResource("3_jak82")
 theme_override_font_sizes/font_size = 30
 text = "100"
 
 [node name="Key Icon" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("2_4r4v0")
-expand_mode = 3
+texture = ExtResource("3_3tcxj")
+expand_mode = 2
+stretch_mode = 3
 
 [node name="Key Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 tooltip_text = "The amount of attempts you have remaining"
+theme_override_fonts/font = ExtResource("3_jak82")
 theme_override_font_sizes/font_size = 30
 text = "100"
 
