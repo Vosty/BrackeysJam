@@ -7,6 +7,6 @@
 script = ExtResource("1_caxcq")
 name = "Skrob Milk"
 description = "Give's you +1 money at end of round"
-cost = 3
+cost = 2
 tex = ExtResource("2_j6vbw")
 type = 6
