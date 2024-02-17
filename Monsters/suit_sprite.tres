@@ -8,3 +8,5 @@ script = ExtResource("1_bnylt")
 name = "Suit Sprite"
 suit = 8
 tex = ExtResource("2_h7yjw")
+facing_right = false
+head_on = true

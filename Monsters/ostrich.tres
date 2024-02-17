@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://rxhdeqx7na06"]
 
 [ext_resource type="Script" path="res://scripts/Monster.gd" id="1_dna3i"]
-[ext_resource type="Texture2D" uid="uid://c4rtkoqochn0r" path="res://assets/MonsterSprites/ostrich.png" id="2_cas7i"]
+[ext_resource type="Texture2D" uid="uid://bwxcgpjrrs3m6" path="res://assets/MonsterSprites/ostrich.png" id="2_cas7i"]
 
 [resource]
 script = ExtResource("1_dna3i")
 name = "Gunstrich"
 suit = 2
 tex = ExtResource("2_cas7i")
+facing_right = true
+head_on = false
