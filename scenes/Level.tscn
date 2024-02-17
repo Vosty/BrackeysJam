@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ctw22e4wln1pr"]
+[gd_scene load_steps=24 format=3 uid="uid://ctw22e4wln1pr"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_cu03t"]
 [ext_resource type="PackedScene" uid="uid://dno7xid3tv17d" path="res://scenes/dashboard.tscn" id="2_2yidn"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://cjfmxmkacu6xe" path="res://assets/Audio/SFX/shades.wav" id="15_541wg"]
 [ext_resource type="AudioStream" uid="uid://b6fd3gpbl2ld" path="res://assets/Audio/SFX/open_door.wav" id="17_iph3p"]
 [ext_resource type="AudioStream" uid="uid://nm8jwxttewqv" path="res://assets/Audio/SFX/close_door.wav" id="18_glecd"]
+[ext_resource type="PackedScene" uid="uid://k5k6bvgrmjm4" path="res://scenes/Game_Over.tscn" id="23_ho5am"]
 
 [node name="Node2D2" type="Node2D"]
 script = ExtResource("1_cu03t")
@@ -68,3 +69,5 @@ bus = &"SFX"
 [node name="SFX_Doors" type="AudioStreamPlayer" parent="."]
 max_polyphony = 10
 bus = &"SFX"
+
+[node name="GameOverScreen" parent="." instance=ExtResource("23_ho5am")]

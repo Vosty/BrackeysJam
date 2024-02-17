@@ -19,9 +19,9 @@ offset_bottom = 40.0
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 385.0
-offset_top = 253.0
+offset_top = 250.0
 offset_right = 695.0
-offset_bottom = 459.0
+offset_bottom = 475.0
 theme_override_styles/panel = ExtResource("3_4xskx")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/PanelContainer"]
@@ -64,6 +64,15 @@ text = "Traps Sprung:"
 [node name="TrapsCount" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 text = "50"
+horizontal_alignment = 1
+
+[node name="Time" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Time Elapsed:"
+
+[node name="TimeCount" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "4:20"
 horizontal_alignment = 1
 
 [node name="Keys" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/GridContainer"]

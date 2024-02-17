@@ -16,7 +16,13 @@ var attempts = 0
 var traps_hit = 0
 var round = 1
 var level = 8
+var time_elapsed := 0.0
 var upgrades = []
+
+var total_attempts = 0
+var total_traps = 0
+var total_time = 0.0
+
 
 var match_extra : float = 0.0
 var fail_extra : float = 0.0
@@ -33,6 +39,19 @@ var is_peeking = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+	
+	
+func new_game():
+	coins = 0
+	keys = 10
+	round = 1
+	level = 8
+	upgrades = []
+
+	total_attempts = 0
+	total_traps = 0
+	total_time = 0.0
+
 	
 func update_coins(delta: int):
 	coins += delta

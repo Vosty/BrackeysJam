@@ -15,6 +15,7 @@ var is_trap = false
 var pos : Vector2i
 
 static var trap_phase = false
+static var results_phase = false
 
 @export var animator : AnimationPlayer
 @export var outline_width = 10.0
@@ -34,6 +35,7 @@ func setup(internal):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node("Node2D/Mon").hide()
+	results_phase = false
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -88,14 +90,12 @@ func unpeek_door(tween : Tween):
 func uncheck_door(close_door = true):
 	material.set_shader_parameter("width", 0.0)
 	checking = false
-	trap_phase = false
 	if close_door:
 		await get_tree().create_timer(0.8).timeout
 		get_node("Node2D/Mon").hide()
 		animator.play("Door_Close")
 		
 func reveal_trap():
-	trap_phase = true
 	material.set_shader_parameter("outline_color", Color(0.91, 0.29, 0.28, 255))
 	material.set_shader_parameter("width", outline_width)
 	animator.play("Door_Open")
@@ -138,7 +138,7 @@ func spring_trap():
 	get_node("Node2D/Mon").show()
 
 func _on_area_2d_mouse_entered():
-	if !checking && !open && !trap_phase:
+	if !checking && !open && !trap_phase && !results_phase:
 		highlight()
 
 func _on_area_2d_mouse_exited():

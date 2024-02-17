@@ -27,15 +27,27 @@ func _process(delta):
 func show_results_screen():
 	get_node("CanvasLayer/Control/PanelContainer/MarginContainer/GridContainer/AttemptsCount").text = str(player.attempts)
 	get_node("CanvasLayer/Control/PanelContainer/MarginContainer/GridContainer/TrapsCount").text = str(player.traps_hit)
+	get_node("CanvasLayer/Control/PanelContainer/MarginContainer/GridContainer/TimeCount").text = format_time(player.time_elapsed)
 	get_node("CanvasLayer/Control").show()
+
+func format_time(time):
+	var minutes = time / 60
+	var seconds = fmod(time,60)
+	var formatted = "%02d:%02d" % [minutes, seconds]
+	return formatted
+
 
 func hide_results_screen():
 	get_node("CanvasLayer/Control").hide()
+	
 
 func _on_button_pressed():
 	if closed:
 		return
 	closed = true
+	player.total_attempts += player.attempts
+	player.total_traps += player.traps_hit
+	player.total_time += player.time_elapsed
 	var reward = 5 + player.bonus_money
 	sfx_player.stream = coin_sound
 	sfx_player.play()

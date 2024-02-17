@@ -71,6 +71,7 @@ func _ready():
 	player.set_keys(starting_keys+player.keys_extra)
 	player.attempts = 0
 	player.traps_hit = 0
+	player.time_elapsed = 0.0
 	prepare_doors()
 	player.check_upgrades()
 	match_extra = player.match_extra
@@ -78,13 +79,14 @@ func _ready():
 	
 	if trap_number > 0:
 		state = CHOOSE_STATES.TRAP_REVEAL
+		Door.trap_phase = true
 		var traps = doors.filter(func (d): return d.is_trap)
 		for t in traps:
 			reveal_trap(t)
 		await get_tree().create_timer(5).timeout
 		for t in traps:
 			uncheck_door(t)
-	
+		Door.trap_phase = false
 		
 	peek = player.peek
 	if peek > 0:
@@ -317,6 +319,7 @@ func check_match(door):
 			sfx_effects.stream = win_sound
 			sfx_effects.play()
 			await get_tree().create_timer(3).timeout
+			Door.results_phase = true
 			get_node("ResultsScreen").show_results_screen()
 			return
 		# Shades Power-up	
@@ -385,18 +388,20 @@ func unpeek_door(door):
 	door.unpeek_door(tween)
 	
 func lose_key():
-		if rng.randf() > fail_extra: #fail extra powerup implementation
-			player.update_keys(-1)
-			await get_tree().create_timer(0.30).timeout
-			create_flash(key_tex, "-1", 100.0, 100.0, 100) # This should be better lol
-			sfx_effects.stream = lose_key_sound
-			sfx_effects.play()
-		else:
-			await get_tree().create_timer(0.30).timeout
-			create_flash(cloth_tex, "SAVED", 100.0, 100.0, 100.0)
-			sfx_effects.stream = save_key_sound
-			sfx_effects.play()
-	
+	if rng.randf() > fail_extra: #fail extra powerup implementation
+		player.update_keys(-1)
+		await get_tree().create_timer(0.30).timeout
+		create_flash(key_tex, "-1", 100.0, 100.0, 100) # This should be better lol
+		sfx_effects.stream = lose_key_sound
+		sfx_effects.play()
+		if player.keys <= 0:
+				game_over()
+	else:
+		await get_tree().create_timer(0.30).timeout
+		create_flash(cloth_tex, "SAVED", 100.0, 100.0, 100.0)
+		sfx_effects.stream = save_key_sound
+		sfx_effects.play()
+
 func spring_trap(door):
 	sfx_doors.stream = open_door_sound
 	sfx_doors.play()
@@ -419,6 +424,8 @@ func spring_trap(door):
 				create_flash(key_tex, "-1", 100.0, 100.0, 100)
 				sfx_effects.stream = lose_key_sound
 				sfx_effects.play()
+				if player.keys <= 0:
+					game_over()
 		traps.CLOSE_DOOR:
 			sfx_effects.stream = lose_key_sound
 			sfx_effects.play()
@@ -480,6 +487,11 @@ func find_door(x : int, y : int):
 	return doors.filter(func(test : Door): return test.pos == Vector2i(x,y) && !test.checking && !test.open).pop_front()
 
 
+func game_over():
+	state = CHOOSE_STATES.RESULTS_SCREEN
+	Door.results_phase = true
+	get_node("GameOverScreen").show_gameover_screen()
+
 func create_flash(texture : Texture2D, display_message : String, x : float, y : float, display_time : int = 100):
 	var element = flash.instantiate()
 	var tween = create_tween()
@@ -489,8 +501,10 @@ func create_flash(texture : Texture2D, display_message : String, x : float, y : 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	pass
+	if state == CHOOSE_STATES.TRAP_REVEAL || state == CHOOSE_STATES.RESULTS_SCREEN:
+		return
+	else:
+		player.time_elapsed += delta
 	
 func _input(event):
 	if Input.is_action_pressed("Skip"):
