@@ -29,6 +29,7 @@ cuff_links_icon = NodePath("CanvasLayer/GridContainer/cuff_links_texture")
 shades_icon = NodePath("CanvasLayer/GridContainer/shades_texture")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 27
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 offset_right = 234.0
