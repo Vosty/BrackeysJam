@@ -52,7 +52,7 @@ func _on_next_char_timeout():
 	var message = chosen_dialogue.dialogues[current_message_index]
 	if message == null:
 		message = ""
-		current_message_index += 1
+		
 		next_char.stop()
 		_on_next_message_timeout()
 	if display.length() < message.length():
@@ -76,7 +76,11 @@ func _on_next_char_timeout():
 func _on_next_message_timeout():
 	dialogue_label_1.text = ""
 	dialogue_label_2.text = ""
+	if current_message_index == 0:
+		if chosen_dialogue.dialogues[0] == null:
+			current_message_index += 1
 	dialogue_panel_1.visible = !(current_message_index % 2)
+	
 	dialogue_panel_2.visible = current_message_index % 2
 	if current_message_index >= chosen_dialogue.dialogues.size():
 		dialogue_panel_1.visible = false
