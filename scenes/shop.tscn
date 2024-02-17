@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b84a3o0vgjdmf"]
+[gd_scene load_steps=28 format=3 uid="uid://b84a3o0vgjdmf"]
 
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
 [ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
@@ -10,33 +10,22 @@
 [ext_resource type="Resource" uid="uid://c3jeyhghx0sgy" path="res://Upgrades/Milk.tres" id="7_1v8cs"]
 [ext_resource type="Resource" uid="uid://bx1svtnhbmqig" path="res://Upgrades/Monster_Hand.tres" id="8_743kg"]
 [ext_resource type="Resource" uid="uid://b61mdgtbr4v8k" path="res://Upgrades/cuff_links.tres" id="9_y723m"]
-[ext_resource type="Texture2D" uid="uid://cdvw4awemuqv7" path="res://assets/eye.png" id="9_yh4x6"]
-[ext_resource type="Texture2D" uid="uid://cxc681ot3g7cb" path="res://assets/Upgrades/Clover.png" id="10_u75pn"]
+[ext_resource type="Texture2D" uid="uid://xjq3gxtfnv71" path="res://assets/eye.png" id="9_yh4x6"]
+[ext_resource type="Texture2D" uid="uid://0xbxp8aqtwtq" path="res://assets/Upgrades/Clover.png" id="10_u75pn"]
 [ext_resource type="Resource" uid="uid://c2oo23xd3x785" path="res://Upgrades/Shades.tres" id="10_vuf7m"]
-[ext_resource type="AudioStream" uid="uid://dw48nv7kmhros" path="res://assets/Audio/SFX/buy.wav" id="11_pkvse"]
-[ext_resource type="Texture2D" uid="uid://cy1q6vpn5y3bh" path="res://assets/pixel_bell.png" id="12_cq3om"]
-[ext_resource type="AudioStream" uid="uid://xcjbiy3rno7y" path="res://assets/Audio/SFX/reroll.wav" id="12_hta76"]
-[ext_resource type="AudioStream" uid="uid://dl32r63ajcntb" path="res://assets/Audio/SFX/out_of_money.wav" id="13_1jol7"]
-[ext_resource type="Texture2D" uid="uid://0es4imerv43x" path="res://assets/pixel_bell_depressed.png" id="13_brnwm"]
-[ext_resource type="AudioStream" uid="uid://e7gwtkqv5282" path="res://assets/Audio/SFX/free_reroll.wav" id="13_cw61c"]
-[ext_resource type="AudioStream" uid="uid://c2p7eud0nrgha" path="res://assets/Audio/SFX/open_door.wav" id="15_24dd0"]
-[ext_resource type="Texture2D" uid="uid://cy0nh5mee3exe" path="res://assets/Backgrounds/Alt_Shop.png" id="17_u1mcc"]
-[ext_resource type="Texture2D" uid="uid://jq5jm7r62q04" path="res://assets/UI/Door_Closed.png" id="19_jhu5i"]
+[ext_resource type="AudioStream" uid="uid://d2frqarbv3qnk" path="res://assets/Audio/SFX/buy.wav" id="11_pkvse"]
+[ext_resource type="Texture2D" uid="uid://cxkqxdxob0wb" path="res://assets/pixel_bell.png" id="12_cq3om"]
+[ext_resource type="AudioStream" uid="uid://bj3h0nrdmxl3q" path="res://assets/Audio/SFX/reroll.wav" id="12_hta76"]
+[ext_resource type="AudioStream" uid="uid://baajj7g7wivk7" path="res://assets/Audio/SFX/out_of_money.wav" id="13_1jol7"]
+[ext_resource type="Texture2D" uid="uid://efiivj31dqv6" path="res://assets/pixel_bell_depressed.png" id="13_brnwm"]
+[ext_resource type="AudioStream" uid="uid://smmx05d83umd" path="res://assets/Audio/SFX/free_reroll.wav" id="13_cw61c"]
+[ext_resource type="AudioStream" uid="uid://b6fd3gpbl2ld" path="res://assets/Audio/SFX/open_door.wav" id="15_24dd0"]
+[ext_resource type="Texture2D" uid="uid://yewri5smdvwh" path="res://assets/Backgrounds/Alt_Shop.png" id="17_u1mcc"]
+[ext_resource type="Texture2D" uid="uid://cnmb1jod855ox" path="res://assets/UI/Door_Closed.png" id="19_jhu5i"]
 [ext_resource type="Shader" path="res://assets/Shaders/Outline.gdshader" id="19_tsiju"]
-[ext_resource type="FontFile" uid="uid://cdm2t6777veyl" path="res://assets/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="20_7ggis"]
-[ext_resource type="Texture2D" uid="uid://ctame1f6cywnp" path="res://assets/UI/Door_Open.png" id="20_tc5ql"]
-[ext_resource type="Texture2D" uid="uid://ck7g82gjykn2f" path="res://assets/UI/Door_partial_open.png" id="26_svq6n"]
-[ext_resource type="Script" path="res://scripts/TalkShop.gd" id="27_mjdlv"]
-[ext_resource type="Resource" uid="uid://dv0rgi54mv58h" path="res://Monsters/Barrel.tres" id="28_5h8oq"]
-[ext_resource type="Resource" uid="uid://c64lt621djp14" path="res://Monsters/greebo.tres" id="29_j6p28"]
-[ext_resource type="Resource" uid="uid://dht6ottsqniec" path="res://Monsters/borks.tres" id="30_8na1f"]
-[ext_resource type="Resource" uid="uid://cldovagm03pcm" path="res://Monsters/skrob.tres" id="31_2a5ye"]
-[ext_resource type="Resource" uid="uid://bc8kkoy3bo2ob" path="res://Monsters/stranger.tres" id="32_u4qa5"]
-[ext_resource type="Resource" uid="uid://c6qsdbuawfe0g" path="res://Monsters/Spider_princess.tres" id="33_iaa4r"]
-[ext_resource type="Resource" uid="uid://dxa30diekxbxp" path="res://Monsters/Morrimancer.tres" id="34_5yvh2"]
-[ext_resource type="Resource" uid="uid://dwgji0y6oyasx" path="res://Monsters/cat_chimera.tres" id="35_hwoyd"]
-[ext_resource type="Resource" uid="uid://dbe4guvgh51gs" path="res://Monsters/suit_sprite.tres" id="36_tq5ns"]
-[ext_resource type="Resource" uid="uid://lwvlmgcnv2w" path="res://Monsters/minotaur.tres" id="37_0if61"]
+[ext_resource type="FontFile" uid="uid://botmp0ay4n8wy" path="res://assets/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="20_7ggis"]
+[ext_resource type="Texture2D" uid="uid://kwiatwqrlr3o" path="res://assets/UI/Door_Open.png" id="20_tc5ql"]
+[ext_resource type="Texture2D" uid="uid://cfkupibrq8tco" path="res://assets/UI/Door_partial_open.png" id="26_svq6n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1kh6i"]
 shader = ExtResource("19_tsiju")
@@ -145,6 +134,16 @@ offset_bottom = 330.0
 texture_normal = ExtResource("12_cq3om")
 texture_pressed = ExtResource("13_brnwm")
 
+[node name="Hover_Hint" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 542.0
+offset_top = 215.0
+offset_right = 777.0
+offset_bottom = 252.0
+theme_override_fonts/font = ExtResource("20_7ggis")
+theme_override_font_sizes/font_size = 20
+text = "Hover items for details"
+
 [node name="Exit_Button_Canvas" type="CanvasLayer" parent="."]
 
 [node name="TextureButton" type="TextureButton" parent="Exit_Button_Canvas"]
@@ -169,17 +168,6 @@ horizontal_alignment = 1
 
 [node name="SFX_Player" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
-
-[node name="Talk Shop" type="Node" parent="."]
-script = ExtResource("27_mjdlv")
-talkable_monsters = [ExtResource("28_5h8oq"), ExtResource("29_j6p28"), ExtResource("30_8na1f"), ExtResource("31_2a5ye"), ExtResource("32_u4qa5"), ExtResource("33_iaa4r"), ExtResource("34_5yvh2"), ExtResource("35_hwoyd"), ExtResource("36_tq5ns"), ExtResource("37_0if61")]
-positions = [NodePath("Marker 1"), NodePath("Marker 2")]
-
-[node name="Marker 1" type="Marker2D" parent="Talk Shop"]
-position = Vector2(270, 579)
-
-[node name="Marker 2" type="Marker2D" parent="Talk Shop"]
-position = Vector2(431, 579)
 
 [connection signal="pressed" from="CanvasLayer/GridContainer/Button 1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/GridContainer/Button 2" to="." method="_on_button_2_pressed"]
