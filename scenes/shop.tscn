@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b84a3o0vgjdmf"]
+[gd_scene load_steps=50 format=3 uid="uid://b84a3o0vgjdmf"]
 
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
 [ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
@@ -21,6 +21,8 @@
 [ext_resource type="AudioStream" uid="uid://e7gwtkqv5282" path="res://assets/Audio/SFX/free_reroll.wav" id="13_cw61c"]
 [ext_resource type="AudioStream" uid="uid://c2p7eud0nrgha" path="res://assets/Audio/SFX/open_door.wav" id="15_24dd0"]
 [ext_resource type="Texture2D" uid="uid://cy0nh5mee3exe" path="res://assets/Backgrounds/Alt_Shop.png" id="17_u1mcc"]
+[ext_resource type="Texture2D" uid="uid://bb2ryc7kx1w2" path="res://assets/Backgrounds/couch.png" id="18_oh6et"]
+[ext_resource type="Texture2D" uid="uid://6rfqo8cow2hl" path="res://assets/Backgrounds/chair.png" id="19_5qa0a"]
 [ext_resource type="Texture2D" uid="uid://jq5jm7r62q04" path="res://assets/UI/Door_Closed.png" id="19_jhu5i"]
 [ext_resource type="Shader" path="res://assets/Shaders/Outline.gdshader" id="19_tsiju"]
 [ext_resource type="FontFile" uid="uid://cdm2t6777veyl" path="res://assets/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="20_7ggis"]
@@ -36,9 +38,16 @@
 [ext_resource type="Resource" uid="uid://brstgdn2d8g23" path="res://Monsters/Snakeshifter.tres" id="34_62osa"]
 [ext_resource type="Resource" uid="uid://cldovagm03pcm" path="res://Monsters/skrob.tres" id="35_nj6ri"]
 [ext_resource type="Resource" uid="uid://c6qsdbuawfe0g" path="res://Monsters/Spider_princess.tres" id="36_3liww"]
+[ext_resource type="Resource" uid="uid://cwtenex0guyl1" path="res://Monsters/pizza_man.tres" id="37_ipu0l"]
 [ext_resource type="Resource" uid="uid://bg6skifo0qow0" path="res://Dialogues/Skrob_milk_dialogue.tres" id="37_qolwr"]
 [ext_resource type="StyleBox" uid="uid://b06t1e75daqwc" path="res://assets/UI/Dialogue1.tres" id="38_n8mt3"]
+[ext_resource type="Resource" uid="uid://cec3jfa1n4ifr" path="res://Dialogues/chicken_joke.tres" id="39_ru1y1"]
 [ext_resource type="StyleBox" uid="uid://ciob6qsv81cfn" path="res://assets/UI/Dialogue2.tres" id="39_wirer"]
+[ext_resource type="Resource" uid="uid://b7mu7vp8wu7m6" path="res://Dialogues/game_logic.tres" id="40_iltgu"]
+[ext_resource type="Resource" uid="uid://7a1wcl2b4sc5" path="res://Dialogues/pizzaman_and_stranger_drip.tres" id="41_fcdxu"]
+[ext_resource type="Resource" uid="uid://wfo13ub2hwnv" path="res://Dialogues/pizza_man_rizz.tres" id="42_p4mbs"]
+[ext_resource type="Resource" uid="uid://dvhgsaubepuew" path="res://Dialogues/pizza_shades_dialogue.tres" id="43_v25h8"]
+[ext_resource type="Resource" uid="uid://i2ipl5hr7ktd" path="res://Dialogues/stranger_danger.tres" id="44_bt4vy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1kh6i"]
 shader = ExtResource("19_tsiju")
@@ -63,10 +72,24 @@ leave_sound = ExtResource("15_24dd0")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
 offset_right = 1080.0
 offset_bottom = 720.0
 texture = ExtResource("17_u1mcc")
+
+[node name="Couch" type="TextureRect" parent="CanvasLayer"]
+offset_left = 827.0
+offset_top = 594.0
+offset_right = 1001.0
+offset_bottom = 710.0
+texture = ExtResource("18_oh6et")
+
+[node name="Chair" type="TextureRect" parent="CanvasLayer"]
+offset_left = 874.0
+offset_top = 177.0
+offset_right = 994.0
+offset_bottom = 369.0
+texture = ExtResource("19_5qa0a")
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
 offset_left = 485.0
@@ -184,10 +207,10 @@ bus = &"SFX"
 
 [node name="TalkShop" type="Node" parent="."]
 script = ExtResource("27_k17hy")
-talkable_monsters = [ExtResource("28_bnt72"), ExtResource("29_umarf"), ExtResource("30_pqwdd"), ExtResource("31_5dmpp"), ExtResource("32_lmx4s"), ExtResource("33_wfowp"), ExtResource("34_62osa"), ExtResource("35_nj6ri"), ExtResource("36_3liww")]
+talkable_monsters = [ExtResource("28_bnt72"), ExtResource("29_umarf"), ExtResource("30_pqwdd"), ExtResource("31_5dmpp"), ExtResource("32_lmx4s"), ExtResource("33_wfowp"), ExtResource("34_62osa"), ExtResource("35_nj6ri"), ExtResource("36_3liww"), ExtResource("37_ipu0l")]
 positions = [NodePath("Postion 1"), NodePath("Position 2"), NodePath("Position 3")]
 group_size = 3
-dialog_array = [ExtResource("37_qolwr")]
+dialog_array = [ExtResource("37_qolwr"), ExtResource("39_ru1y1"), ExtResource("40_iltgu"), ExtResource("41_fcdxu"), ExtResource("42_p4mbs"), ExtResource("43_v25h8"), ExtResource("44_bt4vy")]
 
 [node name="Postion 1" type="Marker2D" parent="TalkShop"]
 position = Vector2(223, 602)
@@ -196,10 +219,10 @@ position = Vector2(223, 602)
 position = Vector2(427, 604)
 
 [node name="Position 3" type="Marker2D" parent="TalkShop"]
-position = Vector2(875, 570)
+position = Vector2(82, 377)
 
 [node name="next_char" type="Timer" parent="TalkShop"]
-wait_time = 0.1
+wait_time = 0.05
 
 [node name="next_message" type="Timer" parent="TalkShop"]
 wait_time = 2.0

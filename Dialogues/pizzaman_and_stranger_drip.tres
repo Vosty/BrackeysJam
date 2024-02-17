@@ -7,5 +7,5 @@
 [resource]
 script = ExtResource("1_c8gg6")
 dialogues = ["That's a pretty nice coat Stranger.", "Thank you, Pizzaman", "Is it bespoke?", "No, I got it at Uniqlo", "Oh, is that moisture wicking?"]
-required_monsters = [ExtResource("2_6mmfi"), ExtResource("1_xvmhc")]
+required_monsters = [ExtResource("1_xvmhc"), ExtResource("2_6mmfi")]
 forced_start = ExtResource("1_xvmhc")
