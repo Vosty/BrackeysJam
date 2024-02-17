@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://b6fd3gpbl2ld" path="res://assets/Audio/SFX/open_door.wav" id="17_iph3p"]
 [ext_resource type="AudioStream" uid="uid://nm8jwxttewqv" path="res://assets/Audio/SFX/close_door.wav" id="18_glecd"]
 [ext_resource type="AudioStream" uid="uid://cjudk82q15dk3" path="res://assets/Audio/SFX/door_swap.wav" id="18_v0i7q"]
+[ext_resource type="PackedScene" uid="uid://k5k6bvgrmjm4" path="res://scenes/Game_Over.tscn" id="23_ho5am"]
 
 [node name="Node2D2" type="Node2D"]
 script = ExtResource("1_cu03t")
