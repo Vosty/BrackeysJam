@@ -162,7 +162,7 @@ func _on_area_2d_mouse_exited():
 		dehighlight()
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton && event.pressed:
+	if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
 		Chosen.emit(self)
 
 

@@ -54,6 +54,7 @@ func set_shop():
 	roll_shop()
 	if player.round == 1:
 		$CanvasLayer/Hover_Hint.show()
+		$CanvasLayer/Bell_Hint.show()
 	
 	
 func roll_shop():

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://k5k6bvgrmjm4"]
+[gd_scene load_steps=5 format=3 uid="uid://k5k6bvgrmjm4"]
 
 [ext_resource type="Script" path="res://scenes/Game_Over.gd" id="1_evknk"]
+[ext_resource type="StyleBox" uid="uid://c3n5vps8otjg1" path="res://assets/UI/style_box3.tres" id="3_v8jhm"]
 [ext_resource type="StyleBox" uid="uid://dehb46trjw82d" path="res://assets/UI/Stylebox_1.tres" id="3_vn8s0"]
+[ext_resource type="StyleBox" uid="uid://ceb2r5oj6stcq" path="res://assets/UI/style_box2.tres" id="4_itsms"]
 
 [node name="GameOverScreen" type="Node2D"]
 script = ExtResource("1_evknk")
@@ -90,6 +92,9 @@ size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("3_v8jhm")
+theme_override_styles/hover = ExtResource("3_v8jhm")
+theme_override_styles/pressed = ExtResource("4_itsms")
 text = "Main Menu"
 
 [node name="SFX_Player" type="AudioStreamPlayer" parent="."]
