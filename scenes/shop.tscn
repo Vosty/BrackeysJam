@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b84a3o0vgjdmf"]
+[gd_scene load_steps=44 format=3 uid="uid://b84a3o0vgjdmf"]
 
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
 [ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
@@ -10,22 +10,25 @@
 [ext_resource type="Resource" uid="uid://c3jeyhghx0sgy" path="res://Upgrades/Milk.tres" id="7_1v8cs"]
 [ext_resource type="Resource" uid="uid://bx1svtnhbmqig" path="res://Upgrades/Monster_Hand.tres" id="8_743kg"]
 [ext_resource type="Resource" uid="uid://b61mdgtbr4v8k" path="res://Upgrades/cuff_links.tres" id="9_y723m"]
-[ext_resource type="Texture2D" uid="uid://cdvw4awemuqv7" path="res://assets/eye.png" id="9_yh4x6"]
-[ext_resource type="Texture2D" uid="uid://cxc681ot3g7cb" path="res://assets/Upgrades/Clover.png" id="10_u75pn"]
+[ext_resource type="Texture2D" uid="uid://xjq3gxtfnv71" path="res://assets/eye.png" id="9_yh4x6"]
+[ext_resource type="Texture2D" uid="uid://0xbxp8aqtwtq" path="res://assets/Upgrades/Clover.png" id="10_u75pn"]
 [ext_resource type="Resource" uid="uid://c2oo23xd3x785" path="res://Upgrades/Shades.tres" id="10_vuf7m"]
-[ext_resource type="AudioStream" uid="uid://dw48nv7kmhros" path="res://assets/Audio/SFX/buy.wav" id="11_pkvse"]
-[ext_resource type="Texture2D" uid="uid://cy1q6vpn5y3bh" path="res://assets/pixel_bell.png" id="12_cq3om"]
-[ext_resource type="AudioStream" uid="uid://xcjbiy3rno7y" path="res://assets/Audio/SFX/reroll.wav" id="12_hta76"]
-[ext_resource type="AudioStream" uid="uid://dl32r63ajcntb" path="res://assets/Audio/SFX/out_of_money.wav" id="13_1jol7"]
-[ext_resource type="Texture2D" uid="uid://0es4imerv43x" path="res://assets/pixel_bell_depressed.png" id="13_brnwm"]
-[ext_resource type="AudioStream" uid="uid://e7gwtkqv5282" path="res://assets/Audio/SFX/free_reroll.wav" id="13_cw61c"]
-[ext_resource type="AudioStream" uid="uid://c2p7eud0nrgha" path="res://assets/Audio/SFX/open_door.wav" id="15_24dd0"]
-[ext_resource type="Texture2D" uid="uid://cy0nh5mee3exe" path="res://assets/Backgrounds/Alt_Shop.png" id="17_u1mcc"]
-[ext_resource type="Texture2D" uid="uid://jq5jm7r62q04" path="res://assets/UI/Door_Closed.png" id="19_jhu5i"]
+[ext_resource type="AudioStream" uid="uid://d2frqarbv3qnk" path="res://assets/Audio/SFX/buy.wav" id="11_pkvse"]
+[ext_resource type="Texture2D" uid="uid://cxkqxdxob0wb" path="res://assets/pixel_bell.png" id="12_cq3om"]
+[ext_resource type="AudioStream" uid="uid://bj3h0nrdmxl3q" path="res://assets/Audio/SFX/reroll.wav" id="12_hta76"]
+[ext_resource type="AudioStream" uid="uid://baajj7g7wivk7" path="res://assets/Audio/SFX/out_of_money.wav" id="13_1jol7"]
+[ext_resource type="Texture2D" uid="uid://efiivj31dqv6" path="res://assets/pixel_bell_depressed.png" id="13_brnwm"]
+[ext_resource type="AudioStream" uid="uid://smmx05d83umd" path="res://assets/Audio/SFX/free_reroll.wav" id="13_cw61c"]
+[ext_resource type="AudioStream" uid="uid://b6fd3gpbl2ld" path="res://assets/Audio/SFX/open_door.wav" id="15_24dd0"]
+[ext_resource type="Texture2D" uid="uid://yewri5smdvwh" path="res://assets/Backgrounds/Alt_Shop.png" id="17_u1mcc"]
+[ext_resource type="Texture2D" uid="uid://cnmb1jod855ox" path="res://assets/UI/Door_Closed.png" id="19_jhu5i"]
 [ext_resource type="Shader" path="res://assets/Shaders/Outline.gdshader" id="19_tsiju"]
-[ext_resource type="FontFile" uid="uid://cdm2t6777veyl" path="res://assets/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="20_7ggis"]
-[ext_resource type="Texture2D" uid="uid://ctame1f6cywnp" path="res://assets/UI/Door_Open.png" id="20_tc5ql"]
-[ext_resource type="Texture2D" uid="uid://ck7g82gjykn2f" path="res://assets/UI/Door_partial_open.png" id="26_svq6n"]
+[ext_resource type="FontFile" uid="uid://botmp0ay4n8wy" path="res://assets/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="20_7ggis"]
+[ext_resource type="Texture2D" uid="uid://kwiatwqrlr3o" path="res://assets/UI/Door_Open.png" id="20_tc5ql"]
+[ext_resource type="StyleBox" uid="uid://b1iiw8qxkhdl6" path="res://assets/UI/style_box4_normal.tres" id="21_tsjoh"]
+[ext_resource type="StyleBox" uid="uid://cn7ajviktyvby" path="res://assets/UI/style_box4_hover.tres" id="22_6kxwt"]
+[ext_resource type="StyleBox" uid="uid://d0rhbxput1ae4" path="res://assets/UI/style_box4_pressed.tres" id="23_ncpfo"]
+[ext_resource type="Texture2D" uid="uid://cfkupibrq8tco" path="res://assets/UI/Door_partial_open.png" id="26_svq6n"]
 [ext_resource type="Script" path="res://scripts/TalkShop.gd" id="27_k17hy"]
 [ext_resource type="Resource" uid="uid://dv0rgi54mv58h" path="res://Monsters/Barrel.tres" id="28_bnt72"]
 [ext_resource type="Resource" uid="uid://dht6ottsqniec" path="res://Monsters/borks.tres" id="29_umarf"]
@@ -69,12 +72,11 @@ offset_bottom = 720.0
 texture = ExtResource("17_u1mcc")
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
-offset_left = 485.0
+offset_left = 474.0
 offset_top = 286.0
-offset_right = 809.0
-offset_bottom = 468.0
-size_flags_horizontal = 0
-theme_override_constants/h_separation = 96
+offset_right = 803.0
+offset_bottom = 454.0
+theme_override_constants/h_separation = 70
 theme_override_constants/v_separation = 16
 columns = 3
 
@@ -122,21 +124,27 @@ autowrap_mode = 2
 
 [node name="Button 1" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
-text = "Buy"
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("21_tsjoh")
+theme_override_styles/hover = ExtResource("22_6kxwt")
+theme_override_styles/pressed = ExtResource("23_ncpfo")
+text = "Sold"
 
 [node name="Button 2" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
-text = "Buy"
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("21_tsjoh")
+theme_override_styles/hover = ExtResource("22_6kxwt")
+theme_override_styles/pressed = ExtResource("23_ncpfo")
+text = "Sold"
 
 [node name="Button 3" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
-text = "Buy"
-
-[node name="Vbox2" type="VBoxContainer" parent="CanvasLayer/GridContainer"]
-layout_mode = 2
-
-[node name="vbox3" type="VBoxContainer" parent="CanvasLayer/GridContainer"]
-layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("21_tsjoh")
+theme_override_styles/hover = ExtResource("22_6kxwt")
+theme_override_styles/pressed = ExtResource("23_ncpfo")
+text = "Sold"
 
 [node name="Bell_Button" type="TextureButton" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_1kh6i")
@@ -156,6 +164,17 @@ offset_bottom = 252.0
 theme_override_fonts/font = ExtResource("20_7ggis")
 theme_override_font_sizes/font_size = 20
 text = "Hover items for details"
+
+[node name="Bell_Hint" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 342.0
+offset_top = 312.0
+offset_right = 407.0
+offset_bottom = 349.0
+theme_override_fonts/font = ExtResource("20_7ggis")
+theme_override_font_sizes/font_size = 20
+text = "Reroll"
+horizontal_alignment = 1
 
 [node name="Exit_Button_Canvas" type="CanvasLayer" parent="."]
 
