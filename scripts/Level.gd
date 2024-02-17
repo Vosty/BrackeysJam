@@ -73,6 +73,7 @@ func _ready():
 	player.traps_hit = 0
 	player.time_elapsed = 0.0
 	prepare_doors()
+	peek = clamp(player.peek, 0, doors.size())
 	player.check_upgrades()
 	match_extra = player.match_extra
 	fail_extra = player.fail_extra
@@ -88,7 +89,7 @@ func _ready():
 			uncheck_door(t)
 		Door.trap_phase = false
 		
-	peek = player.peek
+	
 	if peek > 0:
 		player.is_peeking = true
 		state = CHOOSE_STATES.PEEK_STAGE
