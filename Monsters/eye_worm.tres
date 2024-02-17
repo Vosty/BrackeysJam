@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://w23ogjgjxlbr"]
 
 [ext_resource type="Script" path="res://scripts/Monster.gd" id="1_ttifh"]
-[ext_resource type="Texture2D" uid="uid://c0wvnta4vrdt5" path="res://assets/MonsterSprites/eyemonster.png" id="2_hcpg7"]
+[ext_resource type="Texture2D" uid="uid://bgekfoelad4um" path="res://assets/MonsterSprites/eyemonster.png" id="2_hcpg7"]
 
 [resource]
 script = ExtResource("1_ttifh")
 name = "Seeker"
 suit = 0
 tex = ExtResource("2_hcpg7")
+facing_right = true
+head_on = false

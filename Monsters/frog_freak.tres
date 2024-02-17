@@ -8,3 +8,5 @@ script = ExtResource("1_xb2op")
 name = "Troggert"
 suit = 6
 tex = ExtResource("2_pscfj")
+facing_right = false
+head_on = true

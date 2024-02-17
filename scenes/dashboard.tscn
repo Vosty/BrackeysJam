@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://dno7xid3tv17d"]
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_342t2"]
-[ext_resource type="Texture2D" uid="uid://cpqiot21hmyii" path="res://assets/Temp_Coin.png" id="2_hfbhw"]
+[ext_resource type="Texture2D" uid="uid://2lrnqb302tik" path="res://assets/coin.png" id="2_5gk72"]
 [ext_resource type="Texture2D" uid="uid://dwh70ardalc0i" path="res://assets/key.png" id="3_3tcxj"]
-[ext_resource type="FontFile" uid="uid://cdm2t6777veyl" path="res://assets/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="3_jak82"]
+[ext_resource type="FontFile" uid="uid://cef4i3umouksv" path="res://assets/Fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="3_w7w66"]
 [ext_resource type="Texture2D" uid="uid://dsqqpmdnaoser" path="res://assets/Upgrades/greebo_horn.png" id="4_6mns3"]
 [ext_resource type="Texture2D" uid="uid://bqrfp2aq8f71" path="res://assets/Upgrades/stranger_cloth.png" id="5_nfntm"]
 [ext_resource type="Texture2D" uid="uid://b7ew3b0xet5vf" path="res://assets/Upgrades/fang.png" id="6_gmauj"]
@@ -29,7 +29,6 @@ cuff_links_icon = NodePath("CanvasLayer/GridContainer/cuff_links_texture")
 shades_icon = NodePath("CanvasLayer/GridContainer/shades_texture")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 27
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 offset_right = 234.0
@@ -49,14 +48,15 @@ columns = 4
 
 [node name="Coin Icon" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("2_hfbhw")
+texture = ExtResource("2_5gk72")
 expand_mode = 3
+stretch_mode = 3
 
 [node name="Coin Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 tooltip_text = "Money. Spend in the shop between rounds."
-theme_override_fonts/font = ExtResource("3_jak82")
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_w7w66")
+theme_override_font_sizes/font_size = 40
 text = "100"
 
 [node name="Key Icon" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
@@ -68,8 +68,8 @@ stretch_mode = 3
 [node name="Key Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 tooltip_text = "The amount of attempts you have remaining"
-theme_override_fonts/font = ExtResource("3_jak82")
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_w7w66")
+theme_override_font_sizes/font_size = 40
 text = "100"
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer"]

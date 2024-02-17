@@ -37,7 +37,6 @@ enum CHOOSE_STATES {NO_CHOICE, CHOICE_ONE, CHOICE_TWO, RESULTS_SCREEN, PEEK_STAG
 const doorScene = preload("res://scenes/door.tscn")
 const flash = preload("res://scenes/text_flash.tscn")
 const key_tex : Texture2D = preload("res://assets/key.png")
-const coin_tex : Texture2D = preload("res://assets/Temp_Coin.png")
 
 const horn_tex : Texture2D = preload("res://assets/Upgrades/greebo_horn.png")
 const cloth_tex : Texture2D = preload("res://assets/Upgrades/stranger_cloth.png")

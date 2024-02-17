@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://doo5n3433q7lf"]
 
 [ext_resource type="Script" path="res://scripts/Monster.gd" id="1_fdk2j"]
-[ext_resource type="Texture2D" uid="uid://bysrw1h1hy2rm" path="res://assets/MonsterSprites/nottrumpmonster.png" id="2_ndabl"]
+[ext_resource type="Texture2D" uid="uid://cqt1pobr507ev" path="res://assets/MonsterSprites/nottrumpmonster.png" id="2_ndabl"]
 
 [resource]
 script = ExtResource("1_fdk2j")
 name = "Faxipus"
 suit = 3
 tex = ExtResource("2_ndabl")
+facing_right = true
+head_on = false

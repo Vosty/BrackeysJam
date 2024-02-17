@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://c8t2o4w6x8lfx"]
 
 [ext_resource type="Script" path="res://scripts/Monster.gd" id="1_3744q"]
-[ext_resource type="Texture2D" uid="uid://cep2ort34qavs" path="res://assets/MonsterSprites/blob.png" id="2_3e7kp"]
+[ext_resource type="Texture2D" uid="uid://d2o5wfcmucmd" path="res://assets/MonsterSprites/blob.png" id="2_3e7kp"]
 
 [resource]
 script = ExtResource("1_3744q")
 name = "Blob"
 suit = 21
 tex = ExtResource("2_3e7kp")
+facing_right = false
+head_on = true
