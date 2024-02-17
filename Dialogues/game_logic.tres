@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://b7mu7vp8wu7m6"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_ikueh"]
+
+[resource]
+script = ExtResource("1_ikueh")
+dialogues = ["So why is the hotel filled with traps?", "Gotta keep out squatters somehow!"]
+required_monsters = []

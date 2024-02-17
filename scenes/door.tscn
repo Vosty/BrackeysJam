@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkcwmthfipfj0"]
+[gd_scene load_steps=11 format=3 uid="uid://dkcwmthfipfj0"]
 
 [ext_resource type="Shader" path="res://assets/Shaders/Outline.gdshader" id="1_75228"]
-[ext_resource type="Texture2D" uid="uid://dm1l526kjp05" path="res://assets/Doors/doorOpening-Sheet.png" id="2_h4odd"]
+[ext_resource type="Texture2D" uid="uid://cfnnovxn1sx02" path="res://assets/Doors/doorOpening-Sheet.png" id="2_h4odd"]
 [ext_resource type="Script" path="res://scripts/door.gd" id="3_k60dh"]
-[ext_resource type="Texture2D" uid="uid://bjng00yqwqoaw" path="res://assets/MonsterSprites/greebo.png" id="4_61tga"]
+[ext_resource type="Texture2D" uid="uid://bngnnhjbsso6c" path="res://assets/MonsterSprites/greebo.png" id="4_61tga"]
+[ext_resource type="Texture2D" uid="uid://dpy4dg1coj1d5" path="res://assets/Traps/Generic Trap2.png" id="5_sksli"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w2ymo"]
 resource_local_to_scene = true
@@ -80,6 +81,11 @@ position = Vector2(0, 32)
 
 [node name="Mon" type="Sprite2D" parent="Sprite2D/Node2D"]
 texture = ExtResource("4_61tga")
+
+[node name="Trap" type="Sprite2D" parent="Sprite2D/Node2D"]
+visible = false
+position = Vector2(6, -32)
+texture = ExtResource("5_sksli")
 
 [connection signal="input_event" from="Sprite2D/Area2D" to="Sprite2D" method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Sprite2D/Area2D" to="Sprite2D" method="_on_area_2d_mouse_entered"]

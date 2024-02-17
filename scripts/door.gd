@@ -60,14 +60,23 @@ func check_door():
 	checking = true
 	animator.play("Door_Open")
 	await get_tree().create_timer(0.5).timeout
-	get_node("Node2D/Mon").show()
+	var mon
+	if !is_trap:
+		mon = get_node("Node2D/Mon")
+	else:
+		mon = get_node("Node2D/Trap")
+	mon.show()
 	
 func peek_door(tween : Tween):
 	material.set_shader_parameter("outline_color", Color(0.61, 0.29, 0.68, 255))
 	material.set_shader_parameter("width", outline_width)
 	checking = true
 	#await get_tree().create_timer(0.5).timeout
-	var mon = get_node("Node2D/Mon")
+	var mon
+	if !is_trap:
+		mon = get_node("Node2D/Mon")
+	else:
+		mon = get_node("Node2D/Trap")
 	mon.show()
 	mon.modulate.a = 0.0
 	tween.set_parallel()
@@ -76,9 +85,11 @@ func peek_door(tween : Tween):
 	
 func unpeek_door(tween : Tween):
 	material.set_shader_parameter("width", 0.0)
-	
-	var mon = get_node("Node2D/Mon")
-	print(str(mon.modulate))
+	var mon
+	if !is_trap:
+		mon = get_node("Node2D/Mon")
+	else:
+		mon = get_node("Node2D/Trap")
 	tween.set_parallel()
 	tween.tween_property(mon, 'modulate:a', 0.0, 1.05)
 	tween.tween_method(fade, .5, 1.0, 1.5)
@@ -92,7 +103,12 @@ func uncheck_door(close_door = true):
 	checking = false
 	if close_door:
 		await get_tree().create_timer(0.8).timeout
-		get_node("Node2D/Mon").hide()
+		var mon
+		if !is_trap:
+			mon = get_node("Node2D/Mon")
+		else:
+			mon = get_node("Node2D/Trap")
+		mon.hide()
 		animator.play("Door_Close")
 		
 func reveal_trap():
@@ -101,7 +117,7 @@ func reveal_trap():
 	animator.play("Door_Open")
 	checking = true
 	await get_tree().create_timer(0.5).timeout
-	get_node("Node2D/Mon").show()
+	get_node("Node2D/Trap").show()
 
 
 func open_door():
