@@ -21,14 +21,14 @@ var free_rolls_remaining
 
 
 const flash = preload("res://scenes/text_flash.tscn")
-const coin_tex : Texture2D = preload("res://assets/Temp_Coin.png")
+const coin_tex : Texture2D = preload("res://assets/coin.png")
 
 
 func get_available_upgrades():
 	var avail = available_upgrades
 	if player.get_upgrade_hold_count(player.UPGRADES.MATCH_EXTRA) >= 5:
 		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.MATCH_EXTRA)
-	if player.get_upgrade_hold_count(player.UPGRADES.FAIL_EXTRA) >= 5:
+	if player.get_upgrade_hold_count(player.UPGRADES.FAIL_EXTRA) >= 10:
 		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.FAIL_EXTRA)
 	if player.get_upgrade_hold_count(player.UPGRADES.FREE_REROLLS) >= 10:
 		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.FREE_REROLLS)
@@ -36,6 +36,8 @@ func get_available_upgrades():
 		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.TRAP_AVOID)
 	if player.get_upgrade_hold_count(player.UPGRADES.NEARBY_SHOW) >= 4:
 		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.NEARBY_SHOW)
+	if player.get_upgrade_hold_count(player.UPGRADES.CLONE_PAIR) >= player.round:
+		avail = avail.filter(func(u : Upgrade) : return u.type != player.UPGRADES.CLONE_PAIR)
 	return avail
 
 	
@@ -50,6 +52,8 @@ func set_shop():
 		texs[i] = get_node(texs[i])
 		buttons[i] = get_node(buttons[i])
 	roll_shop()
+	if player.round == 1:
+		$CanvasLayer/Hover_Hint.show()
 	
 	
 func roll_shop():
