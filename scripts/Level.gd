@@ -352,9 +352,12 @@ func check_match(door):
 				if nearby.size() > 0:
 					show.append(nearby.pop_front())
 			for d in show:
-				check_door(d)
-				await get_tree().create_timer(0.75).timeout
-				uncheck_door(d)
+				peek_door(d, false)
+			await get_tree().create_timer(1.0).timeout
+			for d in show:
+				unpeek_door(d)
+				
+				
 			
 		## Do not decrement attempts!
 	else:
@@ -392,9 +395,10 @@ func reveal_trap(door):
 	sfx_doors.play()
 	door.reveal_trap()
 	
-func peek_door(door):
-	sfx_effects.stream = peek_sound
-	sfx_effects.play()
+func peek_door(door, sound = true):
+	if sound:
+		sfx_effects.stream = peek_sound
+		sfx_effects.play()
 	var tween = create_tween()
 	door.peek_door(tween)
 	
