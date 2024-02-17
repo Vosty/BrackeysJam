@@ -426,6 +426,7 @@ func spring_trap(door):
 		create_flash(cuff_links_tex, "TRAP AVOIDED!", get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
 		sfx_effects.stream = trap_save_sound
 		sfx_effects.play()
+		return
 	else:
 		create_flash(door.trap.tex, door.trap.name, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
 	
