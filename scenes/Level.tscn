@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ctw22e4wln1pr"]
+[gd_scene load_steps=26 format=3 uid="uid://ctw22e4wln1pr"]
 
 [ext_resource type="Script" path="res://scripts/Level.gd" id="1_cu03t"]
 [ext_resource type="PackedScene" uid="uid://dno7xid3tv17d" path="res://scenes/dashboard.tscn" id="2_2yidn"]
@@ -19,9 +19,11 @@
 [ext_resource type="AudioStream" uid="uid://cy21dy5rc8jtg" path="res://assets/Audio/SFX/trap_saved.wav" id="13_w672x"]
 [ext_resource type="AudioStream" uid="uid://c8wmkk8bvnm1l" path="res://assets/Audio/SFX/win_sound.wav" id="14_ntsd2"]
 [ext_resource type="AudioStream" uid="uid://coktg387reyso" path="res://assets/Audio/SFX/peeking.wav" id="14_vlv4c"]
+[ext_resource type="AudioStream" uid="uid://cakfedb1plct8" path="res://assets/Audio/SFX/game_over.wav" id="15_3xnfl"]
 [ext_resource type="AudioStream" uid="uid://cjfmxmkacu6xe" path="res://assets/Audio/SFX/shades.wav" id="15_541wg"]
 [ext_resource type="AudioStream" uid="uid://b6fd3gpbl2ld" path="res://assets/Audio/SFX/open_door.wav" id="17_iph3p"]
 [ext_resource type="AudioStream" uid="uid://nm8jwxttewqv" path="res://assets/Audio/SFX/close_door.wav" id="18_glecd"]
+[ext_resource type="AudioStream" uid="uid://cjudk82q15dk3" path="res://assets/Audio/SFX/door_swap.wav" id="18_v0i7q"]
 [ext_resource type="PackedScene" uid="uid://k5k6bvgrmjm4" path="res://scenes/Game_Over.tscn" id="23_ho5am"]
 
 [node name="Node2D2" type="Node2D"]
@@ -40,8 +42,10 @@ lose_key_sound = ExtResource("5_t3eut")
 save_key_sound = ExtResource("12_j8eng")
 trap_save_sound = ExtResource("13_w672x")
 win_sound = ExtResource("14_ntsd2")
+game_over_sound = ExtResource("15_3xnfl")
 peek_sound = ExtResource("14_vlv4c")
 shades_sound = ExtResource("15_541wg")
+swap_sound = ExtResource("18_v0i7q")
 open_door_sound = ExtResource("17_iph3p")
 close_door_sound = ExtResource("18_glecd")
 

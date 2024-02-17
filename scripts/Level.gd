@@ -105,9 +105,11 @@ func prepare_doors():
 	var scale = 1.0
 	match player.round:
 		7,8,9,10:
-			scale = 0.9
+			#scale = 0.9
+			buffery *= 0.80
 		11,12:
-			scale = 0.7
+			buffery *= 0.6
+			scale = scale * 0.85
 	while i < rows:
 		setup_baseboards((i * ((height-(buffery * 2)) / (rows-1))) + buffery, scale)
 		while j < columns:
@@ -153,7 +155,7 @@ func setup_baseboards(door_y_position, scale = 1.0):
 		new_segment.position.x = baseboard_length + 32
 		new_segment.position.y = door_y_position + (32 * scale)
 		new_floor.position.x = baseboard_length + 32
-		new_floor.position.y = door_y_position + (64 * scale)
+		new_floor.position.y = door_y_position + (32 * scale) + 32
 		baseboard_length += segment_length
 	
 func add_lights(x_pos, y_pos, h_diff, scale):
@@ -423,7 +425,8 @@ func spring_trap(door):
 		create_flash(cuff_links_tex, "TRAP AVOIDED!", get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
 		sfx_effects.stream = trap_save_sound
 		sfx_effects.play()
-		return
+	else:
+		create_flash(door.trap.tex, door.trap.name, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
 	
 	#create_flash(door.trap.tex, door.inside, get_viewport().get_mouse_position().x, get_viewport().get_mouse_position().y)
 	sfx_status.stream = trap_sound
