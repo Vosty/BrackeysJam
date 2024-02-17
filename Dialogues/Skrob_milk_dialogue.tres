@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_x06fs")
-dialogues = [null, "Where did you get that milk, Skrob?", "I took it from the continental breakfast this morning", "And you've been carrying it on you head all day?", "..."]
+dialogues = [null, "Where did you get that milk, Skrob?", "I took it from the continental breakfast this morning", "And you've been carrying it on your head all day?", "..."]
 required_monsters = [ExtResource("1_uy1ix")]
 forced_start = ExtResource("1_uy1ix")
