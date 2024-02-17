@@ -52,7 +52,7 @@ func _on_next_char_timeout():
 	var message = chosen_dialogue.dialogues[current_message_index]
 	if message == null:
 		message = ""
-		current_message_index += 1
+		
 		next_char.stop()
 		_on_next_message_timeout()
 	if display.length() < message.length():
