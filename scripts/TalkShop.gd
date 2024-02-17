@@ -1,10 +1,13 @@
 extends Node
 
 @export var talkable_monsters = []
+
 @export var positions = []
 var monsters = []
 @export var group_size : int = 2
 var rng = RandomNumberGenerator.new()
+@export var dialog_array = []
+
 
 func _ready():
 	for i in group_size:

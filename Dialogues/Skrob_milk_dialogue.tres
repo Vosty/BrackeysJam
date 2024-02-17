@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://bg6skifo0qow0"]
+
+[ext_resource type="Resource" uid="uid://cldovagm03pcm" path="res://Monsters/skrob.tres" id="1_uy1ix"]
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_x06fs"]
+
+[resource]
+script = ExtResource("1_x06fs")
+dialogues = [null, "Where did you get that milk, Skrob?", "I took it from the continental breakfast this morning", "And you've been carrying it on you head all day?", "..."]
+required_monsters = [ExtResource("1_uy1ix")]
+forced_start = ExtResource("1_uy1ix")
