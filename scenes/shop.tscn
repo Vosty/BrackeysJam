@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b84a3o0vgjdmf"]
+[gd_scene load_steps=41 format=3 uid="uid://b84a3o0vgjdmf"]
 
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
 [ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
@@ -36,6 +36,9 @@
 [ext_resource type="Resource" uid="uid://brstgdn2d8g23" path="res://Monsters/Snakeshifter.tres" id="34_62osa"]
 [ext_resource type="Resource" uid="uid://cldovagm03pcm" path="res://Monsters/skrob.tres" id="35_nj6ri"]
 [ext_resource type="Resource" uid="uid://c6qsdbuawfe0g" path="res://Monsters/Spider_princess.tres" id="36_3liww"]
+[ext_resource type="Resource" uid="uid://bg6skifo0qow0" path="res://Dialogues/Skrob_milk_dialogue.tres" id="37_qolwr"]
+[ext_resource type="StyleBox" uid="uid://b06t1e75daqwc" path="res://assets/UI/Dialogue1.tres" id="38_n8mt3"]
+[ext_resource type="StyleBox" uid="uid://ciob6qsv81cfn" path="res://assets/UI/Dialogue2.tres" id="39_wirer"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1kh6i"]
 shader = ExtResource("19_tsiju")
@@ -182,7 +185,9 @@ bus = &"SFX"
 [node name="TalkShop" type="Node" parent="."]
 script = ExtResource("27_k17hy")
 talkable_monsters = [ExtResource("28_bnt72"), ExtResource("29_umarf"), ExtResource("30_pqwdd"), ExtResource("31_5dmpp"), ExtResource("32_lmx4s"), ExtResource("33_wfowp"), ExtResource("34_62osa"), ExtResource("35_nj6ri"), ExtResource("36_3liww")]
-positions = [NodePath("Postion 1"), NodePath("Position 2")]
+positions = [NodePath("Postion 1"), NodePath("Position 2"), NodePath("Position 3")]
+group_size = 3
+dialog_array = [ExtResource("37_qolwr")]
 
 [node name="Postion 1" type="Marker2D" parent="TalkShop"]
 position = Vector2(223, 602)
@@ -190,8 +195,47 @@ position = Vector2(223, 602)
 [node name="Position 2" type="Marker2D" parent="TalkShop"]
 position = Vector2(427, 604)
 
+[node name="Position 3" type="Marker2D" parent="TalkShop"]
+position = Vector2(875, 570)
+
+[node name="next_char" type="Timer" parent="TalkShop"]
+wait_time = 0.1
+
+[node name="next_message" type="Timer" parent="TalkShop"]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="Dialogue Panel 1" type="PanelContainer" parent="TalkShop"]
+visible = false
+offset_left = 107.0
+offset_top = 485.0
+offset_right = 134.0
+offset_bottom = 528.0
+theme_override_styles/panel = ExtResource("38_n8mt3")
+
+[node name="DialogueLabel1" type="Label" parent="TalkShop/Dialogue Panel 1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+
+[node name="Dialogue Panel 2" type="PanelContainer" parent="TalkShop"]
+visible = false
+offset_left = 353.0
+offset_top = 495.0
+offset_right = 380.0
+offset_bottom = 538.0
+theme_override_styles/panel = ExtResource("39_wirer")
+
+[node name="DialogueLabel2" type="Label" parent="TalkShop/Dialogue Panel 2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+
 [connection signal="pressed" from="CanvasLayer/GridContainer/Button 1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/GridContainer/Button 2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/GridContainer/Button 3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Bell_Button" to="." method="_on_bell_button_pressed"]
 [connection signal="pressed" from="Exit_Button_Canvas/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="timeout" from="TalkShop/next_char" to="TalkShop" method="_on_next_char_timeout"]
+[connection signal="timeout" from="TalkShop/next_message" to="TalkShop" method="_on_next_message_timeout"]
