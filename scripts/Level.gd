@@ -103,8 +103,14 @@ func prepare_doors():
 	var i = 0
 	var j = 0
 	setup_suits(rows, columns)
+	var scale = 1.0
+	match player.round:
+		7,8,9,10:
+			scale = 0.9
+		11,12:
+			scale = 0.7
 	while i < rows:
-		setup_baseboards((i * ((height-(buffery * 2)) / (rows-1))) + buffery)
+		setup_baseboards((i * ((height-(buffery * 2)) / (rows-1))) + buffery, scale)
 		while j < columns:
 			var door = doorScene.instantiate()
 			var doorSpri = door.get_node("Sprite2D")
@@ -117,11 +123,13 @@ func prepare_doors():
 			# ^ dividing by the columns minus 1 leaves the horizontal distance between doors.
 			door.position.y = (i * ((height-(buffery * 2)) / (rows-1))) + buffery
 			
+	
 			
 			doorSpri.pos = Vector2i(i, j)
+			doorSpri.scale = Vector2(scale,scale)
 			# Add lights between doors
 			if j < columns -1 :
-				add_lights(door.position.x, door.position.y, ((width-(bufferx * 2)) / (columns-1)))
+				add_lights(door.position.x, door.position.y, ((width-(bufferx * 2)) / (columns-1)), scale)
 			doorSpri.Chosen.connect(handle_click)
 			doorSpri.Close_Finished.connect(play_close_sound)
 			doors.append(doorSpri)
@@ -131,7 +139,7 @@ func prepare_doors():
 		
 		i = i+1
 		
-func setup_baseboards(door_y_position):
+func setup_baseboards(door_y_position, scale = 1.0):
 	var baseboard_length : int = bufferx - 108
 	var segment_length : int = baseboard_tex.get_width()
 	
@@ -144,12 +152,12 @@ func setup_baseboards(door_y_position):
 		self.add_child(new_segment)
 		self.add_child(new_floor)
 		new_segment.position.x = baseboard_length + 32
-		new_segment.position.y = door_y_position + 32
+		new_segment.position.y = door_y_position + (32 * scale)
 		new_floor.position.x = baseboard_length + 32
-		new_floor.position.y = door_y_position + 64
+		new_floor.position.y = door_y_position + (64 * scale)
 		baseboard_length += segment_length
 	
-func add_lights(x_pos, y_pos, h_diff):
+func add_lights(x_pos, y_pos, h_diff, scale):
 	# the lights should be midway between doors
 	# Easiest way to add lights after each door except the last in the row.
 	var new_light = Sprite2D.new()
@@ -157,6 +165,7 @@ func add_lights(x_pos, y_pos, h_diff):
 	self.add_child(new_light)
 	new_light.position.x = x_pos + (h_diff / 2)
 	new_light.position.y = y_pos - 32
+	new_light.scale = Vector2(scale,scale)
 	
 func draw_floor_bottom(): # Draws floor tiles through the bottom buffery region
 	var floor_segment_height : int = 16
@@ -320,6 +329,9 @@ func check_match(door):
 			sfx_effects.stream = win_sound
 			sfx_effects.play()
 			await get_tree().create_timer(3).timeout
+			if player.round == 12:
+				game_over()
+				return
 			Door.results_phase = true
 			get_node("ResultsScreen").show_results_screen()
 			return
@@ -491,11 +503,13 @@ func find_door(x : int, y : int):
 	return doors.filter(func(test : Door): return test.pos == Vector2i(x,y) && !test.checking && !test.open).pop_front()
 
 
-func game_over():
+func game_over(win = false):
+	if !win:
+		sfx_effects.stream = game_over_sound
+		sfx_effects.play()
 	state = CHOOSE_STATES.RESULTS_SCREEN
 	Door.results_phase = true
-	sfx_effects.stream = game_over_sound
-	sfx_effects.play()
+
 	await get_tree().create_timer(2).timeout
 	get_node("GameOverScreen").show_gameover_screen()
 
