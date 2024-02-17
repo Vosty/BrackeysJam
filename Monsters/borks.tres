@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://dht6ottsqniec"]
 
 [ext_resource type="Script" path="res://scripts/Monster.gd" id="1_6k2k8"]
-[ext_resource type="Texture2D" uid="uid://lkx7figgyf4q" path="res://assets/MonsterSprites/borks.png" id="2_2jdsk"]
+[ext_resource type="Texture2D" uid="uid://ckbb2q4v0hw7s" path="res://assets/MonsterSprites/borks.png" id="2_2jdsk"]
 
 [resource]
 script = ExtResource("1_6k2k8")
 name = "Borks"
 suit = 9
 tex = ExtResource("2_2jdsk")
+facing_right = true
+head_on = false

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://c64lt621djp14"]
 
 [ext_resource type="Script" path="res://scripts/Monster.gd" id="1_b0y1a"]
-[ext_resource type="Texture2D" uid="uid://bngnnhjbsso6c" path="res://assets/MonsterSprites/greebo.png" id="2_x0f3j"]
+[ext_resource type="Texture2D" uid="uid://bjng00yqwqoaw" path="res://assets/MonsterSprites/greebo.png" id="2_x0f3j"]
 
 [resource]
 script = ExtResource("1_b0y1a")
 name = "Greebo"
 suit = 1
 tex = ExtResource("2_x0f3j")
+facing_right = true
+head_on = false

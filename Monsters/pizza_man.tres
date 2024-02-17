@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://cwtenex0guyl1"]
 
 [ext_resource type="Script" path="res://scripts/Monster.gd" id="1_rbvqt"]
-[ext_resource type="Texture2D" uid="uid://01spfc1axayl" path="res://assets/MonsterSprites/pizza_man.png" id="2_tm0uy"]
+[ext_resource type="Texture2D" uid="uid://2cmk3weotp3u" path="res://assets/MonsterSprites/pizza_man.png" id="2_tm0uy"]
 
 [resource]
 script = ExtResource("1_rbvqt")
 name = "Pizzaman"
 suit = 16
 tex = ExtResource("2_tm0uy")
+facing_right = true
+head_on = false

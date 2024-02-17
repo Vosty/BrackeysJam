@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://dxr7c0w7ekdcn"]
 
 [ext_resource type="Script" path="res://scripts/Monster.gd" id="1_rho7i"]
-[ext_resource type="Texture2D" uid="uid://bup7dfwoo6u54" path="res://assets/MonsterSprites/gloper.png" id="2_fmmhi"]
+[ext_resource type="Texture2D" uid="uid://bc47ubm76767m" path="res://assets/MonsterSprites/gloper.png" id="2_fmmhi"]
 
 [resource]
 script = ExtResource("1_rho7i")
 name = "Gloper"
 suit = 12
 tex = ExtResource("2_fmmhi")
+facing_right = true
+head_on = false

@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://c6qsdbuawfe0g"]
 
 [ext_resource type="Script" path="res://scripts/Monster.gd" id="1_vl4m8"]
-[ext_resource type="Texture2D" uid="uid://cwud346w5xtj2" path="res://assets/MonsterSprites/SpiderPrincess.png" id="2_t0gda"]
+[ext_resource type="Texture2D" uid="uid://cc22so0rdxdc6" path="res://assets/MonsterSprites/SpiderPrincess.png" id="2_t0gda"]
 
 [resource]
 script = ExtResource("1_vl4m8")
 name = "Spider Princess"
 suit = 17
 tex = ExtResource("2_t0gda")
+facing_right = false
+head_on = true
