@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_vdldf")
-dialogues = []
+dialogues = ["The vending machine ate my GreeboKoin.", "Try asking Slimon for help."]
 required_monsters = []

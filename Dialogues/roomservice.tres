@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://bbfx0dqxan3td"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://bbfx0dqxan3td"]
 
+[ext_resource type="Resource" uid="uid://dv0rgi54mv58h" path="res://Monsters/Barrel.tres" id="1_0lewr"]
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_agwig"]
+[ext_resource type="Resource" uid="uid://gyglmxnbr8bu" path="res://Monsters/Relc.tres" id="2_h8d6h"]
+[ext_resource type="Resource" uid="uid://dxa30diekxbxp" path="res://Monsters/Morrimancer.tres" id="3_qdvix"]
 
 [resource]
 script = ExtResource("1_agwig")
-dialogues = []
-required_monsters = []
+dialogues = ["Morrimancer keeps enslaving the hotel staff, its becoming an issue.", "So thats why getting room service has been tough"]
+required_monsters = [ExtResource("1_0lewr"), ExtResource("2_h8d6h"), ExtResource("3_qdvix")]
