@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://k2nasj3hrixc"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://k2nasj3hrixc"]
 
+[ext_resource type="Resource" uid="uid://lwvlmgcnv2w" path="res://Monsters/minotaur.tres" id="1_7majd"]
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_qtmjs"]
 
 [resource]
 script = ExtResource("1_qtmjs")
-dialogues = []
-required_monsters = []
+dialogues = ["This labrynth is quite ... confounding.", "The bathroom is down the hall to the right."]
+required_monsters = [ExtResource("1_7majd")]

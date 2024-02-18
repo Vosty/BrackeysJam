@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://bxhdl1m4ylrda"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://bxhdl1m4ylrda"]
 
+[ext_resource type="Resource" uid="uid://dxr7c0w7ekdcn" path="res://Monsters/Gloper.tres" id="1_hjuej"]
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_pr0sd"]
+[ext_resource type="Resource" uid="uid://dv0rgi54mv58h" path="res://Monsters/Barrel.tres" id="2_oex56"]
+[ext_resource type="Resource" uid="uid://c64lt621djp14" path="res://Monsters/greebo.tres" id="3_xrvry"]
 
 [resource]
 script = ExtResource("1_pr0sd")
-dialogues = []
-required_monsters = []
+dialogues = ["Do you think Greebo is single?", "He's out of your league"]
+required_monsters = [ExtResource("1_hjuej"), ExtResource("2_oex56"), ExtResource("3_xrvry")]
