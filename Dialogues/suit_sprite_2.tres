@@ -7,5 +7,5 @@
 [resource]
 script = ExtResource("1_auykv")
 dialogues = ["You do a lot of under cover work, right?", "From time to time.", "So is this your secret identity or your real one?", "..."]
-required_monsters = [ExtResource("2_hg8dh"), ExtResource("1_fwgkr")]
+required_monsters = [ExtResource("1_fwgkr"), ExtResource("2_hg8dh")]
 forced_start = ExtResource("1_fwgkr")
