@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://cwr6hxvaj3ar8"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_2j1t0"]
+
+[resource]
+script = ExtResource("1_2j1t0")
+dialogues = ["Rumor has it if you play this game during a full moon you can get to Round 13.", "That's a myth. You can find Round 13 under the truck in Vermillion City.", "... I don't follow.", "You're gonna need a monster who can surf."]
+required_monsters = []

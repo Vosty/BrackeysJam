@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://c2knlxp8rlcg1"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_26uxi"]
+
+[resource]
+script = ExtResource("1_26uxi")
+dialogues = ["Did you catch the game last night?", "No, who won?", "No, I didn't see it either. That's why I was asking."]
+required_monsters = []

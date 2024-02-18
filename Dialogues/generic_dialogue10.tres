@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://0lcr5nyt1khx"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_cmnn1"]
+
+[resource]
+script = ExtResource("1_cmnn1")
+dialogues = ["I've had enough. The monsters should start a union!", "None of us work here.", "Then let's start a tenants union!", "We don't really live here either.", "Can't you work with me here?"]
+required_monsters = []

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://cv8yhl50nx8hm"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_2t4t1"]
+
+[resource]
+script = ExtResource("1_2t4t1")
+dialogues = ["It's hard to sleep with all the strange noises every night.", "They need to shut the doors a little more gently."]
+required_monsters = []

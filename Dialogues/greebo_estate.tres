@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://bk7n06a5e1uyr"]
+
+[ext_resource type="Resource" uid="uid://dxr7c0w7ekdcn" path="res://Monsters/Gloper.tres" id="1_iq3v3"]
+[ext_resource type="Resource" uid="uid://c8t2o4w6x8lfx" path="res://Monsters/blob.tres" id="2_q583u"]
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="3_ymgqh"]
+
+[resource]
+script = ExtResource("3_ymgqh")
+dialogues = ["Honestly this hotel has pretty great deals.", "How do they keep the prices so low?", "The prices are all a sham. The Greebo Estate has millions."]
+required_monsters = [ExtResource("1_iq3v3"), ExtResource("2_q583u")]

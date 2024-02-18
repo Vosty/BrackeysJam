@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://c2s63pkw2bx53"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_5lr5i"]
+[ext_resource type="Resource" uid="uid://dxa30diekxbxp" path="res://Monsters/Morrimancer.tres" id="1_t8oib"]
+
+[resource]
+script = ExtResource("1_5lr5i")
+dialogues = [null, "What's the E.o.W. stand for?", "Enslaver of Worlds"]
+required_monsters = [ExtResource("1_t8oib")]
+forced_start = ExtResource("1_t8oib")

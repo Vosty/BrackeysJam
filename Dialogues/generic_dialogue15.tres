@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://if0jeqsfbp3p"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_ciuei"]
+
+[resource]
+script = ExtResource("1_ciuei")
+dialogues = ["How do I get more GreeboKoin?", "Too late now. Should have invested in the 90s."]
+required_monsters = []

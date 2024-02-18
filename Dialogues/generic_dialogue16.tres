@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://dov10rh12g2bv"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_0d78n"]
+
+[resource]
+script = ExtResource("1_0d78n")
+dialogues = ["When was Monster Hotel established?", "Sorry, I lack object permanence."]
+required_monsters = []

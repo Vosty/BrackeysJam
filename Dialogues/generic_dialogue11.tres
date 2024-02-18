@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://b108o0vd0ds5x"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_qme3v"]
+
+[resource]
+script = ExtResource("1_qme3v")
+dialogues = ["I've always heard that every good video game has fishing.", "Look forward to Monster Hotel 2!"]
+required_monsters = []

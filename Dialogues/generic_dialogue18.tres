@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://bblic2tx2k21u"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_awj7t"]
+
+[resource]
+script = ExtResource("1_awj7t")
+dialogues = ["What do I do if I find a bug in Monster Hotel?", "Keep it to yourself."]
+required_monsters = []

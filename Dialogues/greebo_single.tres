@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://bxhdl1m4ylrda"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://b8hqnhbnhll7g"]
 
 [ext_resource type="Resource" uid="uid://dxr7c0w7ekdcn" path="res://Monsters/Gloper.tres" id="1_hjuej"]
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_pr0sd"]

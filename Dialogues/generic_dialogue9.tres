@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://bol0qanjws8il"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_alkie"]
+
+[resource]
+script = ExtResource("1_alkie")
+dialogues = ["Does the manager have a name?", "That's Slimon. He's not actually from these parts.", "Where's he from?", "He's Canadian.", "What's a Canadian?", "Beats me."]
+required_monsters = []

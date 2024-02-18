@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://b7omfdaiakd47"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_sr0mx"]
+
+[resource]
+script = ExtResource("1_sr0mx")
+dialogues = ["Can you see those numbers up near the ceiling?", "If you pay attention, they actually predict the exact time and place of the player's death.", "How chilling."]
+required_monsters = []
