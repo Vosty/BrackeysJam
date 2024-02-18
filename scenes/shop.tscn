@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://b84a3o0vgjdmf"]
+[gd_scene load_steps=62 format=3 uid="uid://b84a3o0vgjdmf"]
 
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_uvbbd"]
 [ext_resource type="Resource" uid="uid://brgxok2paxgw" path="res://Upgrades/Coin.tres" id="2_jmf0d"]
@@ -50,7 +50,16 @@
 [ext_resource type="Resource" uid="uid://7a1wcl2b4sc5" path="res://Dialogues/pizzaman_and_stranger_drip.tres" id="41_fcdxu"]
 [ext_resource type="Resource" uid="uid://wfo13ub2hwnv" path="res://Dialogues/pizza_man_rizz.tres" id="42_p4mbs"]
 [ext_resource type="Resource" uid="uid://dvhgsaubepuew" path="res://Dialogues/pizza_shades_dialogue.tres" id="43_v25h8"]
+[ext_resource type="Resource" uid="uid://k2nasj3hrixc" path="res://Dialogues/bathroom.tres" id="43_w5icr"]
 [ext_resource type="Resource" uid="uid://i2ipl5hr7ktd" path="res://Dialogues/stranger_danger.tres" id="44_bt4vy"]
+[ext_resource type="Resource" uid="uid://muoeondvcpxs" path="res://Dialogues/fine_mama.tres" id="45_u3ovb"]
+[ext_resource type="Resource" uid="uid://bllt4w1346pvd" path="res://Dialogues/fitness_center.tres" id="46_hrbqq"]
+[ext_resource type="Resource" uid="uid://bxhdl1m4ylrda" path="res://Dialogues/greebo_single.tres" id="48_yblgj"]
+[ext_resource type="Resource" uid="uid://cevd0rg5pqkks" path="res://Dialogues/not_human.tres" id="49_u43m2"]
+[ext_resource type="Resource" uid="uid://b4rhoojkds0p7" path="res://Dialogues/pool_incident.tres" id="53_af0mv"]
+[ext_resource type="Resource" uid="uid://bgjgy7bx4h0sw" path="res://Dialogues/skrob_request.tres" id="55_ocmmk"]
+[ext_resource type="Resource" uid="uid://yergg5stykmj" path="res://Dialogues/tension.tres" id="57_ovvnp"]
+[ext_resource type="Resource" uid="uid://c0phk5s5pp624" path="res://Dialogues/tentacle_care.tres" id="58_njdw2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1kh6i"]
 shader = ExtResource("19_tsiju")
@@ -229,7 +238,7 @@ script = ExtResource("27_k17hy")
 talkable_monsters = [ExtResource("28_bnt72"), ExtResource("29_umarf"), ExtResource("30_pqwdd"), ExtResource("31_5dmpp"), ExtResource("32_lmx4s"), ExtResource("33_wfowp"), ExtResource("34_62osa"), ExtResource("35_nj6ri"), ExtResource("36_3liww"), ExtResource("37_ipu0l")]
 positions = [NodePath("Postion 1"), NodePath("Position 2"), NodePath("Position 3")]
 group_size = 3
-dialog_array = [ExtResource("37_qolwr"), ExtResource("39_ru1y1"), ExtResource("40_iltgu"), ExtResource("41_fcdxu"), ExtResource("42_p4mbs"), ExtResource("43_v25h8"), ExtResource("44_bt4vy")]
+dialog_array = [ExtResource("43_w5icr"), ExtResource("39_ru1y1"), ExtResource("45_u3ovb"), ExtResource("46_hrbqq"), ExtResource("40_iltgu"), ExtResource("48_yblgj"), ExtResource("49_u43m2"), ExtResource("41_fcdxu"), ExtResource("42_p4mbs"), ExtResource("43_v25h8"), ExtResource("53_af0mv"), ExtResource("37_qolwr"), ExtResource("55_ocmmk"), ExtResource("44_bt4vy"), ExtResource("57_ovvnp"), ExtResource("58_njdw2")]
 
 [node name="Postion 1" type="Marker2D" parent="TalkShop"]
 position = Vector2(223, 602)

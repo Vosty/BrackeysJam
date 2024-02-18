@@ -76,7 +76,8 @@ func update_upgrades():
 
 func _on_match_extra_texture_mouse_entered():
 	match_extra_icon.get_node("Label").visible = true
-	
+
+
 func _on_match_extra_texture_mouse_exited():
 	match_extra_icon.get_node("Label").visible = false
 	
