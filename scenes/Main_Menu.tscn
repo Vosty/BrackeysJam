@@ -1,21 +1,22 @@
-[gd_scene load_steps=17 format=3 uid="uid://bymgy2hcf3oyn"]
+[gd_scene load_steps=18 format=3 uid="uid://bymgy2hcf3oyn"]
 
 [ext_resource type="Script" path="res://scripts/Main_Menu.gd" id="1_wdhwn"]
-[ext_resource type="Texture2D" uid="uid://c045ujej4kjls" path="res://assets/Backgrounds/BG1.png" id="2_yodb4"]
+[ext_resource type="Texture2D" uid="uid://cohrgtarse0kt" path="res://assets/Backgrounds/BG1.png" id="2_yodb4"]
 [ext_resource type="StyleBox" uid="uid://bp7p5yrkrt271" path="res://assets/UI/Title_style_box.tres" id="3_k7nvt"]
-[ext_resource type="Texture2D" uid="uid://cwnc4rgh4g8t6" path="res://assets/UI/MenuButton.png" id="3_tmm0j"]
-[ext_resource type="Texture2D" uid="uid://dhf3c4x2lepuc" path="res://assets/UI/MenuButton2.png" id="4_vfk8n"]
+[ext_resource type="Texture2D" uid="uid://crijtayt61cyc" path="res://assets/UI/MenuButton.png" id="3_tmm0j"]
+[ext_resource type="Texture2D" uid="uid://cvnaeg2k8mxmt" path="res://assets/Main Menu/goldtrimdoor.png" id="3_uocy7"]
+[ext_resource type="Texture2D" uid="uid://cblrxi114tf3d" path="res://assets/UI/MenuButton2.png" id="4_vfk8n"]
 [ext_resource type="StyleBox" uid="uid://dehb46trjw82d" path="res://assets/UI/Stylebox_1.tres" id="5_2pp2w"]
-[ext_resource type="FontFile" uid="uid://wwqguaa47rek" path="res://assets/Fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="6_cf8fi"]
-[ext_resource type="FontFile" uid="uid://ds8ev65f5bhng" path="res://assets/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="7_trrc7"]
-[ext_resource type="Texture2D" uid="uid://eg5xhjjb4hpk" path="res://assets/UI/Door_Closed.png" id="8_8h6pl"]
-[ext_resource type="Texture2D" uid="uid://c016p0uqhyefu" path="res://assets/UI/Door_Open.png" id="9_70pni"]
-[ext_resource type="Texture2D" uid="uid://bv67r53ufjasu" path="res://assets/MonsterSprites/greebo.png" id="10_f5vtj"]
-[ext_resource type="Texture2D" uid="uid://c3kqyi0k4jxrv" path="res://assets/UI/Arrow_2.png" id="11_8hiqx"]
-[ext_resource type="Texture2D" uid="uid://j1dy668uwulp" path="res://assets/Upgrades/key_ring.png" id="12_emdtk"]
-[ext_resource type="Texture2D" uid="uid://cdml51ub8lfa5" path="res://assets/Upgrades/shades.png" id="13_vrj2s"]
-[ext_resource type="Texture2D" uid="uid://de1fgj4gkuujr" path="res://assets/pixel_bell.png" id="14_mchxw"]
-[ext_resource type="Texture2D" uid="uid://b4yvo5becabbd" path="res://assets/pixel_bell_depressed.png" id="15_gk0y6"]
+[ext_resource type="FontFile" uid="uid://brrsn7hu01hxa" path="res://assets/Fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="6_cf8fi"]
+[ext_resource type="FontFile" uid="uid://cdm2t6777veyl" path="res://assets/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="7_trrc7"]
+[ext_resource type="Texture2D" uid="uid://jq5jm7r62q04" path="res://assets/UI/Door_Closed.png" id="8_8h6pl"]
+[ext_resource type="Texture2D" uid="uid://ctame1f6cywnp" path="res://assets/UI/Door_Open.png" id="9_70pni"]
+[ext_resource type="Texture2D" uid="uid://bjng00yqwqoaw" path="res://assets/MonsterSprites/greebo.png" id="10_f5vtj"]
+[ext_resource type="Texture2D" uid="uid://brnd1a0ftdje7" path="res://assets/UI/Arrow_2.png" id="11_8hiqx"]
+[ext_resource type="Texture2D" uid="uid://rey4t7ia67xa" path="res://assets/Upgrades/key_ring.png" id="12_emdtk"]
+[ext_resource type="Texture2D" uid="uid://rl4n50a1m2ti" path="res://assets/Upgrades/shades.png" id="13_vrj2s"]
+[ext_resource type="Texture2D" uid="uid://cy1q6vpn5y3bh" path="res://assets/pixel_bell.png" id="14_mchxw"]
+[ext_resource type="Texture2D" uid="uid://0es4imerv43x" path="res://assets/pixel_bell_depressed.png" id="15_gk0y6"]
 
 [node name="Menu" type="Control" node_paths=PackedStringArray("play_button", "tutorial_button", "quit_button", "options_button")]
 layout_mode = 3
@@ -37,6 +38,15 @@ offset_right = 1836.0
 offset_bottom = 1080.0
 scale = Vector2(0.663549, 0.663549)
 texture = ExtResource("2_yodb4")
+
+[node name="DoorTex" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -66.0
+offset_top = 13.0
+offset_right = 670.0
+offset_bottom = 426.0
+scale = Vector2(1.68, 1.68)
+texture = ExtResource("3_uocy7")
 
 [node name="Title_border" type="Panel" parent="."]
 layout_mode = 0
