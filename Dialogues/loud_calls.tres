@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://bs8ruaps2hlif"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_562mi"]
+
+[resource]
+script = ExtResource("1_562mi")
+dialogues = []
+required_monsters = []
