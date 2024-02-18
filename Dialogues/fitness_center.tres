@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://bllt4w1346pvd"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_h0vsk"]
+[ext_resource type="Resource" uid="uid://bhuok16kelgvk" path="res://Monsters/Squidragon.tres" id="1_y4llv"]
+
+[resource]
+script = ExtResource("1_h0vsk")
+dialogues = [null, "Do you need to use ALL the fitness equipment at once?", "YeGAINZ"]
+required_monsters = [ExtResource("1_y4llv")]

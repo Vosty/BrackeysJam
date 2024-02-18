@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://yergg5stykmj"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_cx1ll"]
+[ext_resource type="Resource" uid="uid://lwvlmgcnv2w" path="res://Monsters/minotaur.tres" id="1_nhsw5"]
+[ext_resource type="Resource" uid="uid://gyglmxnbr8bu" path="res://Monsters/Relc.tres" id="2_ojyq1"]
+[ext_resource type="Resource" uid="uid://dht6ottsqniec" path="res://Monsters/borks.tres" id="3_qnk4n"]
+
+[resource]
+script = ExtResource("1_cx1ll")
+dialogues = ["There's some tension between Borks and Spider Princess.", "He slayed 100 of her brood at the Battle of the Sundered Rift."]
+required_monsters = [ExtResource("1_nhsw5"), ExtResource("2_ojyq1"), ExtResource("3_qnk4n")]

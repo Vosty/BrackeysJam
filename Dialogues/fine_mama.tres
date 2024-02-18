@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://muoeondvcpxs"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_fuiav"]
+[ext_resource type="Resource" uid="uid://dwgji0y6oyasx" path="res://Monsters/cat_chimera.tres" id="1_vyhuh"]
+[ext_resource type="Resource" uid="uid://doo5n3433q7lf" path="res://Monsters/facist.tres" id="2_6o1sm"]
+[ext_resource type="Resource" uid="uid://c6qsdbuawfe0g" path="res://Monsters/Spider_princess.tres" id="3_p2hvw"]
+
+[resource]
+script = ExtResource("1_fuiav")
+dialogues = ["Spider Princess is pretty fine for a mother of 3000.", "She's out of your league."]
+required_monsters = [ExtResource("1_vyhuh"), ExtResource("2_6o1sm"), ExtResource("3_p2hvw")]
