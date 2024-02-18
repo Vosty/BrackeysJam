@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://b4rhoojkds0p7"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://b4rhoojkds0p7"]
 
+[ext_resource type="Resource" uid="uid://dv0rgi54mv58h" path="res://Monsters/Barrel.tres" id="1_cwcy7"]
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_esvpp"]
+[ext_resource type="Resource" uid="uid://brstgdn2d8g23" path="res://Monsters/Snakeshifter.tres" id="2_abybg"]
+[ext_resource type="Resource" uid="uid://doo5n3433q7lf" path="res://Monsters/facist.tres" id="3_syx0w"]
 
 [resource]
 script = ExtResource("1_esvpp")
-dialogues = ["I heard ", ""]
-required_monsters = []
+dialogues = ["I heard Foxipus was banned from the pool after the incident.", "There were so many wolobs."]
+required_monsters = [ExtResource("1_cwcy7"), ExtResource("2_abybg"), ExtResource("3_syx0w")]
