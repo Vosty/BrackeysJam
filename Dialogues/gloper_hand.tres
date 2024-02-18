@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://du742tixlsdcy"]
+
+[ext_resource type="Resource" uid="uid://dbdy0f33135hi" path="res://Monsters/trunkr.tres" id="1_1q07v"]
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_3qaam"]
+[ext_resource type="Resource" uid="uid://doo5n3433q7lf" path="res://Monsters/facist.tres" id="2_31b00"]
+[ext_resource type="Resource" uid="uid://dxr7c0w7ekdcn" path="res://Monsters/Gloper.tres" id="3_atwxi"]
+
+[resource]
+script = ExtResource("1_3qaam")
+dialogues = ["Why do you reckon that Gloper carry's that hand?", "I heard its a family heirloom."]
+required_monsters = [ExtResource("1_1q07v"), ExtResource("2_31b00"), ExtResource("3_atwxi")]

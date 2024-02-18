@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://term1e6juc1f"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_a60yo"]
+
+[resource]
+script = ExtResource("1_a60yo")
+dialogues = ["Does Monster Hotel sell any merchandise?", "You just missed the limited time beer coozy.", "Dawwh!"]
+required_monsters = []

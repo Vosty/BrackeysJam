@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://bgbwsb8jn3nqw"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_apmua"]
+
+[resource]
+script = ExtResource("1_apmua")
+dialogues = ["How many floors does Monster Hotel have?", "Staff is still trying to determine that."]
+required_monsters = []

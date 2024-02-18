@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://de5swnstccn0w"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_rxyxh"]
+[ext_resource type="Resource" uid="uid://dbe4guvgh51gs" path="res://Monsters/suit_sprite.tres" id="1_ynx48"]
+
+[resource]
+script = ExtResource("1_rxyxh")
+dialogues = [null, "Done any dangerous mission lately?", "Sorry, that's classified."]
+required_monsters = [ExtResource("1_ynx48")]
+forced_start = ExtResource("1_ynx48")

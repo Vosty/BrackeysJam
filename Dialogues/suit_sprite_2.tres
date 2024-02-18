@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://b266nli8ouj3q"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_auykv"]
+[ext_resource type="Resource" uid="uid://dbe4guvgh51gs" path="res://Monsters/suit_sprite.tres" id="1_fwgkr"]
+[ext_resource type="Resource" uid="uid://bc8kkoy3bo2ob" path="res://Monsters/stranger.tres" id="2_hg8dh"]
+
+[resource]
+script = ExtResource("1_auykv")
+dialogues = ["You do a lot of under cover work, right?", "From time to time.", "So is this your secret identity or your real one?", "..."]
+required_monsters = [ExtResource("2_hg8dh"), ExtResource("1_fwgkr")]
+forced_start = ExtResource("1_fwgkr")

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://xkswhwoyogad"]
+
+[ext_resource type="Resource" uid="uid://5r00rkvtnyns" path="res://Monsters/flip.tres" id="1_ebpqg"]
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_mec0p"]
+[ext_resource type="Resource" uid="uid://doo5n3433q7lf" path="res://Monsters/facist.tres" id="2_u4hga"]
+[ext_resource type="Resource" uid="uid://cldovagm03pcm" path="res://Monsters/skrob.tres" id="3_yvl12"]
+
+[resource]
+script = ExtResource("1_mec0p")
+dialogues = ["I like Flip. She seems nice.", "Don't be fooled.", "Why? She's cute.", "She has over 30 confirmed kills."]
+required_monsters = [ExtResource("2_u4hga"), ExtResource("3_yvl12"), ExtResource("1_ebpqg")]
+forced_start = ExtResource("1_ebpqg")

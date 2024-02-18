@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://brg8a5xfmf43n"]
+
+[ext_resource type="Resource" uid="uid://dxr7c0w7ekdcn" path="res://Monsters/Gloper.tres" id="1_1fye6"]
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_nngbw"]
+
+[resource]
+script = ExtResource("1_nngbw")
+dialogues = [null, "Ack... I can't find my room key.", "Need a hand?"]
+required_monsters = [ExtResource("1_1fye6")]
+forced_start = ExtResource("1_1fye6")

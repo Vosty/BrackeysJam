@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://xuv6jc8i4riy"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_folwv"]
+[ext_resource type="Resource" uid="uid://brstgdn2d8g23" path="res://Monsters/Snakeshifter.tres" id="1_tv6b1"]
+
+[resource]
+script = ExtResource("1_folwv")
+dialogues = [null, "Are snakeshifter's venomous?", "We're actually pacifists."]
+required_monsters = [ExtResource("1_tv6b1")]
+forced_start = ExtResource("1_tv6b1")
