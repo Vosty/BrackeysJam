@@ -14,8 +14,10 @@ func _ready():
 func hide_gameover_scene():
 	get_node("CanvasLayer/Control").hide()
 
-func show_gameover_screen():
+func show_gameover_screen(win = false):
 	#Update totals with current stats
+	if win:
+		get_node("CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/Game Over").text = "You Win!"
 	player.total_attempts += player.attempts
 	player.total_traps += player.traps_hit
 	player.total_time += player.time_elapsed

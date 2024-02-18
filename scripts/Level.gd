@@ -332,7 +332,7 @@ func check_match(door):
 			sfx_effects.play()
 			await get_tree().create_timer(3).timeout
 			if player.round == 12:
-				game_over()
+				game_over(true)
 				return
 			Door.results_phase = true
 			get_node("ResultsScreen").show_results_screen()
@@ -519,7 +519,7 @@ func game_over(win = false):
 	Door.results_phase = true
 
 	await get_tree().create_timer(2).timeout
-	get_node("GameOverScreen").show_gameover_screen()
+	get_node("GameOverScreen").show_gameover_screen(win)
 
 func create_flash(texture : Texture2D, display_message : String, x : float, y : float, display_time : int = 100):
 	var element = flash.instantiate()
