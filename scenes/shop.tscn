@@ -73,7 +73,7 @@ leave_sound = ExtResource("15_24dd0")
 [node name="Dashboard" parent="." instance=ExtResource("5_5d8yj")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
+layer = -3
 
 [node name="Background" type="TextureRect" parent="CanvasLayer"]
 offset_right = 1080.0

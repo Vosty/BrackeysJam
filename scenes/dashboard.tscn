@@ -1,32 +1,40 @@
-[gd_scene load_steps=15 format=3 uid="uid://dno7xid3tv17d"]
+[gd_scene load_steps=17 format=3 uid="uid://dno7xid3tv17d"]
 
 [ext_resource type="Script" path="res://scripts/dashboard.gd" id="1_342t2"]
-[ext_resource type="Texture2D" uid="uid://dxtkbgx2boaqm" path="res://assets/coin.png" id="2_5gk72"]
-[ext_resource type="Texture2D" uid="uid://1bt5ugis0ojn" path="res://assets/key.png" id="3_3tcxj"]
-[ext_resource type="FontFile" uid="uid://cxof32y81ajyn" path="res://assets/Fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="3_w7w66"]
-[ext_resource type="Texture2D" uid="uid://bs4jcpwqnmd6p" path="res://assets/Upgrades/greebo_horn.png" id="4_6mns3"]
-[ext_resource type="Texture2D" uid="uid://3e74eltk1o5k" path="res://assets/Upgrades/stranger_cloth.png" id="5_nfntm"]
-[ext_resource type="Texture2D" uid="uid://s5c0buv5bq6b" path="res://assets/Upgrades/fang.png" id="6_gmauj"]
-[ext_resource type="Texture2D" uid="uid://del3nmpvoa5st" path="res://assets/Upgrades/seeker_eye.png" id="6_k31h4"]
-[ext_resource type="Texture2D" uid="uid://cm50b46hainou" path="res://assets/Upgrades/key_ring.png" id="7_resj5"]
-[ext_resource type="Texture2D" uid="uid://dq41pxgaificx" path="res://assets/Upgrades/milk.png" id="8_lpmxp"]
-[ext_resource type="Texture2D" uid="uid://une0bapbsm71" path="res://assets/Upgrades/monster_hand.png" id="9_qlnpg"]
-[ext_resource type="Texture2D" uid="uid://dl4oq3nrmeodv" path="res://assets/Upgrades/cufflinks.png" id="10_hkawt"]
-[ext_resource type="Texture2D" uid="uid://wufkpnwte1kk" path="res://assets/Upgrades/shades.png" id="11_0wcve"]
+[ext_resource type="Texture2D" uid="uid://2lrnqb302tik" path="res://assets/coin.png" id="2_5gk72"]
+[ext_resource type="Texture2D" uid="uid://dwh70ardalc0i" path="res://assets/key.png" id="3_3tcxj"]
+[ext_resource type="FontFile" uid="uid://cef4i3umouksv" path="res://assets/Fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="3_w7w66"]
+[ext_resource type="Texture2D" uid="uid://dsqqpmdnaoser" path="res://assets/Upgrades/greebo_horn.png" id="4_6mns3"]
+[ext_resource type="Texture2D" uid="uid://bqrfp2aq8f71" path="res://assets/Upgrades/stranger_cloth.png" id="5_nfntm"]
+[ext_resource type="Texture2D" uid="uid://b7ew3b0xet5vf" path="res://assets/Upgrades/fang.png" id="6_gmauj"]
+[ext_resource type="Texture2D" uid="uid://bivt3plubqohv" path="res://assets/Upgrades/seeker_eye.png" id="6_k31h4"]
+[ext_resource type="Texture2D" uid="uid://bx2qnrit6x5kq" path="res://assets/UI/style_box_3_hover.png" id="6_r6fam"]
+[ext_resource type="Texture2D" uid="uid://rey4t7ia67xa" path="res://assets/Upgrades/key_ring.png" id="7_resj5"]
+[ext_resource type="Texture2D" uid="uid://d17sgvqdf1dxs" path="res://assets/Upgrades/milk.png" id="8_lpmxp"]
+[ext_resource type="Texture2D" uid="uid://hu4im7e6aqsy" path="res://assets/Upgrades/monster_hand.png" id="9_qlnpg"]
+[ext_resource type="Texture2D" uid="uid://be2fh17uuy21k" path="res://assets/Upgrades/cufflinks.png" id="10_hkawt"]
+[ext_resource type="Texture2D" uid="uid://rl4n50a1m2ti" path="res://assets/Upgrades/shades.png" id="11_0wcve"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7i5eu"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hr8cb"]
+texture = ExtResource("6_r6fam")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
 [node name="Dashboard" type="Node" node_paths=PackedStringArray("match_extra_icon", "fail_extra_icon", "peek_icon", "fang_icon", "key_ring_icon", "milk_icon", "hand_icon", "cuff_links_icon", "shades_icon")]
 script = ExtResource("1_342t2")
-match_extra_icon = NodePath("CanvasLayer/GridContainer/match_extra_texture")
-fail_extra_icon = NodePath("CanvasLayer/GridContainer/fail_extra_texture")
-peek_icon = NodePath("CanvasLayer/GridContainer/peek_texture")
-fang_icon = NodePath("CanvasLayer/GridContainer/fang_texture")
-key_ring_icon = NodePath("CanvasLayer/GridContainer/key_ring_texture")
-milk_icon = NodePath("CanvasLayer/GridContainer/milk_texture")
-hand_icon = NodePath("CanvasLayer/GridContainer/hand_texture")
-cuff_links_icon = NodePath("CanvasLayer/GridContainer/cuff_links_texture")
-shades_icon = NodePath("CanvasLayer/GridContainer/shades_texture")
+match_extra_icon = NodePath("CanvasLayer/Control/GridContainer/match_extra_texture")
+fail_extra_icon = NodePath("CanvasLayer/Control/GridContainer/fail_extra_texture")
+peek_icon = NodePath("CanvasLayer/Control/GridContainer/peek_texture")
+fang_icon = NodePath("CanvasLayer/Control/GridContainer/fang_texture")
+key_ring_icon = NodePath("CanvasLayer/Control/GridContainer/key_ring_texture")
+milk_icon = NodePath("CanvasLayer/Control/GridContainer/milk_texture")
+hand_icon = NodePath("CanvasLayer/Control/GridContainer/hand_texture")
+cuff_links_icon = NodePath("CanvasLayer/Control/GridContainer/cuff_links_texture")
+shades_icon = NodePath("CanvasLayer/Control/GridContainer/shades_texture")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -72,49 +80,218 @@ theme_override_fonts/font = ExtResource("3_w7w66")
 theme_override_font_sizes/font_size = 40
 text = "100"
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control"]
 offset_left = 1032.0
 offset_top = 16.0
 offset_right = 1064.0
 offset_bottom = 336.0
 
-[node name="match_extra_texture" type="TextureRect" parent="CanvasLayer/GridContainer"]
+[node name="match_extra_texture" type="TextureRect" parent="CanvasLayer/Control/GridContainer"]
 layout_mode = 2
 tooltip_text = "Chance of gaining an extra key when making a match."
 texture = ExtResource("4_6mns3")
 
-[node name="fail_extra_texture" type="TextureRect" parent="CanvasLayer/GridContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/match_extra_texture"]
+visible = false
+layout_direction = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.25
+anchor_top = 0.359
+anchor_right = 1.25
+anchor_bottom = 0.359
+offset_left = -8.0
+offset_top = -4.488
+offset_right = 32.0
+offset_bottom = 18.512
+theme_override_styles/normal = SubResource("StyleBoxTexture_hr8cb")
+horizontal_alignment = 2
+
+[node name="fail_extra_texture" type="TextureRect" parent="CanvasLayer/Control/GridContainer"]
 layout_mode = 2
 tooltip_text = "Chance of gaining an extra key when failing to match doors."
 texture = ExtResource("5_nfntm")
 
-[node name="peek_texture" type="TextureRect" parent="CanvasLayer/GridContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/fail_extra_texture"]
+visible = false
+layout_direction = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.25
+anchor_top = 0.359
+anchor_right = 1.25
+anchor_bottom = 0.359
+offset_left = -8.0
+offset_top = -12.488
+offset_right = 32.0
+offset_bottom = 22.512
+theme_override_styles/normal = SubResource("StyleBoxTexture_hr8cb")
+horizontal_alignment = 2
+
+[node name="peek_texture" type="TextureRect" parent="CanvasLayer/Control/GridContainer"]
 layout_mode = 2
 tooltip_text = "The amount of peeks available at the beginning of a round."
 texture = ExtResource("6_k31h4")
 
-[node name="fang_texture" type="TextureRect" parent="CanvasLayer/GridContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/peek_texture"]
+visible = false
+layout_direction = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.25
+anchor_top = 0.359
+anchor_right = 1.25
+anchor_bottom = 0.359
+offset_left = -8.0
+offset_top = -13.488
+offset_right = 32.0
+offset_bottom = 21.512
+theme_override_styles/normal = SubResource("StyleBoxTexture_hr8cb")
+horizontal_alignment = 2
+
+[node name="fang_texture" type="TextureRect" parent="CanvasLayer/Control/GridContainer"]
 layout_mode = 2
 tooltip_text = "The amount of peeks available at the beginning of a round."
 texture = ExtResource("6_gmauj")
 
-[node name="key_ring_texture" type="TextureRect" parent="CanvasLayer/GridContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/fang_texture"]
+visible = false
+layout_direction = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.25
+anchor_top = 0.359
+anchor_right = 1.25
+anchor_bottom = 0.359
+offset_left = -8.0
+offset_top = -14.488
+offset_right = 32.0
+offset_bottom = 20.512
+theme_override_styles/normal = SubResource("StyleBoxTexture_hr8cb")
+horizontal_alignment = 2
+
+[node name="key_ring_texture" type="TextureRect" parent="CanvasLayer/Control/GridContainer"]
 layout_mode = 2
 tooltip_text = "The amount of peeks available at the beginning of a round."
 texture = ExtResource("7_resj5")
 
-[node name="milk_texture" type="TextureRect" parent="CanvasLayer/GridContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/key_ring_texture"]
+visible = false
+layout_direction = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.25
+anchor_top = 0.359
+anchor_right = 1.25
+anchor_bottom = 0.359
+offset_left = -8.0
+offset_top = -12.488
+offset_right = 32.0
+offset_bottom = 22.512
+theme_override_styles/normal = SubResource("StyleBoxTexture_hr8cb")
+horizontal_alignment = 2
+
+[node name="milk_texture" type="TextureRect" parent="CanvasLayer/Control/GridContainer"]
 layout_mode = 2
 texture = ExtResource("8_lpmxp")
 
-[node name="hand_texture" type="TextureRect" parent="CanvasLayer/GridContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/milk_texture"]
+visible = false
+layout_direction = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.25
+anchor_top = 0.359
+anchor_right = 1.25
+anchor_bottom = 0.359
+offset_left = -8.0
+offset_top = -11.488
+offset_right = 32.0
+offset_bottom = 23.512
+theme_override_styles/normal = SubResource("StyleBoxTexture_hr8cb")
+horizontal_alignment = 2
+
+[node name="hand_texture" type="TextureRect" parent="CanvasLayer/Control/GridContainer"]
 layout_mode = 2
 texture = ExtResource("9_qlnpg")
 
-[node name="cuff_links_texture" type="TextureRect" parent="CanvasLayer/GridContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/hand_texture"]
+visible = false
+layout_direction = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.25
+anchor_top = 0.359
+anchor_right = 1.25
+anchor_bottom = 0.359
+offset_left = -8.0
+offset_top = -12.488
+offset_right = 32.0
+offset_bottom = 22.512
+theme_override_styles/normal = SubResource("StyleBoxTexture_hr8cb")
+horizontal_alignment = 2
+
+[node name="cuff_links_texture" type="TextureRect" parent="CanvasLayer/Control/GridContainer"]
 layout_mode = 2
 texture = ExtResource("10_hkawt")
 
-[node name="shades_texture" type="TextureRect" parent="CanvasLayer/GridContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/cuff_links_texture"]
+visible = false
+layout_direction = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.25
+anchor_top = 0.359
+anchor_right = 1.25
+anchor_bottom = 0.359
+offset_left = -8.0
+offset_top = -14.488
+offset_right = 32.0
+offset_bottom = 20.512
+theme_override_styles/normal = SubResource("StyleBoxTexture_hr8cb")
+horizontal_alignment = 2
+
+[node name="shades_texture" type="TextureRect" parent="CanvasLayer/Control/GridContainer"]
 layout_mode = 2
 texture = ExtResource("11_0wcve")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/GridContainer/shades_texture"]
+visible = false
+layout_direction = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.25
+anchor_top = 0.359
+anchor_right = 1.25
+anchor_bottom = 0.359
+offset_left = -8.0
+offset_top = -16.488
+offset_right = 32.0
+offset_bottom = 18.512
+theme_override_styles/normal = SubResource("StyleBoxTexture_hr8cb")
+horizontal_alignment = 2
+
+[connection signal="mouse_entered" from="CanvasLayer/Control/GridContainer/match_extra_texture" to="." method="_on_match_extra_texture_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/GridContainer/match_extra_texture" to="." method="_on_match_extra_texture_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/GridContainer/fail_extra_texture" to="." method="_on_fail_extra_texture_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/GridContainer/fail_extra_texture" to="." method="_on_fail_extra_texture_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/GridContainer/peek_texture" to="." method="_on_peek_texture_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/GridContainer/peek_texture" to="." method="_on_peek_texture_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/GridContainer/fang_texture" to="." method="_on_fang_texture_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/GridContainer/fang_texture" to="." method="_on_fang_texture_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/GridContainer/key_ring_texture" to="." method="_on_key_ring_texture_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/GridContainer/key_ring_texture" to="." method="_on_key_ring_texture_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/GridContainer/milk_texture" to="." method="_on_milk_texture_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/GridContainer/milk_texture" to="." method="_on_milk_texture_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/GridContainer/hand_texture" to="." method="_on_hand_texture_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/GridContainer/hand_texture" to="." method="_on_hand_texture_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/GridContainer/cuff_links_texture" to="." method="_on_cuff_links_texture_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/GridContainer/cuff_links_texture" to="." method="_on_cuff_links_texture_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/GridContainer/shades_texture" to="." method="_on_shades_texture_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/GridContainer/shades_texture" to="." method="_on_shades_texture_mouse_exited"]
