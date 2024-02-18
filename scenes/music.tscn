@@ -1,11 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://clusnxws5crju"]
+[gd_scene load_steps=3 format=3 uid="uid://clusnxws5crju"]
 
-[ext_resource type="AudioStream" uid="uid://colm147b1kbgh" path="res://assets/Audio/Giant Steps.wav" id="1_mevjg"]
+[ext_resource type="AudioStream" uid="uid://d0clnjftjh00a" path="res://assets/Audio/Giant Steps.wav" id="1_mevjg"]
+[ext_resource type="Script" path="res://scenes/music.gd" id="1_qac02"]
 
 [node name="Music" type="Node2D"]
+script = ExtResource("1_qac02")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_mevjg")
 volume_db = -20.0
 autoplay = true
 bus = &"Music"
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
