@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://bs2plm6xalr6j"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_ab6au"]
+
+[resource]
+script = ExtResource("1_ab6au")
+dialogues = ["How do you like my hat?", "Thats a hat?", "Oh shoot, where did it go?"]
+required_monsters = []

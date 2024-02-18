@@ -7,5 +7,5 @@
 
 [resource]
 script = ExtResource("1_fuiav")
-dialogues = ["Spider Princess is pretty fine for a mother of 3000.", "She's out of your league."]
+dialogues = ["Spider Princess is pretty fine for a mother of 3000.", "Don't let Morrimancer hear you say that."]
 required_monsters = [ExtResource("1_vyhuh"), ExtResource("2_6o1sm"), ExtResource("3_p2hvw")]
