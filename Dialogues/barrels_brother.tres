@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://cxrbtd62b33ua"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://cxrbtd62b33ua"]
 
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_hwxvp"]
+[ext_resource type="Resource" uid="uid://dv0rgi54mv58h" path="res://Monsters/Barrel.tres" id="1_vga03"]
 
 [resource]
 script = ExtResource("1_hwxvp")
-dialogues = []
-required_monsters = []
+dialogues = ["Be careful around my brother.", "Does he really enslave worlds?", "Well, they certainly don't call him liberator of worlds."]
+required_monsters = [ExtResource("1_vga03")]

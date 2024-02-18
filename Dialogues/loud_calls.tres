@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://bs8ruaps2hlif"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://bs8ruaps2hlif"]
 
+[ext_resource type="Resource" uid="uid://dv0rgi54mv58h" path="res://Monsters/Barrel.tres" id="1_6uo6d"]
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_562mi"]
+[ext_resource type="Resource" uid="uid://brstgdn2d8g23" path="res://Monsters/Snakeshifter.tres" id="2_aexyc"]
 
 [resource]
 script = ExtResource("1_562mi")
-dialogues = []
-required_monsters = []
+dialogues = ["Suit SprSuit Sprite keeps making loud phone calls in the lobby.", "It's quite obnoxious."]
+required_monsters = [ExtResource("1_6uo6d"), ExtResource("2_aexyc")]
