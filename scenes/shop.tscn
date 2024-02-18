@@ -266,7 +266,7 @@ position = Vector2(427, 604)
 position = Vector2(942, 429)
 
 [node name="Position 4" type="Marker2D" parent="TalkShop"]
-position = Vector2(111, 398)
+position = Vector2(78, 349)
 
 [node name="next_char" type="Timer" parent="TalkShop"]
 wait_time = 0.05
