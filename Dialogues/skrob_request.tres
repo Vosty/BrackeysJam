@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://bgjgy7bx4h0sw"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_58j34"]
+[ext_resource type="Resource" uid="uid://cldovagm03pcm" path="res://Monsters/skrob.tres" id="1_n8iy6"]
+[ext_resource type="Resource" uid="uid://dht6ottsqniec" path="res://Monsters/borks.tres" id="2_ams0y"]
+
+[resource]
+script = ExtResource("1_58j34")
+dialogues = ["Come fight for the alliance. You could save our people.", "I cannot. I have forsworn the path of violence."]
+required_monsters = [ExtResource("1_n8iy6"), ExtResource("2_ams0y")]
