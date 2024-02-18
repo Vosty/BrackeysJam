@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpg6nno4au1nb"]
+
+[ext_resource type="StyleBox" uid="uid://cn7ajviktyvby" path="res://assets/UI/style_box4_hover.tres" id="1_poykb"]
+
+[node name="Tooltip" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+text = "Hello"
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 39.0
+theme_override_styles/panel = ExtResource("1_poykb")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
